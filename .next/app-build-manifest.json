@@ -2,34 +2,36 @@
   "pages": {
     "/_not-found/page": [
       "static/chunks/webpack-cb86a99cd2f791d1.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
+      "static/chunks/fd9d1056-d76e57cce6379a76.js",
+      "static/chunks/23-85c0bd7c0ba9f55a.js",
       "static/chunks/main-app-d010cda644e3dfbe.js",
-      "static/chunks/app/_not-found/page-a13250d2f63318ba.js"
+      "static/chunks/app/_not-found/page-37c14a8f58e5bc72.js"
     ],
     "/layout": [
       "static/chunks/webpack-cb86a99cd2f791d1.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
+      "static/chunks/fd9d1056-d76e57cce6379a76.js",
+      "static/chunks/23-85c0bd7c0ba9f55a.js",
       "static/chunks/main-app-d010cda644e3dfbe.js",
       "static/css/d715969b8c4bbb94.css",
       "static/chunks/app/layout-61164582eee3f8cb.js"
     ],
     "/page": [
       "static/chunks/webpack-cb86a99cd2f791d1.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
+      "static/chunks/fd9d1056-d76e57cce6379a76.js",
+      "static/chunks/23-85c0bd7c0ba9f55a.js",
       "static/chunks/main-app-d010cda644e3dfbe.js",
-      "static/chunks/138-f02d230bd104b4f1.js",
-      "static/chunks/app/page-2359fd0c5006ddf5.js"
+      "static/chunks/138-7cab06462604e426.js",
+      "static/chunks/180-3920d760d2c1cdd1.js",
+      "static/chunks/app/page-af3b3a61912c9ece.js"
     ],
     "/week/[id]/page": [
       "static/chunks/webpack-cb86a99cd2f791d1.js",
-      "static/chunks/fd9d1056-1f4c605cebad2e8d.js",
-      "static/chunks/23-f3bd2664991ff6e1.js",
+      "static/chunks/fd9d1056-d76e57cce6379a76.js",
+      "static/chunks/23-85c0bd7c0ba9f55a.js",
       "static/chunks/main-app-d010cda644e3dfbe.js",
-      "static/chunks/138-f02d230bd104b4f1.js",
-      "static/chunks/app/week/[id]/page-6efd35f1f7ad3baa.js"
+      "static/chunks/138-7cab06462604e426.js",
+      "static/chunks/180-3920d760d2c1cdd1.js",
+      "static/chunks/app/week/[id]/page-0e4219ee8f5e686a.js"
     ]
   }
 }

@@ -1,0 +1,71 @@
+spiritual-programme7/
+├── .sixth/
+│   └── skills/
+├── README.md
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── week/
+│       └── [id]/
+├── components/
+│   ├── Navbar.tsx
+│   └── ShareButton.tsx
+├── content/
+│   ├── week-2/
+│   │   ├── day-1.md
+│   │   ├── day-2.md
+│   │   ├── day-3.md
+│   │   ├── day-4.md
+│   │   ├── day-5.md
+│   │   ├── day-6.md
+│   │   └── day-7.md
+│   ├── week-3/
+│   │   ├── day-1.md
+│   │   ├── day-2.md
+│   │   ├── day-3.md
+│   │   ├── day-4.md
+│   │   ├── day-5.md
+│   │   ├── day-6.md
+│   │   └── day-7.md
+│   ├── week-4/
+│   │   ├── day-1.md
+│   │   ├── day-2.md
+│   │   ├── day-3.md
+│   │   ├── day-4.md
+│   │   ├── day-5.md
+│   │   ├── day-6.md
+│   │   └── day-7.md
+│   └── week-5/
+│       ├── day-1.md
+│       ├── day-2.md
+│       ├── day-3.md
+│       ├── day-4.md
+│       ├── day-5.md
+│       ├── day-6.md
+│       └── day-7.md
+├── lib/
+│   ├── content/
+│   │   ├── index.ts
+│   │   ├── types.ts
+│   │   ├── week-1.ts
+│   │   ├── week-2.ts
+│   │   ├── week-3.ts
+│   │   ├── week-4.ts
+│   │   ├── week-5.ts
+│   │   ├── week-6.ts
+│   │   └── week-7.ts
+│   └── weeks.ts
+├── next-env.d.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── project-structure.txt
+├── scripts/
+│   ├── build-content.js
+│   ├── generate-tree.js
+│   └── validate-content.js
+├── tailwind.config.ts
+└── tsconfig.json
+
