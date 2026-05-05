@@ -60,7 +60,7 @@ function parseSections(body) {
 function toParagraphs(text) {
   return text
     .split(/\n{2,}/)
-    .map(p => p.replace(/\n/g, " ").replace(/\s+/g, " ").trim())
+    .map((p) => p.replace(/\n/g, " ").replace(/\s+/g, " ").trim())
     .filter(Boolean);
 }
 
@@ -70,7 +70,7 @@ function toParagraphs(text) {
 function toBullets(text) {
   return text
     .split("\n")
-    .map(line => line.replace(/^[-*]\s*/, "").trim())
+    .map((line) => line.replace(/^[-*]\s*/, "").trim())
     .filter(Boolean);
 }
 
@@ -106,10 +106,12 @@ function validateDay(weekName, file, filePath) {
   // Validate sections
   const revelation = toParagraphs(sections["revelation"] ?? "");
   const prayers = toParagraphs(
-    sections["morning prayer"] ?? sections["prayer"] ?? ""
+    sections["morning prayer"] ?? sections["prayer"] ?? "",
   );
   const amen = (sections["amen"] ?? "In Jesus' name, Amen.").trim();
-  const practices = toBullets(sections["daily practices"] ?? sections["practices"] ?? "");
+  const practices = toBullets(
+    sections["daily practices"] ?? sections["practices"] ?? "",
+  );
 
   if (!sections["revelation"]) {
     error(`${file}: Missing '## Revelation' section`);
@@ -141,7 +143,7 @@ function validateWeek(weekDir) {
   const expectedDays = 7;
   const dayFiles = fs
     .readdirSync(weekDir)
-    .filter(f => f.endsWith(".md") && /day-\d+/.test(f))
+    .filter((f) => f.endsWith(".md") && /day-\d+/.test(f))
     .sort((a, b) => {
       const na = parseInt(a.match(/\d+/)[0]);
       const nb = parseInt(b.match(/\d+/)[0]);
@@ -150,11 +152,13 @@ function validateWeek(weekDir) {
 
   // Check all 7 days exist
   if (dayFiles.length !== expectedDays) {
-    error(`${weekName}: Expected ${expectedDays} days, found ${dayFiles.length}`);
+    error(
+      `${weekName}: Expected ${expectedDays} days, found ${dayFiles.length}`,
+    );
   } else {
     // Check for gaps in day numbering
     for (let i = 1; i <= expectedDays; i++) {
-      if (!dayFiles.some(f => f === `day-${i}.md`)) {
+      if (!dayFiles.some((f) => f === `day-${i}.md`)) {
         error(`${weekName}: Missing day-${i}.md`);
       }
     }
@@ -183,7 +187,11 @@ function main() {
 
   const weekDirs = fs
     .readdirSync(CONTENT_ROOT)
-    .filter(d => d.startsWith("week-") && fs.statSync(path.join(CONTENT_ROOT, d)).isDirectory())
+    .filter(
+      (d) =>
+        d.startsWith("week-") &&
+        fs.statSync(path.join(CONTENT_ROOT, d)).isDirectory(),
+    )
     .sort((a, b) => {
       const na = parseInt(a.split("-")[1]);
       const nb = parseInt(b.split("-")[1]);
