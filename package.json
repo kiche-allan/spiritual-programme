@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "prebuild": "node scripts/build-content.js",
-    "start": "next start", 
-     "content": "node scripts/build-content.js"
+    "start": "next start",
+    "content": "node scripts/build-content.js",
+    "validate-content": "node scripts/validate-content.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
