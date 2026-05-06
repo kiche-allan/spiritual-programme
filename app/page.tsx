@@ -7,6 +7,7 @@ import { SubscribeSection } from "@/components/layout/SubscribeSection";
 import { WeekCard } from "@/components/week/WeekCard";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { ProgressBackup } from "@/components/ui/ProgressBackup";
 import { useAllProgress } from "@/hooks/useProgress";
 import { WEEKS_META, weekProgress } from "@/lib/weeks";
 
@@ -150,6 +151,37 @@ export default function HomePage() {
             </div>
           </>
         )}
+      </section>
+
+      {/* PROGRESS SETTINGS */}
+      <section style={{
+        maxWidth: 1200, margin: "0 auto",
+        padding: "0 24px 48px",
+      }}>
+        <div style={{
+          background: "var(--bg2)",
+          border: "1px solid var(--border)",
+          borderRadius: 12,
+          padding: "20px 24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 16,
+        }}>
+          <div>
+            <div style={{
+              fontSize: 13, fontWeight: 700,
+              color: "var(--t1)", marginBottom: 4,
+            }}>
+              Your Reading Progress
+            </div>
+            <div style={{ fontSize: 12, color: "var(--tm)" }}>
+              Back up your progress or restore it on another device.
+            </div>
+          </div>
+          <ProgressBackup onImported={() => window.location.reload()} />
+        </div>
       </section>
 
       <SubscribeSection />
