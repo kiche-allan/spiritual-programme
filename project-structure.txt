@@ -10,7 +10,22 @@ spiritual-programme7/
 │       └── [id]/
 ├── components/
 │   ├── Navbar.tsx
-│   └── ShareButton.tsx
+│   ├── ShareButton.tsx
+│   ├── layout/
+│   │   ├── Footer.tsx
+│   │   └── SubscribeSection.tsx
+│   ├── ui/
+│   │   ├── Eyebrow.tsx
+│   │   ├── ProgressBar.tsx
+│   │   ├── SectionLabel.tsx
+│   │   ├── SectionTitle.tsx
+│   │   ├── ThemeBadge.tsx
+│   │   └── Toast.tsx
+│   └── week/
+│       ├── DayPractices.tsx
+│       ├── DaySidebar.tsx
+│       ├── VerseCard.tsx
+│       └── WeekCard.tsx
 ├── content/
 │   ├── week-2/
 │   │   ├── day-1.md
@@ -44,6 +59,9 @@ spiritual-programme7/
 │       ├── day-5.md
 │       ├── day-6.md
 │       └── day-7.md
+├── hooks/
+│   ├── useProgress.ts
+│   └── useToast.ts
 ├── lib/
 │   ├── content/
 │   │   ├── index.ts
@@ -55,6 +73,7 @@ spiritual-programme7/
 │   │   ├── week-5.ts
 │   │   ├── week-6.ts
 │   │   └── week-7.ts
+│   ├── utils.ts
 │   └── weeks.ts
 ├── next-env.d.ts
 ├── next.config.mjs
