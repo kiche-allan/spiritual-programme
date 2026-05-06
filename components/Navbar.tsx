@@ -25,6 +25,7 @@ export default function Navbar() {
           Walking With God
         </Link>
         <div style={{ display:"flex", alignItems:"center", gap:24 }}>
+          <a href="/progress" style={{ fontSize:12, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", color:"var(--tm)", textDecoration:"none" }}>Progress</a>
           <Link href="/#subscribe" style={{ fontSize:12, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", color:"var(--tm)", textDecoration:"none" }}>Subscribe</Link>
           <button onClick={toggle} aria-label="Toggle dark mode" style={{ width:36, height:36, borderRadius:"50%", border:"1.5px solid var(--border)", background:"var(--bg2)", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center" }}>
             {dark

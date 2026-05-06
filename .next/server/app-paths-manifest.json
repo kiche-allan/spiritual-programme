@@ -1,5 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/week/[id]/page": "app/week/[id]/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/progress/page": "app/progress/page.js",
+  "/week/[id]/page": "app/week/[id]/page.js"
 }
