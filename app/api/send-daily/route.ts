@@ -13,9 +13,10 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL!;
 const CRON_SECRET = process.env.CRON_SECRET ?? "change-me";
 
 export async function POST(req: NextRequest) {
-  // Auth check
+  // Auth check — accept either a bearer token or Vercel's cron header
   const auth = req.headers.get("authorization");
-  if (auth !== `Bearer ${CRON_SECRET}`) {
+  const isVercelCron = req.headers.get("x-vercel-cron") === "1";
+  if (!isVercelCron && auth !== `Bearer ${CRON_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
 
     try {
       await resend.emails.send({
-        from: "Walking With God <devotional@yourdomain.com>",
+        from: "Walking With God <devotional@resend.dev>",
         to: sub.email,
         subject,
         html,

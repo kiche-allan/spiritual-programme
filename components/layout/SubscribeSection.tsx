@@ -9,10 +9,19 @@ export function SubscribeSection() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.includes("@")) { setStatus("err"); return; }
-    // TODO: replace with real API call to /api/subscribe
-    await new Promise(r => setTimeout(r, 600));
-    setStatus("ok");
-    setEmail("");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("ok");
+      setEmail("");
+    } catch {
+      setStatus("err");
+    }
   };
 
   return (
