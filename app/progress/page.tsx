@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import { useAllProgress } from "@/hooks/useProgress";
 import { getWeekStats, getDayStats, getStreakStats } from "@/lib/analytics";
 import { ProgressBackup } from "@/components/ui/ProgressBackup";
+import { ProgressHeatmap } from "@/components/ui/ProgressHeatmap";
+import { BadgeGrid } from "@/components/ui/BadgeGrid";
+import { evaluateBadges } from "@/lib/badges";
 
 export default function ProgressPage() {
   const store = useAllProgress();
@@ -12,6 +15,7 @@ export default function ProgressPage() {
   const weekStats  = useMemo(() => getWeekStats(store),  [store]);
   const dayStats   = useMemo(() => getDayStats(store),   [store]);
   const streaks    = useMemo(() => getStreakStats(store), [store]);
+  const badges     = useMemo(() => evaluateBadges(store), [store]);
 
   const mostCompleted  = [...dayStats].sort((a, b) => b.timesCompleted - a.timesCompleted)[0];
   const leastCompleted = [...dayStats].sort((a, b) => a.timesCompleted - b.timesCompleted)[0];
@@ -243,6 +247,19 @@ export default function ProgressPage() {
               </p>
             </div>
           </div>
+        </Section>
+
+        {/* ── HEATMAP ── */}
+        <Section title="Reading Heatmap">
+          <p style={{ fontSize: 13, color: "var(--tm)", marginBottom: 20, lineHeight: 1.6 }}>
+            Each square represents one day across all weekly programmes. Coloured squares are completed days.
+          </p>
+          <ProgressHeatmap store={store} />
+        </Section>
+
+        {/* ── BADGES ── */}
+        <Section title="Badges">
+          <BadgeGrid badges={badges} />
         </Section>
 
         {/* ── BACKUP ── */}
