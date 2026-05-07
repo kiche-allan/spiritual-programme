@@ -10,6 +10,7 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Toast } from "@/components/ui/Toast";
 import ShareButton from "@/components/ShareButton";
+import { ReflectionWall } from "@/components/community/ReflectionWall";
 import { useProgress } from "@/hooks/useProgress";
 import { useToast } from "@/hooks/useToast";
 import { WEEKS_META } from "@/lib/weeks";
@@ -258,6 +259,11 @@ export default function WeekPage() {
           <section style={{ marginBottom: "1.75rem" }}>
             <SectionLabel label="Daily Practices" color={day.accent} />
             <DayPractices practices={day.practices} accent={day.accent} />
+          </section>
+
+          {/* Community */}
+          <section style={{ marginBottom: "1.75rem" }}>
+            <ReflectionWall weekId={weekId} dayNum={day.num} />
           </section>
 
           {/* Day navigation */}
