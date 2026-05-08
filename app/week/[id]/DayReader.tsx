@@ -234,7 +234,7 @@ export function DayReader({ meta, days }: Props) {
               {day.prayers.map((p, i) => (
                 <p key={i} style={{
                   fontFamily: "'Cormorant Garamond',Georgia,serif",
-                  fontSize: "1.1rem", lineHeight: 1.9,
+                  fontSize: "0.95rem", lineHeight: 1.9,
                   color: "var(--t2)", fontStyle: "italic", marginBottom: ".85rem",
                 }}>
                   {p}
