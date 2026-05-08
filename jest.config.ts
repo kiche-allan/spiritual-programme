@@ -4,25 +4,13 @@ import nextJest from "next/jest.js";
 const createJestConfig = nextJest({ dir: "./" });
 
 const config: Config = {
-  coverageProvider: "v8",
+  displayName: "unit",
   testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 
-  // Separate environments for different test types
-  projects: [
-    {
-      displayName: "unit",
-      testMatch: ["**/__tests__/unit/**/*.test.ts?(x)"],
-      testEnvironment: "jsdom",
-      setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-    },
-    {
-      displayName: "integration",
-      testMatch: ["**/__tests__/integration/**/*.test.ts"],
-      testEnvironment: "node",  // node env for API route testing
-    },
-  ],
+  testMatch: ["**/__tests__/**/*.test.ts?(x)"],
 
-  // Coverage thresholds — this is what QA engineers set and defend
+  coverageProvider: "v8",
   coverageThreshold: {
     global: {
       branches: 70,
@@ -41,7 +29,6 @@ const config: Config = {
     "!**/node_modules/**",
   ],
 
-  // Map path aliases
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
   },
