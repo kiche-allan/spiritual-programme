@@ -5,6 +5,8 @@ import { WEEKS_META } from "@/lib/weeks";
 import { getWeekContent } from "@/lib/content/registry";
 import { DayReader } from "./DayReader";
 
+export const revalidate = 86400; // rebuild once per day
+
 export async function generateStaticParams() {
   return WEEKS_META.map(w => ({ id: String(w.id) }));
 }

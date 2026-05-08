@@ -1,6 +1,7 @@
 // app/week/[id]/DayReader.tsx
 "use client";
 import { useState, useCallback } from "react";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { DaySidebar } from "@/components/week/DaySidebar";
 import { VerseCard } from "@/components/week/VerseCard";
@@ -55,9 +56,9 @@ export function DayReader({ meta, days }: Props) {
           {meta.title}
         </h2>
         <p>Content for this week is coming soon.</p>
-        <a href="/" style={{ display: "inline-block", marginTop: 20, color: "var(--t1)", fontWeight: 700 }}>
+        <Link href="/" style={{ display: "inline-block", marginTop: 20, color: "var(--t1)", fontWeight: 700 }}>
           ← All Weeks
-        </a>
+        </Link>
       </div>
     </>
   );
@@ -297,7 +298,7 @@ export function DayReader({ meta, days }: Props) {
           alignItems: "center", gap: 16, flexWrap: "wrap",
         }}>
           {prevW ? (
-            <a href={`/week/${prevW.id}`} style={{ textDecoration: "none" }}>
+            <Link href={`/week/${prevW.id}`} prefetch style={{ textDecoration: "none" }}>
               <div style={{
                 fontSize: 10, fontWeight: 700, letterSpacing: ".14em",
                 textTransform: "uppercase", color: "var(--tl)", marginBottom: 4,
@@ -306,18 +307,18 @@ export function DayReader({ meta, days }: Props) {
                 fontFamily: "'Cormorant Garamond',Georgia,serif",
                 fontSize: "1.1rem", color: "var(--t1)",
               }}>{prevW.title}</div>
-            </a>
+            </Link>
           ) : <div />}
 
-          <a href="/" style={{
+          <Link href="/" style={{
             fontSize: 12, fontWeight: 700, letterSpacing: ".08em",
             textTransform: "uppercase", color: "var(--tm)", textDecoration: "none",
           }}>
             All Weeks
-          </a>
+          </Link>
 
           {nextW ? (
-            <a href={`/week/${nextW.id}`} style={{ textDecoration: "none", textAlign: "right" }}>
+            <Link href={`/week/${nextW.id}`} prefetch style={{ textDecoration: "none", textAlign: "right" }}>
               <div style={{
                 fontSize: 10, fontWeight: 700, letterSpacing: ".14em",
                 textTransform: "uppercase", color: "var(--tl)", marginBottom: 4,
@@ -326,7 +327,7 @@ export function DayReader({ meta, days }: Props) {
                 fontFamily: "'Cormorant Garamond',Georgia,serif",
                 fontSize: "1.1rem", color: "var(--t1)",
               }}>{nextW.title}</div>
-            </a>
+            </Link>
           ) : <div />}
         </div>
       </div>

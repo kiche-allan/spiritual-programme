@@ -21,7 +21,14 @@ export async function GET(req: NextRequest) {
     .limit(50);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ reflections: data ?? [] });
+  return NextResponse.json(
+    { reflections: data ?? [] },
+    {
+      headers: {
+        "Cache-Control": "public, s-maxage=60, stale-while-revalidate=120",
+      },
+    }
+  );
 }
 
 // POST — submit a new reflection

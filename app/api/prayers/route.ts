@@ -11,7 +11,14 @@ export async function GET() {
     .limit(30);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ prayers: data ?? [] });
+  return NextResponse.json(
+    { prayers: data ?? [] },
+    {
+      headers: {
+        "Cache-Control": "public, s-maxage=60, stale-while-revalidate=120",
+      },
+    }
+  );
 }
 
 export async function POST(req: NextRequest) {
