@@ -1,14 +1,14 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/reflections/like/route": "app/api/reflections/like/route.js",
   "/api/prayers/pray/route": "app/api/prayers/pray/route.js",
+  "/api/reflections/like/route": "app/api/reflections/like/route.js",
   "/api/reflections/route": "app/api/reflections/route.js",
-  "/api/prayers/route": "app/api/prayers/route.js",
-  "/api/subscribe/route": "app/api/subscribe/route.js",
   "/api/send-daily/route": "app/api/send-daily/route.js",
   "/api/unsubscribe/route": "app/api/unsubscribe/route.js",
-  "/community/page": "app/community/page.js",
+  "/api/subscribe/route": "app/api/subscribe/route.js",
   "/page": "app/page.js",
+  "/week/[id]/page": "app/week/[id]/page.js",
   "/progress/page": "app/progress/page.js",
-  "/week/[id]/page": "app/week/[id]/page.js"
+  "/community/page": "app/community/page.js",
+  "/api/prayers/route": "app/api/prayers/route.js"
 }

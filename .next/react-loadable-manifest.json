@@ -1,1 +1,30 @@
-{}
+{
+  "lib\\content\\index.ts -> ./week-1": {
+    "id": 5226,
+    "files": []
+  },
+  "lib\\content\\index.ts -> ./week-2": {
+    "id": 3855,
+    "files": []
+  },
+  "lib\\content\\index.ts -> ./week-3": {
+    "id": 6010,
+    "files": []
+  },
+  "lib\\content\\index.ts -> ./week-4": {
+    "id": 6960,
+    "files": []
+  },
+  "lib\\content\\index.ts -> ./week-5": {
+    "id": 7478,
+    "files": []
+  },
+  "lib\\content\\index.ts -> ./week-6": {
+    "id": 7421,
+    "files": []
+  },
+  "lib\\content\\index.ts -> ./week-7": {
+    "id": 2652,
+    "files": []
+  }
+}
