@@ -15,3 +15,5 @@ public/workbox-*.js.map
 security-results/
 playwright-report/
 coverage/
+performance-results/
+allure-results/
