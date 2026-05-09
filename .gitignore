@@ -10,3 +10,8 @@ public/sw.js
 public/workbox-*.js
 public/sw.js.map
 public/workbox-*.js.map
+
+# Test and security reports
+security-results/
+playwright-report/
+coverage/
