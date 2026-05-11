@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "node scripts/build-content.js",
+    "prebuild": "node scripts/build-content.js && node scripts/build-blog.js",
     "start": "next start",
     "content": "node scripts/build-content.js",
+    "blog": "node scripts/build-blog.js",
     "validate-content": "node scripts/validate-content.js",
     "generate-tree": "node scripts/generate-tree.js > project-structure.txt",
     
