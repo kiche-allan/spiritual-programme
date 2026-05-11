@@ -15,6 +15,15 @@
       "static/css/99b28160a7c992fd.css",
       "static/chunks/app/layout-9e27d8ff8967f722.js"
     ],
+    "/page": [
+      "static/chunks/webpack-f8b1bcc16a896f99.js",
+      "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
+      "static/chunks/23-a62026deff354a00.js",
+      "static/chunks/main-app-d010cda644e3dfbe.js",
+      "static/chunks/138-c4e5c39ba648e350.js",
+      "static/chunks/20-7ccf54d594d07b8b.js",
+      "static/chunks/app/page-42aeea85c65dc165.js"
+    ],
     "/community/page": [
       "static/chunks/webpack-f8b1bcc16a896f99.js",
       "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
@@ -23,23 +32,14 @@
       "static/chunks/138-c4e5c39ba648e350.js",
       "static/chunks/app/community/page-d7553194e848be71.js"
     ],
-    "/page": [
-      "static/chunks/webpack-f8b1bcc16a896f99.js",
-      "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
-      "static/chunks/23-a62026deff354a00.js",
-      "static/chunks/main-app-d010cda644e3dfbe.js",
-      "static/chunks/138-c4e5c39ba648e350.js",
-      "static/chunks/453-282b4cbb3e925060.js",
-      "static/chunks/app/page-84a745a50c3c5048.js"
-    ],
     "/progress/page": [
       "static/chunks/webpack-f8b1bcc16a896f99.js",
       "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
       "static/chunks/23-a62026deff354a00.js",
       "static/chunks/main-app-d010cda644e3dfbe.js",
       "static/chunks/138-c4e5c39ba648e350.js",
-      "static/chunks/453-282b4cbb3e925060.js",
-      "static/chunks/app/progress/page-c031821d7733c889.js"
+      "static/chunks/20-7ccf54d594d07b8b.js",
+      "static/chunks/app/progress/page-39838f75ed864b20.js"
     ],
     "/week/[id]/page": [
       "static/chunks/webpack-f8b1bcc16a896f99.js",
@@ -47,7 +47,8 @@
       "static/chunks/23-a62026deff354a00.js",
       "static/chunks/main-app-d010cda644e3dfbe.js",
       "static/chunks/138-c4e5c39ba648e350.js",
-      "static/chunks/app/week/[id]/page-c38fcb1f252a9962.js"
+      "static/chunks/20-7ccf54d594d07b8b.js",
+      "static/chunks/app/week/[id]/page-16ecebdc434094ac.js"
     ]
   }
 }

@@ -161,6 +161,25 @@ export const WEEKS_META: WeekMeta[] = [
     description:
       "The essential building blocks of a strong Christian salvation — daily Bible reading, prayer and worship, solitude, fasting, service, fellowship, and the transforming power of obedience.",
   },
+  {
+    id: 8,
+    slug: "trust-covenant-christ",
+    title: "Trust, Covenant & Christ",
+    subtitle: "Week Eight",
+    heroVerse: "Hezekiah received the letter from the messengers and read it. Then he went up to the temple of the Lord and spread it out before the Lord.",
+    heroRef: "Isaiah 37:14",
+    publishedAt: "2026-05-11",
+    totalDays: 7,
+    accentColor: "#2C3E5A",
+    themes: [
+      { label: "Crisis & Trust", days: "Mon–Tue", color: "#2C3E5A" },
+      { label: "Providence & Hesed", days: "Wed–Thu", color: "#2E6B50" },
+      { label: "Prayer & Intercession", days: "Fri", color: "#7A1A1A" },
+      { label: "Waiting & Hope", days: "Sat–Sun", color: "#BF8B3A" },
+    ],
+    description:
+      "Four biblical witnesses to God's faithfulness: Hezekiah in crisis, Ruth in provision, Daniel in prayer, and Simeon & Anna in waiting — all pointing to the hope of Christ's return.",
+  },
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
