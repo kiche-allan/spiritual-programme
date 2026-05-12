@@ -15,23 +15,6 @@
       "static/css/3079ba05c9236317.css",
       "static/chunks/app/layout-9e27d8ff8967f722.js"
     ],
-    "/page": [
-      "static/chunks/webpack-f8b1bcc16a896f99.js",
-      "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
-      "static/chunks/23-a62026deff354a00.js",
-      "static/chunks/main-app-d010cda644e3dfbe.js",
-      "static/chunks/138-c4e5c39ba648e350.js",
-      "static/chunks/20-128bebd47b79e946.js",
-      "static/chunks/app/page-f2e8e03e7b3c148f.js"
-    ],
-    "/community/page": [
-      "static/chunks/webpack-f8b1bcc16a896f99.js",
-      "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
-      "static/chunks/23-a62026deff354a00.js",
-      "static/chunks/main-app-d010cda644e3dfbe.js",
-      "static/chunks/138-c4e5c39ba648e350.js",
-      "static/chunks/app/community/page-0fd3d8b2f330f58a.js"
-    ],
     "/progress/page": [
       "static/chunks/webpack-f8b1bcc16a896f99.js",
       "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
@@ -41,13 +24,30 @@
       "static/chunks/20-128bebd47b79e946.js",
       "static/chunks/app/progress/page-f26ab20f28d5cef9.js"
     ],
+    "/community/page": [
+      "static/chunks/webpack-f8b1bcc16a896f99.js",
+      "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
+      "static/chunks/23-a62026deff354a00.js",
+      "static/chunks/main-app-d010cda644e3dfbe.js",
+      "static/chunks/138-c4e5c39ba648e350.js",
+      "static/chunks/app/community/page-0fd3d8b2f330f58a.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-f8b1bcc16a896f99.js",
+      "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
+      "static/chunks/23-a62026deff354a00.js",
+      "static/chunks/main-app-d010cda644e3dfbe.js",
+      "static/chunks/138-c4e5c39ba648e350.js",
+      "static/chunks/20-128bebd47b79e946.js",
+      "static/chunks/app/page-f2e8e03e7b3c148f.js"
+    ],
     "/blog/page": [
       "static/chunks/webpack-f8b1bcc16a896f99.js",
       "static/chunks/fd9d1056-4b87d5bb1aa946b3.js",
       "static/chunks/23-a62026deff354a00.js",
       "static/chunks/main-app-d010cda644e3dfbe.js",
       "static/chunks/138-c4e5c39ba648e350.js",
-      "static/chunks/app/blog/page-cbc7cdca98e2356e.js"
+      "static/chunks/app/blog/page-34c363088dd74c7f.js"
     ],
     "/week/[id]/page": [
       "static/chunks/webpack-f8b1bcc16a896f99.js",

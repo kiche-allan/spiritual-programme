@@ -123,21 +123,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         {post.content && post.content.length > 0 ? (
           post.content.map((block, idx) => (
             <div key={idx} style={{ marginBottom: 28 }}>
-              {block.type === "heading" ? (
+              {block.heading && (
                 <h2 style={{
                   fontFamily: "'Cormorant Garamond',Georgia,serif",
                   fontSize: 24, fontWeight: 600, color: "var(--th)",
                   marginBottom: 12, lineHeight: 1.3,
                 }}>
-                  {block.text}
+                  {block.heading}
                 </h2>
-              ) : (
-                <p style={{
-                  fontSize: 15, lineHeight: 1.75, color: "var(--tm)",
-                }}>
-                  {block.text}
-                </p>
               )}
+              {block.paragraphs && block.paragraphs.map((para, pIdx) => (
+                <p key={pIdx} style={{
+                  fontSize: 15, lineHeight: 1.75, color: "var(--tm)",
+                  marginBottom: block.paragraphs.length > 1 && pIdx < block.paragraphs.length - 1 ? 12 : 0,
+                }}>
+                  {para}
+                </p>
+              ))}
             </div>
           ))
         ) : (
