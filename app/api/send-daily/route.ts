@@ -6,13 +6,22 @@ import { getWeekContent } from "@/lib/content";
 import { WEEKS_META } from "@/lib/weeks";
 import { buildDailyEmail } from "@/lib/email-templates";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL!;
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return null;
+  return new Resend(apiKey);
+}
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://spiritual-programme.vercel.app";
 
 // Protect this route with a secret so only your cron can call it
 const CRON_SECRET = process.env.CRON_SECRET ?? "change-me";
 
 export async function POST(req: NextRequest) {
+  const resend = getResendClient();
+  if (!resend) {
+    return NextResponse.json({ error: "Server is missing RESEND_API_KEY" }, { status: 500 });
+  }
+
   // Auth check — accept either a bearer token or Vercel's cron header
   const auth = req.headers.get("authorization");
   const isVercelCron = req.headers.get("x-vercel-cron") === "1";

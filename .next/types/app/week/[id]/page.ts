@@ -1,4 +1,4 @@
-// File: F:\Projects\spiritual-programme7\app\week\[id]\page.tsx
+// File: D:\Projects\spiritual-programme-main\spiritual-programme-main\app\week\[id]\page.tsx
 import * as entry from '../../../../../app/week/[id]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

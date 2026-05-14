@@ -1,4 +1,4 @@
-// File: F:\Projects\spiritual-programme7\app\layout.tsx
+// File: D:\Projects\spiritual-programme-main\spiritual-programme-main\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

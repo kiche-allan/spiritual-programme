@@ -4,7 +4,11 @@ import { Resend } from "resend";
 import { getServiceClient } from "@/lib/supabase";
 import { buildWelcomeEmail } from "@/lib/email-templates";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return null;
+  return new Resend(apiKey);
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,13 +33,18 @@ export async function POST(req: NextRequest) {
     // Send welcome email
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://spiritual-programme.vercel.app";
     const { subject, html } = buildWelcomeEmail({ appUrl });
+    const resend = getResendClient();
 
-    await resend.emails.send({
-      from: "Walking With God <devotional@resend.dev>",
-      to: email,
-      subject,
-      html,
-    });
+    if (resend) {
+      await resend.emails.send({
+        from: "Walking With God <devotional@resend.dev>",
+        to: email,
+        subject,
+        html,
+      });
+    } else {
+      console.warn("RESEND_API_KEY is not set; skipping welcome email send.");
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
