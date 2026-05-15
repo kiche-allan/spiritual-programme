@@ -1,4 +1,4 @@
-"use client";
+// components/blog/BlogCard.tsx
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog-content";
 
@@ -12,110 +12,105 @@ export function BlogCard({ post, featured }: Props) {
     day: "numeric", month: "long", year: "numeric",
   });
 
+  const statusLabel =
+    post.readingTime < 5 ? "Quick read"
+    : post.readingTime < 10 ? `${post.readingTime} min read`
+    : `${post.readingTime} min read`;
+
   return (
-    <Link
-      href={`/blog/${post.slug}`}
-      style={{ textDecoration: "none", color: "inherit", display: "block" }}
-    >
-      <article
-        style={{
-          background: "var(--bg2)",
-          border: "1px solid var(--border)",
-          borderRadius: 16,
-          overflow: "hidden",
-          transition: "transform .25s, box-shadow .25s",
-          cursor: "pointer",
-          boxShadow: "var(--sh)",
-        }}
-        onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "var(--sh2)";
-        }}
-        onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "var(--sh)";
-        }}
-      >
-        {/* Colour bar */}
-        <div style={{ height: featured ? 6 : 4, background: post.coverColor }} />
+    <Link href={`/blog/${post.slug}`} className="blog-card">
 
-        <div style={{ padding: featured ? "24px 28px 26px" : "18px 22px 20px" }}>
+      {/* Accent bar */}
+      <div style={{ height: featured ? 5 : 3, background: post.coverColor }} />
 
-          {/* Tags */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
-            {post.tags.map(tag => (
-              <span key={tag} style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: ".08em",
-                textTransform: "uppercase", padding: "2px 8px",
-                borderRadius: 20,
-                background: `${post.coverColor}18`,
-                color: post.coverColor,
-                border: `1px solid ${post.coverColor}40`,
-              }}>
-                {tag}
-              </span>
-            ))}
-          </div>
+      <div style={{ padding: featured ? "22px 26px 24px" : "18px 20px 20px" }}>
 
-          {/* Title */}
-          <h2 style={{
-            fontFamily: "'Cormorant Garamond',Georgia,serif",
-            fontSize: featured ? "clamp(1.5rem,3vw,2rem)" : "clamp(1.2rem,2.5vw,1.5rem)",
-            fontWeight: 400, lineHeight: 1.25,
-            color: "var(--t1)", marginBottom: 8,
-          }}>
-            {post.title}
-          </h2>
-
-          {/* Subtitle */}
-          {post.subtitle && (
-            <p style={{
-              fontFamily: "'Cormorant Garamond',Georgia,serif",
-              fontSize: 14, fontStyle: "italic",
-              color: "var(--tm)", marginBottom: 12, lineHeight: 1.5,
+        {/* Tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 11 }}>
+          {post.tags.map(tag => (
+            <span key={tag} style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 9, fontWeight: 700, letterSpacing: ".1em",
+              textTransform: "uppercase", padding: "2px 8px", borderRadius: 2,
+              background: `${post.coverColor}14`,
+              color: post.coverColor,
+              border: `1px solid ${post.coverColor}35`,
             }}>
-              {post.subtitle}
-            </p>
-          )}
-
-          {/* Excerpt */}
-          <p style={{
-            fontSize: 13, lineHeight: 1.65,
-            color: "var(--tm)", marginBottom: 16,
-          }}>
-            {post.excerpt}
-          </p>
-
-          {/* Footer */}
-          <div style={{
-            display: "flex", justifyContent: "space-between",
-            alignItems: "center", paddingTop: 12,
-            borderTop: "1px solid var(--border)",
-          }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{
-                width: 28, height: 28, borderRadius: "50%",
-                background: post.coverColor,
-                display: "flex", alignItems: "center",
-                justifyContent: "center",
-                fontSize: 12, color: "#fff", fontWeight: 700,
-              }}>
-                {post.author.charAt(0).toUpperCase()}
-              </div>
-              <span style={{ fontSize: 12, color: "var(--tm)", fontWeight: 600 }}>
-                {post.author}
-              </span>
-            </div>
-            <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-              <span style={{ fontSize: 11, color: "var(--tl)" }}>
-                {post.readingTime} min read
-              </span>
-              <span style={{ fontSize: 11, color: "var(--tl)" }}>{date}</span>
-            </div>
-          </div>
-
+              {tag}
+            </span>
+          ))}
         </div>
-      </article>
+
+        {/* Title */}
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond',Georgia,serif",
+          fontSize: featured
+            ? "clamp(1.3rem,2.5vw,1.65rem)"
+            : "clamp(1.1rem,2vw,1.35rem)",
+          fontWeight: 400, lineHeight: 1.28,
+          color: "var(--t1)", marginBottom: 8,
+        }}>
+          {post.title}
+        </h2>
+
+        {/* Subtitle */}
+        {post.subtitle && (
+          <p style={{
+            fontFamily: "'Cormorant Garamond',Georgia,serif",
+            fontSize: 14, fontStyle: "italic",
+            color: "var(--tm)", marginBottom: 10, lineHeight: 1.55,
+          }}>
+            {post.subtitle}
+          </p>
+        )}
+
+        {/* Excerpt */}
+        <p style={{
+          fontFamily: "'Cormorant Garamond',Georgia,serif",
+          fontSize: 14, lineHeight: 1.7,
+          color: "var(--tm)", marginBottom: 14,
+        }}>
+          {post.excerpt}
+        </p>
+
+        {/* Footer */}
+        <div style={{
+          display: "flex", justifyContent: "space-between",
+          alignItems: "center", paddingTop: 12,
+          borderTop: "1px solid var(--border)",
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+            <div style={{
+              width: 24, height: 24, borderRadius: "50%",
+              background: post.coverColor,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontFamily: "Lato,sans-serif",
+              fontSize: 10, color: "#fff", fontWeight: 700, flexShrink: 0,
+            }}>
+              {post.author.charAt(0)}
+            </div>
+            <span style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 11, color: "var(--t2)", fontWeight: 600,
+            }}>
+              {post.author}
+            </span>
+          </div>
+          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <span style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 10, color: "var(--tl)", fontWeight: 600,
+            }}>
+              {statusLabel}
+            </span>
+            <span style={{ fontFamily: "Lato,sans-serif", fontSize: 10, color: "var(--tl)" }}>
+              {date}
+            </span>
+          </div>
+        </div>
+
+      </div>
     </Link>
   );
 }
+

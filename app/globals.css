@@ -38,3 +38,138 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
 .section-divider { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
 .section-divider span { font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; }
 .section-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+
+/* ── BLOG READING EXPERIENCE ────────────────────────────────────────────── */
+
+/* Reading progress bar — sits below the fixed navbar */
+.reading-progress-bar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
+  z-index: 99;
+  pointer-events: none;
+}
+.reading-progress-fill {
+  height: 100%;
+  background: #8A2040;
+  transition: width 0.15s linear;
+  width: 0%;
+}
+
+/* Article body typography */
+.article-prose p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(17px, 1.8vw, 19px);
+  line-height: 1.95;
+  color: var(--t2);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.article-prose h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  color: var(--t1);
+  margin: 2.8rem 0 1.1rem;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--border);
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.article-prose em {
+  font-style: italic;
+  color: var(--t1);
+}
+
+.article-prose strong {
+  font-weight: 600;
+  color: var(--t1);
+}
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid #8A2040;
+  margin: 2.2rem 0;
+  padding: 10px 0 10px 26px;
+}
+.pull-quote blockquote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(19px, 2.2vw, 23px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--t2);
+  margin: 0 0 8px;
+}
+.pull-quote cite {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #8A2040;
+  font-style: normal;
+}
+
+/* Opening paragraph — slightly larger, sets the tone */
+.article-prose .opening-para {
+  font-size: clamp(18px, 2vw, 21px);
+  line-height: 1.85;
+  color: var(--t1);
+  font-style: italic;
+}
+
+/* Blog card */
+.blog-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  box-shadow: var(--sh);
+}
+.blog-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh2);
+  border-color: var(--tl);
+}
+
+/* Featured post split layout */
+.featured-post-split {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow .25s ease;
+  box-shadow: var(--sh);
+}
+.featured-post-split:hover {
+  box-shadow: var(--sh2);
+}
+@media (max-width: 680px) {
+  .featured-post-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section eyebrow label */
+.section-eyebrow {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--tl);
+  margin-bottom: 10px;
+}

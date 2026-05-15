@@ -1,81 +1,93 @@
+// app/blog/[slug]/page.tsx
+"use client";
+import { useEffect, useState, useRef } from "react";
+import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { PostReactions } from "@/components/blog/PostReactions";
 import { PostComments } from "@/components/blog/PostComments";
-import { getBlogPost, getBlogPosts } from "@/lib/blog-content";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { getBlogPost } from "@/lib/blog-content";
 
-export async function generateStaticParams() {
-  return getBlogPosts().map(post => ({
-    slug: post.slug,
-  }));
-}
+export default function BlogPostPage() {
+  const { slug } = useParams() as { slug: string };
+  const post = getBlogPost(slug);
+  const [readPct, setReadPct] = useState(0);
+  const articleRef = useRef<HTMLDivElement>(null);
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getBlogPost(params.slug);
-  if (!post) return { title: "Post not found" };
-  return {
-    title: `${post.title} · Blog`,
-    description: post.excerpt,
-  };
-}
+  // Reading progress tracker
+  useEffect(() => {
+    const onScroll = () => {
+      const el = articleRef.current;
+      if (!el) return;
+      const { top, height } = el.getBoundingClientRect();
+      const pct = Math.min(100, Math.max(0,
+        Math.round(((window.innerHeight - top) / height) * 100)
+      ));
+      setReadPct(pct);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getBlogPost(params.slug);
-  if (!post) notFound();
+  if (!post) return (
+    <div style={{
+      padding: "120px 24px", textAlign: "center", color: "var(--tm)",
+    }}>
+      Post not found.{" "}
+      <a href="/blog" style={{ color: "var(--t1)", fontWeight: 700 }}>← Blog</a>
+    </div>
+  );
 
-  const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString("en-US", {
-      month: "short", day: "numeric", year: "numeric",
-    });
-  };
+  const date = new Date(post.publishedAt).toLocaleDateString("en-GB", {
+    day: "numeric", month: "long", year: "numeric",
+  });
 
   return (
     <>
       <Navbar />
 
-      {/* Back link */}
-      <div style={{
-        maxWidth: 700, margin: "0 auto", padding: "24px",
-      }}>
-        <Link href="/blog" style={{
-          fontSize: 12, fontWeight: 700, letterSpacing: ".08em",
-          textTransform: "uppercase", color: "var(--tl)", textDecoration: "none",
-        }}>
-          ← Back to Blog
-        </Link>
+      {/* Reading progress */}
+      <div className="reading-progress-bar">
+        <div className="reading-progress-fill" style={{ width: `${readPct}%` }} />
       </div>
 
-      {/* Hero section */}
+      {/* ── HERO ── */}
       <header style={{
-        background: `linear-gradient(135deg,${post.coverColor}15 0%,${post.coverColor}08 100%)`,
-        borderTop: `6px solid ${post.coverColor}`,
-        padding: "48px 24px",
+        background: "var(--hero)", color: "var(--hero-t)",
+        padding: "96px 24px 60px",
+        position: "relative", overflow: "hidden",
       }}>
-        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+        <div style={{ maxWidth: 780, margin: "0 auto" }}>
+
+          <a href="/blog" style={{
+            fontFamily: "Lato,sans-serif",
+            fontSize: 10, fontWeight: 700, letterSpacing: ".14em",
+            textTransform: "uppercase", color: "var(--hero-a)",
+            textDecoration: "none", display: "inline-block",
+            marginBottom: 26, opacity: .6,
+          }}>
+            ← Blog
+          </a>
+
           {/* Tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div style={{
-              display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16,
-            }}>
-              {post.tags.map(tag => (
-                <span key={tag} style={{
-                  fontSize: 10, fontWeight: 700, letterSpacing: ".1em",
-                  textTransform: "uppercase", padding: "3px 10px",
-                  borderRadius: 16, background: post.coverColor,
-                  color: "#fff", opacity: .85,
-                }}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+          <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: 18 }}>
+            {post.tags.map(tag => (
+              <span key={tag} style={{
+                fontFamily: "Lato,sans-serif",
+                fontSize: 9, fontWeight: 700, letterSpacing: ".12em",
+                textTransform: "uppercase", padding: "3px 10px", borderRadius: 2,
+                background: `${post.coverColor}28`, color: "#fff",
+                border: `1px solid ${post.coverColor}55`,
+              }}>
+                {tag}
+              </span>
+            ))}
+          </div>
 
           {/* Title */}
           <h1 style={{
             fontFamily: "'Cormorant Garamond',Georgia,serif",
-            fontSize: "clamp(1.8rem,4vw,2.8rem)",
-            fontWeight: 300, lineHeight: 1.2, marginBottom: 12, color: "var(--th)",
+            fontSize: "clamp(2rem,5vw,3.4rem)",
+            fontWeight: 300, lineHeight: 1.18, marginBottom: 14,
           }}>
             {post.title}
           </h1>
@@ -83,104 +95,118 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* Subtitle */}
           {post.subtitle && (
             <p style={{
-              fontStyle: "italic", fontSize: 15, color: "var(--tm)",
-              marginBottom: 16, lineHeight: 1.6,
+              fontFamily: "'Cormorant Garamond',Georgia,serif",
+              fontSize: "clamp(1rem,1.5vw,1.2rem)",
+              fontStyle: "italic", color: "var(--hero-a)",
+              opacity: .82, marginBottom: 26, lineHeight: 1.6,
             }}>
               {post.subtitle}
             </p>
           )}
 
-          {/* Meta */}
-          <div style={{
-            display: "flex", flexWrap: "wrap", gap: 20, fontSize: 12,
-            color: "var(--tl)", alignItems: "center",
-          }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          {/* Meta row */}
+          <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
               <div style={{
                 width: 32, height: 32, borderRadius: "50%",
-                background: post.coverColor, display: "flex",
-                alignItems: "center", justifyContent: "center",
-                color: "#fff", fontWeight: 700,
+                background: post.coverColor,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontFamily: "Lato,sans-serif",
+                fontSize: 13, color: "#fff", fontWeight: 700, flexShrink: 0,
               }}>
-                {post.author.charAt(0).toUpperCase()}
+                {post.author.charAt(0)}
               </div>
-              <span style={{ fontWeight: 600 }}>{post.author}</span>
+              <span style={{
+                fontFamily: "Lato,sans-serif",
+                fontSize: 13, color: "var(--hero-a)", fontWeight: 600,
+              }}>
+                {post.author}
+              </span>
             </div>
-            <span>
-              {formatDate(new Date(post.publishedAt))}
+            <span style={{ color: "var(--hero-a)", opacity: .35, fontSize: 14 }}>·</span>
+            <span style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 12, color: "var(--hero-a)", opacity: .65,
+            }}>
+              {date}
             </span>
-            <span>
+            <span style={{ color: "var(--hero-a)", opacity: .35, fontSize: 14 }}>·</span>
+            <span style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 12, color: "var(--hero-a)", opacity: .65,
+            }}>
               {post.readingTime} min read
             </span>
           </div>
         </div>
       </header>
 
-      {/* Article content */}
-      <article style={{
-        maxWidth: 700, margin: "0 auto", padding: "56px 24px",
-      }}>
-        {post.content && post.content.length > 0 ? (
-          post.content.map((block, idx) => (
-            <div key={idx} style={{ marginBottom: 28 }}>
-              {block.heading && (
-                <h2 style={{
-                  fontFamily: "'Cormorant Garamond',Georgia,serif",
-                  fontSize: 24, fontWeight: 600, color: "var(--th)",
-                  marginBottom: 12, lineHeight: 1.3,
-                }}>
-                  {block.heading}
-                </h2>
-              )}
-              {block.paragraphs && block.paragraphs.map((para, pIdx) => (
-                <p key={pIdx} style={{
-                  fontSize: 15, lineHeight: 1.75, color: "var(--tm)",
-                  marginBottom: block.paragraphs.length > 1 && pIdx < block.paragraphs.length - 1 ? 12 : 0,
-                }}>
-                  {para}
-                </p>
-              ))}
+      {/* ── ARTICLE ── */}
+      <div style={{ maxWidth: 720, margin: "0 auto", padding: "52px 24px 80px" }}>
+        <article ref={articleRef} className="article-prose">
+          {post.content.map((block, i) => (
+            <div key={i}>
+              {block.heading && <h2>{block.heading}</h2>}
+              {block.paragraphs.map((p, j) => {
+                // First paragraph of the whole post — make it the opening para
+                const isOpener = i === 0 && j === 0;
+                return (
+                  <p key={j} className={isOpener ? "opening-para" : undefined}>
+                    {p}
+                  </p>
+                );
+              })}
             </div>
-          ))
-        ) : (
-          <p style={{ color: "var(--tm)" }}>No content available.</p>
-        )}
-      </article>
+          ))}
+        </article>
 
-      {/* Divider */}
-      <div style={{
-        maxWidth: 700, margin: "0 auto", padding: "0 24px 32px",
-      }}>
+        {/* ── DIVIDER ── */}
         <div style={{
-          height: 1, background: "var(--border)", margin: "0 auto",
-        }} />
-      </div>
-
-      {/* Reactions */}
-      <div style={{
-        maxWidth: 700, margin: "0 auto", padding: "32px 24px",
-      }}>
-        <PostReactions slug={post.slug} />
-      </div>
-
-      {/* Comments */}
-      <div style={{
-        maxWidth: 700, margin: "0 auto", padding: "0 24px 48px",
-      }}>
-        <PostComments slug={post.slug} />
-      </div>
-
-      {/* Back to blog */}
-      <div style={{
-        maxWidth: 700, margin: "0 auto", padding: "32px 24px 64px",
-      }}>
-        <Link href="/blog" style={{
-          fontSize: 12, fontWeight: 700, letterSpacing: ".08em",
-          textTransform: "uppercase", color: "var(--tl)", textDecoration: "none",
+          display: "flex", alignItems: "center", gap: 14,
+          margin: "44px 0",
         }}>
-          ← Back to Blog
-        </Link>
+          <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
+          <span style={{
+            fontFamily: "Lato,sans-serif",
+            fontSize: 10, fontWeight: 700, letterSpacing: ".2em",
+            textTransform: "uppercase", color: "var(--tl)",
+          }}>
+            ✦
+          </span>
+          <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
+        </div>
+
+        {/* ── REACTIONS ── */}
+        <PostReactions slug={post.slug} />
+
+        {/* ── COMMENTS ── */}
+        <PostComments slug={post.slug} />
+
+        {/* ── BOTTOM NAV ── */}
+        <div style={{
+          marginTop: 52, paddingTop: 24,
+          borderTop: "1px solid var(--border)",
+          display: "flex", justifyContent: "space-between",
+          alignItems: "center", flexWrap: "wrap", gap: 12,
+        }}>
+          <a href="/blog" style={{
+            fontFamily: "Lato,sans-serif",
+            fontSize: 11, fontWeight: 700, letterSpacing: ".1em",
+            textTransform: "uppercase", color: "var(--tm)", textDecoration: "none",
+          }}>
+            ← All Posts
+          </a>
+          <a href="/" style={{
+            fontFamily: "Lato,sans-serif",
+            fontSize: 11, fontWeight: 700, letterSpacing: ".1em",
+            textTransform: "uppercase", color: "var(--tm)", textDecoration: "none",
+          }}>
+            Weekly Programme →
+          </a>
+        </div>
       </div>
     </>
   );
 }
+
+
