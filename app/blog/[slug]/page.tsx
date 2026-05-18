@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { PostReactions } from "@/components/blog/PostReactions";
 import { PostComments } from "@/components/blog/PostComments";
+import { SubstackSubscribe } from "@/components/blog/SubstackSubscribe";
 import { getBlogPost } from "@/lib/blog-content";
 
 export default function BlogPostPage() {
@@ -175,6 +176,9 @@ export default function BlogPostPage() {
           </span>
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
         </div>
+
+        {/* ── SUBSTACK ── */}
+        <SubstackSubscribe />
 
         {/* ── REACTIONS ── */}
         <PostReactions slug={post.slug} />
