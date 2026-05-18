@@ -180,6 +180,25 @@ export const WEEKS_META: WeekMeta[] = [
     description:
       "Four biblical witnesses to God's faithfulness: Hezekiah in crisis, Ruth in provision, Daniel in prayer, and Simeon & Anna in waiting — all pointing to the hope of Christ's return.",
   },
+  {
+  id: 9,
+  slug: "purpose-esther-samaritan-job",
+  title: "Created on Purpose, for a Purpose",
+  subtitle: "Week Nine",
+  heroVerse: "Before I formed you in the womb I knew you, before you were born I set you apart.",
+  heroRef: "Jeremiah 1:5",
+  publishedAt: "2026-05-18",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Purpose Precedes Creation", days: "Mon",      color: "#1A3A6E" },
+    { label: "The Good Samaritan",        days: "Tue–Wed",  color: "#2E6B50" },
+    { label: "Job and Suffering",         days: "Thu & Sat",color: "#7A1A1A" },
+    { label: "Esther",                    days: "Fri",      color: "#5A2D82" },
+    { label: "Living Your Purpose",       days: "Sun",      color: "#1A3A6E" },
+  ],
+  description: "Myles Munroe's five principles of purpose woven through the stories of the Good Samaritan, Job, and Esther — created on purpose, for a purpose, to serve a purpose that will outlast you.",
+},
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
