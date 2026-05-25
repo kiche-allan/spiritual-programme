@@ -199,6 +199,25 @@ export const WEEKS_META: WeekMeta[] = [
   ],
   description: "Myles Munroe's five principles of purpose woven through the stories of the Good Samaritan, Job, and Esther — created on purpose, for a purpose, to serve a purpose that will outlast you.",
 },
+  {
+    id: 10,
+    slug: "prayer-submission-trust-holy-living",
+    title: "Prayer, Submission, Trust & Holy Living",
+    subtitle: "Week Ten",
+    heroVerse: "Yet not my will, but yours be done.",
+    heroRef: "Luke 22:42",
+    publishedAt: "2026-05-25",
+    totalDays: 7,
+    accentColor: "#2C3E5A",
+    themes: [
+      { label: "Submission",    days: "Mon",     color: "#2C3E5A" },
+      { label: "Trust & Hope",  days: "Tue–Wed", color: "#2C3E5A" },
+      { label: "Prayer",        days: "Thu–Fri", color: "#8A2040" },
+      { label: "Holy Living",   days: "Sat",     color: "#2E6B50" },
+      { label: "Maranatha",     days: "Sun",     color: "#5A2D82" },
+    ],
+    description: "The disciplines that shape a life oriented toward the coming King — submission in Gethsemane, trust in the waiting, patience in the refusal, prayer that moves heaven, and holy living as expectation made visible.",
+  },
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
