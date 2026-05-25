@@ -9,12 +9,11 @@ import { DayPractices } from "@/components/week/DayPractices";
 import { ThemeBadge } from "@/components/ui/ThemeBadge";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { Toast } from "@/components/ui/Toast";
+import { Button } from "@/components/ui/button";
 import ShareButton from "@/components/ShareButton";
 import { ReflectionWall } from "@/components/community/ReflectionWall";
 import { useProgress } from "@/hooks/useProgress";
 import { useToast } from "@/hooks/useToast";
-import { scrollToContent } from "@/lib/utils";
 import type { WeekMeta } from "@/lib/weeks";
 import type { DayContent } from "@/lib/content/types";
 import { WEEKS_META } from "@/lib/weeks";
@@ -28,17 +27,17 @@ export function DayReader({ meta, days }: Props) {
   const weekId = meta.id;
   const [cur, setCur] = useState(0);
   const { toggle, doneCount, pct, isDone } = useProgress(weekId, days.length);
-  const { message: toastMsg, show: showToast } = useToast();
+  const { toast } = useToast();
 
   const handleToggle = useCallback((dayNum: number) => {
     toggle(dayNum);
     const nowDone = !isDone(dayNum);
-    showToast(nowDone ? "✓ Day marked complete" : "Day unmarked");
-  }, [toggle, isDone, showToast]);
+    toast({ description: nowDone ? "✓ Day marked complete" : "Day unmarked", duration: 2500 });
+  }, [toggle, isDone, toast]);
 
   const handleSelect = (i: number) => {
     setCur(i);
-    scrollToContent();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const prevW = WEEKS_META.find(w => w.id === weekId - 1);
@@ -142,6 +141,67 @@ export function DayReader({ meta, days }: Props) {
           flex: 1, padding: "2.5rem 2rem 4rem",
           borderLeft: "1px solid var(--border)", minWidth: 0,
         }}>
+
+          {/* ── STICKY DAY NAVIGATION ── */}
+          <div style={{
+            position: "sticky",
+            top: 60,
+            zIndex: 50,
+            background: "var(--bg)",
+            borderBottom: "1px solid var(--border)",
+            marginBottom: "1.5rem",
+            marginLeft: "-2rem",
+            marginRight: "-2rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
+            paddingTop: "10px",
+            paddingBottom: "10px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}>
+            <NavBtn
+              label="← Previous"
+              disabled={cur === 0}
+              onClick={() => handleSelect(cur - 1)}
+            />
+
+            {/* Day indicator with dots */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+              <span style={{
+                fontSize: 11, color: "var(--tl)", fontWeight: 700,
+                letterSpacing: ".1em", textTransform: "uppercase",
+              }}>
+                Day {cur + 1} of {days.length}
+              </span>
+              {/* Dot indicators */}
+              <div style={{ display: "flex", gap: 5 }}>
+                {days.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleSelect(i)}
+                    style={{
+                      width: i === cur ? 20 : 7,
+                      height: 7,
+                      borderRadius: 4,
+                      border: "none",
+                      background: i === cur ? day.accent : "var(--border)",
+                      cursor: "pointer",
+                      padding: 0,
+                      transition: "all .25s ease",
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <NavBtn
+              label="Next →"
+              disabled={cur === days.length - 1}
+              onClick={() => handleSelect(cur + 1)}
+            />
+          </div>
+
           {/* Day header */}
           <div style={{
             display: "flex", alignItems: "flex-start", gap: 16,
@@ -261,29 +321,7 @@ export function DayReader({ meta, days }: Props) {
             <ReflectionWall weekId={weekId} dayNum={day.num} />
           </section>
 
-          {/* Day navigation */}
-          <div style={{
-            display: "flex", justifyContent: "space-between", alignItems: "center",
-            marginTop: "2.5rem", paddingTop: "1.5rem",
-            borderTop: "1px solid var(--border)",
-          }}>
-            <NavBtn
-              label="← Previous"
-              disabled={cur === 0}
-              onClick={() => handleSelect(cur - 1)}
-            />
-            <span style={{
-              fontSize: 12, color: "var(--tl)", fontWeight: 700,
-              letterSpacing: ".08em", textTransform: "uppercase",
-            }}>
-              Day {cur + 1} of {days.length}
-            </span>
-            <NavBtn
-              label="Next →"
-              disabled={cur === days.length - 1}
-              onClick={() => handleSelect(cur + 1)}
-            />
-          </div>
+
         </main>
       </div>
 
@@ -350,8 +388,6 @@ export function DayReader({ meta, days }: Props) {
         </p>
       </footer>
 
-      <Toast message={toastMsg} />
-
       <style>{`
         @media(max-width:720px){
           .hide-mobile{display:none!important}
@@ -366,20 +402,14 @@ function NavBtn({ label, disabled, onClick }: {
   label: string; disabled: boolean; onClick: () => void;
 }) {
   return (
-    <button
-      onClick={onClick}
+    <Button
+      variant={disabled ? "ghost" : "default"}
+      size="sm"
       disabled={disabled}
-      style={{
-        padding: "10px 20px", borderRadius: 8,
-        border: "1.5px solid var(--border)",
-        background: "transparent", color: "var(--tm)",
-        fontSize: 13, fontWeight: 700, letterSpacing: ".05em",
-        cursor: disabled ? "default" : "pointer",
-        opacity: disabled ? .3 : 1,
-        fontFamily: "Lato,sans-serif", transition: "all .2s",
-      }}
+      onClick={onClick}
+      className="font-bold tracking-wide text-xs uppercase"
     >
       {label}
-    </button>
+    </Button>
   );
 }

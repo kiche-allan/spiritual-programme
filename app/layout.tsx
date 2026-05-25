@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 const lato = Lato({
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>{children}
         <Analytics />
+        <Toaster />
       </body>
     </html>
   );

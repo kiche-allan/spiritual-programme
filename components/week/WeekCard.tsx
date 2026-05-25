@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { ThemeBadge } from "@/components/ui/ThemeBadge";
-import { ProgressBar } from "@/components/ui/ProgressBar";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Separator } from "@/components/ui/separator";
 import { formatDate } from "@/lib/utils";
 import type { WeekMeta } from "@/lib/weeks";
 
@@ -20,63 +22,69 @@ export function WeekCard({ week, progress, isLatest }: Props) {
     : `${done} / ${week.totalDays} days`;
 
   return (
-    <Link href={`/week/${week.id}`} className="week-card">
-      <div style={{ height: 4, background: week.accentColor }} />
-      <div style={{ padding: "18px 22px 20px", position: "relative" }}>
+    <Link href={`/week/${week.id}`} className="block group">
+      <Card className="overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
 
-        {isLatest && (
-          <div style={{
-            position: "absolute", top: 18, right: 18,
-            background: week.accentColor, color: "#fff",
-            fontSize: 9, fontWeight: 700, letterSpacing: ".12em",
-            textTransform: "uppercase", padding: "3px 10px", borderRadius: 20,
-          }}>
-            This Week
+        <div className="h-1 w-full" style={{ background: week.accentColor }} />
+
+        <CardHeader className="pb-3 relative">
+          {isLatest && (
+            <span
+              className="absolute top-4 right-4 text-[9px] font-bold tracking-widest uppercase text-white px-3 py-1 rounded-full"
+              style={{ background: week.accentColor }}
+            >
+              This Week
+            </span>
+          )}
+          <p
+            className="text-[10px] font-bold tracking-[0.18em] uppercase mb-1"
+            style={{ color: week.accentColor }}
+          >
+            {week.subtitle}
+          </p>
+          <h2 className="font-serif text-xl font-normal leading-tight text-foreground">
+            {week.title}
+          </h2>
+          <p className="font-serif text-sm italic text-muted-foreground leading-relaxed mt-1">
+            &ldquo;{week.heroVerse}&rdquo; — {week.heroRef}
+          </p>
+        </CardHeader>
+
+        <CardContent className="pb-3">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+            {week.description}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {week.themes.map(t => (
+              <Badge
+                key={t.label}
+                variant="outline"
+                className="text-[9px] font-bold tracking-wide uppercase rounded-full"
+                style={{
+                  color: t.color,
+                  borderColor: `${t.color}50`,
+                  backgroundColor: `${t.color}12`,
+                }}
+              >
+                {t.label}
+              </Badge>
+            ))}
           </div>
-        )}
+        </CardContent>
 
-        <div style={{
-          fontSize: 10, fontWeight: 700, letterSpacing: ".18em",
-          textTransform: "uppercase", color: week.accentColor, marginBottom: 6,
-        }}>
-          {week.subtitle}
-        </div>
+        <Separator />
 
-        <h2 style={{
-          fontFamily: "'Cormorant Garamond',Georgia,serif",
-          fontSize: "clamp(1.2rem,2.5vw,1.55rem)",
-          fontWeight: 400, lineHeight: 1.25, color: "var(--t1)", marginBottom: 8,
-        }}>
-          {week.title}
-        </h2>
-
-        <p style={{
-          fontFamily: "'Cormorant Garamond',Georgia,serif",
-          fontSize: 13, fontStyle: "italic",
-          color: "var(--tm)", lineHeight: 1.6, marginBottom: 12,
-        }}>
-          &ldquo;{week.heroVerse}&rdquo; — {week.heroRef}
-        </p>
-
-        <p style={{ fontSize: 13, lineHeight: 1.65, color: "var(--tm)", marginBottom: 14 }}>
-          {week.description}
-        </p>
-
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
-          {week.themes.map(t => <ThemeBadge key={t.label} theme={t} />)}
-        </div>
-
-        <div>
-          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
-            <span style={{ fontSize: 11, color: "var(--tl)", fontWeight: 700, letterSpacing: ".06em" }}>
+        <CardFooter className="pt-3 flex flex-col gap-2">
+          <div className="flex justify-between items-center w-full">
+            <span className="text-[11px] font-bold tracking-wide text-muted-foreground">
               {statusLabel}
             </span>
-            <span style={{ fontSize: 11, color: "var(--tl)" }}>{date}</span>
+            <span className="text-[11px] text-muted-foreground">{date}</span>
           </div>
-          <ProgressBar pct={pct} />
-        </div>
+          <Progress value={pct} className="h-1.5 w-full" />
+        </CardFooter>
 
-      </div>
+      </Card>
     </Link>
   );
 }
