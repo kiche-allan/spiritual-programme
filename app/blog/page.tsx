@@ -2,7 +2,8 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { getBlogPosts, getAllTags } from "@/lib/blog-content";
+import { SeriesPanel } from "@/components/blog/SeriesPanel";
+import { getStandalonePosts, getAllTags } from "@/lib/blog-content";
 
 export const metadata = {
   title: "Blog · Walking With God",
@@ -10,16 +11,16 @@ export const metadata = {
 };
 
 export default function BlogIndexPage() {
-  const posts = getBlogPosts();
-  const tags  = getAllTags();
+  const posts    = getStandalonePosts();
+  const tags     = getAllTags();
   const featured = posts[0];
-  const rest      = posts.slice(1);
+  const rest     = posts.slice(1);
 
   return (
     <>
       <Navbar />
 
-      {/* Header */}
+      {/* ── HERO ── */}
       <header style={{
         background: "var(--hero)", color: "var(--hero-t)",
         padding: "96px 24px 64px", textAlign: "center",
@@ -58,184 +59,223 @@ export default function BlogIndexPage() {
         </div>
       </header>
 
-      <div style={{ maxWidth: 1060, margin: "0 auto", padding: "56px 24px 80px" }}>
+      {/* ── MAIN LAYOUT ── */}
+      <div
+        className="blog-layout"
+        style={{
+          maxWidth: 1100, margin: "0 auto",
+          padding: "56px 24px 80px",
+          display: "grid",
+          gridTemplateColumns: "1fr 340px",
+          gap: 48,
+          alignItems: "start",
+        }}
+      >
 
-        {posts.length === 0 ? (
-          <div style={{ textAlign: "center", padding: "80px 0" }}>
-            <p style={{
-              fontFamily: "'Cormorant Garamond',Georgia,serif",
-              fontSize: "1.5rem", color: "var(--tm)", fontStyle: "italic",
-            }}>
-              The first post is coming soon.
-            </p>
-          </div>
-        ) : (
-          <>
-            {/* ── FEATURED ── */}
-            {featured && (
-              <div style={{ marginBottom: 52 }}>
-                <div className="section-eyebrow">Latest Post</div>
-                <Link href={`/blog/${featured.slug}`} className="featured-post-split">
-
-                  {/* Colour panel */}
-                  <div style={{
-                    background: featured.coverColor,
-                    padding: "40px 36px",
-                    display: "flex", flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}>
-                    <div>
-                      <div style={{
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 9, fontWeight: 700, letterSpacing: ".2em",
-                        textTransform: "uppercase",
-                        color: "rgba(255,255,255,.55)", marginBottom: 16,
-                      }}>
-                        {featured.readingTime} min read
-                      </div>
-
-                      <h2 style={{
-                        fontFamily: "'Cormorant Garamond',Georgia,serif",
-                        fontSize: "clamp(1.5rem,2.8vw,2.1rem)",
-                        fontWeight: 400, lineHeight: 1.25,
-                        color: "#fff", marginBottom: 12,
-                      }}>
-                        {featured.title}
-                      </h2>
-
-                      {featured.subtitle && (
-                        <p style={{
-                          fontFamily: "'Cormorant Garamond',Georgia,serif",
-                          fontSize: 15, fontStyle: "italic",
-                          color: "rgba(255,255,255,.72)",
-                          lineHeight: 1.6, marginBottom: 0,
-                        }}>
-                          {featured.subtitle}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Author row */}
-                    <div style={{
-                      display: "flex", alignItems: "center",
-                      gap: 10, marginTop: 28,
-                      paddingTop: 20,
-                      borderTop: "1px solid rgba(255,255,255,.15)",
-                    }}>
-                      <div style={{
-                        width: 30, height: 30, borderRadius: "50%",
-                        background: "rgba(255,255,255,.2)",
-                        display: "flex", alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: 12, fontWeight: 700, color: "#fff",
-                        fontFamily: "Lato,sans-serif",
-                      }}>
-                        {featured.author.charAt(0)}
-                      </div>
-                      <span style={{
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 12, color: "rgba(255,255,255,.6)",
-                      }}>
-                        {featured.author} · {new Date(featured.publishedAt).toLocaleDateString("en-GB", {
-                          day: "numeric", month: "long", year: "numeric",
-                        })}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Excerpt panel */}
-                  <div style={{
-                    background: "var(--bg2)",
-                    padding: "40px 36px",
-                    display: "flex", flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}>
-                    <div>
-                      <div style={{
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 9, fontWeight: 700, letterSpacing: ".2em",
-                        textTransform: "uppercase", color: "var(--tl)", marginBottom: 16,
-                      }}>
-                        Opening Lines
-                      </div>
-                      <p style={{
-                        fontFamily: "'Cormorant Garamond',Georgia,serif",
-                        fontSize: "clamp(1rem,1.4vw,1.15rem)",
-                        fontStyle: "italic", lineHeight: 1.85,
-                        color: "var(--t2)",
-                      }}>
-                        &ldquo;{featured.excerpt}&rdquo;
-                      </p>
-                    </div>
-
-                    {/* Tags + CTA */}
-                    <div style={{ marginTop: 24 }}>
-                      <div style={{
-                        display: "flex", flexWrap: "wrap", gap: 6,
-                        marginBottom: 16,
-                      }}>
-                        {featured.tags.map(tag => (
-                          <span key={tag} style={{
-                            fontFamily: "Lato,sans-serif",
-                            fontSize: 9, fontWeight: 700,
-                            letterSpacing: ".1em", textTransform: "uppercase",
-                            padding: "3px 9px", borderRadius: 2,
-                            background: `${featured.coverColor}14`,
-                            color: featured.coverColor,
-                            border: `1px solid ${featured.coverColor}35`,
-                          }}>
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <span style={{
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 11, fontWeight: 700,
-                        letterSpacing: ".1em", textTransform: "uppercase",
-                        color: featured.coverColor,
-                      }}>
-                        Read the full post →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            )}
-
-            {/* ── TAG PILLS ── */}
-            {tags.length > 0 && (
-              <div style={{
-                display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28,
+        {/* ── LEFT: STANDALONE BLOGS ── */}
+        <div>
+          {posts.length === 0 ? (
+            <div style={{ textAlign: "center", padding: "80px 0" }}>
+              <p style={{
+                fontFamily: "'Cormorant Garamond',Georgia,serif",
+                fontSize: "1.5rem", color: "var(--tm)", fontStyle: "italic",
               }}>
-                {tags.map(tag => (
-                  <span key={tag} style={{
+                The first post is coming soon.
+              </p>
+            </div>
+          ) : (
+            <>
+              {/* ── FEATURED ── */}
+              {featured && (
+                <div style={{ marginBottom: 48 }}>
+                  <div style={{
                     fontFamily: "Lato,sans-serif",
-                    fontSize: 10, fontWeight: 700, letterSpacing: ".1em",
-                    textTransform: "uppercase", padding: "4px 12px",
-                    borderRadius: 2, background: "var(--bg2)",
-                    border: "1px solid var(--border)", color: "var(--tm)",
+                    fontSize: 10, fontWeight: 700, letterSpacing: ".2em",
+                    textTransform: "uppercase", color: "var(--tl)", marginBottom: 10,
                   }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
+                    Latest Post
+                  </div>
+                  <Link
+                    href={`/blog/${featured.slug}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <div
+                      className="featured-card"
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "5fr 4fr",
+                        border: "1px solid var(--border)",
+                        borderRadius: 4, overflow: "hidden",
+                        cursor: "pointer",
+                        boxShadow: "var(--sh)",
+                      }}
+                    >
+                      {/* Colour panel */}
+                      <div style={{
+                        background: featured.coverColor,
+                        padding: "36px 32px",
+                        display: "flex", flexDirection: "column",
+                        justifyContent: "space-between",
+                      }}>
+                        <div>
+                          <div style={{
+                            fontFamily: "Lato,sans-serif",
+                            fontSize: 9, fontWeight: 700, letterSpacing: ".2em",
+                            textTransform: "uppercase",
+                            color: "rgba(255,255,255,.55)", marginBottom: 14,
+                          }}>
+                            {featured.readingTime} min read
+                          </div>
+                          <h2 style={{
+                            fontFamily: "'Cormorant Garamond',Georgia,serif",
+                            fontSize: "clamp(1.3rem,2.5vw,1.85rem)",
+                            fontWeight: 400, lineHeight: 1.25,
+                            color: "#fff", marginBottom: 10,
+                          }}>
+                            {featured.title}
+                          </h2>
+                          {featured.subtitle && (
+                            <p style={{
+                              fontFamily: "'Cormorant Garamond',Georgia,serif",
+                              fontSize: 14, fontStyle: "italic",
+                              color: "rgba(255,255,255,.72)", lineHeight: 1.6,
+                            }}>
+                              {featured.subtitle}
+                            </p>
+                          )}
+                        </div>
+                        <div style={{
+                          display: "flex", alignItems: "center",
+                          gap: 10, marginTop: 24, paddingTop: 18,
+                          borderTop: "1px solid rgba(255,255,255,.15)",
+                        }}>
+                          <div style={{
+                            width: 28, height: 28, borderRadius: "50%",
+                            background: "rgba(255,255,255,.2)",
+                            display: "flex", alignItems: "center",
+                            justifyContent: "center",
+                            fontFamily: "Lato,sans-serif",
+                            fontSize: 11, fontWeight: 700, color: "#fff",
+                          }}>
+                            {featured.author.charAt(0)}
+                          </div>
+                          <span style={{
+                            fontFamily: "Lato,sans-serif",
+                            fontSize: 12, color: "rgba(255,255,255,.6)",
+                          }}>
+                            {featured.author} · {new Date(featured.publishedAt)
+                              .toLocaleDateString("en-GB", {
+                                day: "numeric", month: "long", year: "numeric",
+                              })}
+                          </span>
+                        </div>
+                      </div>
 
-            {/* ── POST GRID ── */}
-            {rest.length > 0 && (
-              <>
-                <div className="section-eyebrow">All Posts</div>
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
-                  gap: 20,
-                }}>
-                  {rest.map(post => <BlogCard key={post.slug} post={post} />)}
+                      {/* Excerpt panel */}
+                      <div style={{
+                        background: "var(--bg2)", padding: "36px 28px",
+                        display: "flex", flexDirection: "column",
+                        justifyContent: "space-between",
+                      }}>
+                        <div>
+                          <div style={{
+                            fontFamily: "Lato,sans-serif",
+                            fontSize: 9, fontWeight: 700, letterSpacing: ".2em",
+                            textTransform: "uppercase", color: "var(--tl)", marginBottom: 14,
+                          }}>
+                            Opening Lines
+                          </div>
+                          <p style={{
+                            fontFamily: "'Cormorant Garamond',Georgia,serif",
+                            fontSize: "clamp(1rem,1.4vw,1.1rem)",
+                            fontStyle: "italic", lineHeight: 1.85,
+                            color: "var(--t2)",
+                          }}>
+                            &ldquo;{featured.excerpt}&rdquo;
+                          </p>
+                        </div>
+                        <div style={{ marginTop: 20 }}>
+                          <div style={{
+                            display: "flex", flexWrap: "wrap",
+                            gap: 5, marginBottom: 14,
+                          }}>
+                            {featured.tags.map(tag => (
+                              <span key={tag} style={{
+                                fontFamily: "Lato,sans-serif",
+                                fontSize: 9, fontWeight: 700,
+                                letterSpacing: ".1em", textTransform: "uppercase",
+                                padding: "2px 8px", borderRadius: 2,
+                                background: `${featured.coverColor}14`,
+                                color: featured.coverColor,
+                                border: `1px solid ${featured.coverColor}35`,
+                              }}>
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          <span style={{
+                            fontFamily: "Lato,sans-serif",
+                            fontSize: 11, fontWeight: 700,
+                            letterSpacing: ".1em", textTransform: "uppercase",
+                            color: featured.coverColor,
+                          }}>
+                            Read the full post →
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-              </>
-            )}
-          </>
-        )}
+              )}
+
+              {/* ── TAG PILLS ── */}
+              {tags.length > 0 && (
+                <div style={{
+                  display: "flex", flexWrap: "wrap",
+                  gap: 8, marginBottom: 24,
+                }}>
+                  {tags.map(tag => (
+                    <span key={tag} style={{
+                      fontFamily: "Lato,sans-serif",
+                      fontSize: 10, fontWeight: 700, letterSpacing: ".1em",
+                      textTransform: "uppercase", padding: "4px 12px",
+                      borderRadius: 2, background: "var(--bg2)",
+                      border: "1px solid var(--border)", color: "var(--tm)",
+                    }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* ── POST GRID ── */}
+              {rest.length > 0 && (
+                <>
+                  <div style={{
+                    fontFamily: "Lato,sans-serif",
+                    fontSize: 10, fontWeight: 700, letterSpacing: ".2em",
+                    textTransform: "uppercase", color: "var(--tl)", marginBottom: 12,
+                  }}>
+                    All Posts
+                  </div>
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))",
+                    gap: 18,
+                  }}>
+                    {rest.map(post => <BlogCard key={post.slug} post={post} />)}
+                  </div>
+                </>
+              )}
+            </>
+          )}
+        </div>
+
+        {/* ── RIGHT: SERIES ── */}
+        <aside style={{ position: "sticky", top: 80 }}>
+          <SeriesPanel />
+        </aside>
+
       </div>
 
       {/* ── FOOTER ── */}
@@ -258,6 +298,21 @@ export default function BlogIndexPage() {
           Colossians 3:16
         </p>
       </footer>
+
+      {/* Mobile responsive */}
+      <style>{`
+        @media (max-width: 768px) {
+          .blog-layout {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        .featured-card {
+          transition: box-shadow .25s;
+        }
+        .featured-card:hover {
+          box-shadow: var(--sh2);
+        }
+      `}</style>
     </>
   );
 }

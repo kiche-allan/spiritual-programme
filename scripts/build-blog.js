@@ -189,7 +189,7 @@ ${b.paragraphs.map((p) => `        \`${escapeTS(p)}\``).join(",\n")}
     title: \`${escapeTS(fm.title)}\`,
     subtitle: \`${escapeTS(fm.subtitle ?? "")}\`,
     publishedAt: "${fm.publishedAt ?? new Date().toISOString().slice(0, 10)}",
-    author: "${fm.author ?? "Allan"}",
+    author: "${fm.author ?? "Allan Kiche"}",
     tags: [${tagsCode}],
     coverColor: "${fm.coverColor ?? "#2C3E5A"}",
     excerpt: \`${escapeTS(fm.excerpt ?? "")}\`,
@@ -252,6 +252,25 @@ export function getBlogPostsByTag(tag: string): BlogPost[] {
 export function getAllTags(): string[] {
   const tags = BLOG_POSTS.flatMap(p => p.tags);
   return [...new Set(tags)].sort();
+}
+
+export function getSeriesList(): { name: string; color: string; posts: BlogPost[] }[] {
+  const map: Record<string, BlogPost[]> = {};
+  BLOG_POSTS.forEach(p => {
+    if (p.series) {
+      if (!map[p.series]) map[p.series] = [];
+      map[p.series].push(p);
+    }
+  });
+  return Object.entries(map).map(([name, posts]) => ({
+    name,
+    color: posts[0]?.coverColor ?? "#2C3E5A",
+    posts: posts.sort((a, b) => (a.seriesPart ?? 0) - (b.seriesPart ?? 0)),
+  }));
+}
+
+export function getStandalonePosts(): BlogPost[] {
+  return getBlogPosts().filter(p => !p.series);
 }
 `;
 

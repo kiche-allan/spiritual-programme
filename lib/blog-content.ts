@@ -622,3 +622,22 @@ export function getAllTags(): string[] {
   const tags = BLOG_POSTS.flatMap(p => p.tags);
   return [...new Set(tags)].sort();
 }
+
+export function getSeriesList(): { name: string; color: string; posts: BlogPost[] }[] {
+  const map: Record<string, BlogPost[]> = {};
+  BLOG_POSTS.forEach(p => {
+    if (p.series) {
+      if (!map[p.series]) map[p.series] = [];
+      map[p.series].push(p);
+    }
+  });
+  return Object.entries(map).map(([name, posts]) => ({
+    name,
+    color: posts[0]?.coverColor ?? "#2C3E5A",
+    posts: posts.sort((a, b) => (a.seriesPart ?? 0) - (b.seriesPart ?? 0)),
+  }));
+}
+
+export function getStandalonePosts(): BlogPost[] {
+  return getBlogPosts().filter(p => !p.series);
+}
