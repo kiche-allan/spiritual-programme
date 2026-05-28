@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import { PostReactions } from "@/components/blog/PostReactions";
 import { PostComments } from "@/components/blog/PostComments";
 import { SubstackSubscribe } from "@/components/blog/SubstackSubscribe";
+import { SeriesNav } from "@/components/blog/SeriesNav";
 import { getBlogPost } from "@/lib/blog-content";
 
 export default function BlogPostPage() {
@@ -144,6 +145,7 @@ export default function BlogPostPage() {
 
       {/* ── ARTICLE ── */}
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "52px 24px 80px" }}>
+        <SeriesNav post={post} />
         <article ref={articleRef} className="article-prose">
           {post.content.map((block, i) => (
             <div key={i}>

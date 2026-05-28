@@ -41,6 +41,18 @@ export function BlogCard({ post, featured }: Props) {
           ))}
         </div>
 
+        {/* Series indicator */}
+        {post.series && (
+          <div style={{
+            fontFamily: "Lato,sans-serif",
+            fontSize: 9, fontWeight: 700, letterSpacing: ".14em",
+            textTransform: "uppercase",
+            color: post.coverColor, marginBottom: 6,
+          }}>
+            {post.series} · Part {post.seriesPart}
+          </div>
+        )}
+
         {/* Title */}
         <h2 style={{
           fontFamily: "'Cormorant Garamond',Georgia,serif",

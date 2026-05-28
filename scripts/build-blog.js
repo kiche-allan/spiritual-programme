@@ -194,6 +194,9 @@ ${b.paragraphs.map((p) => `        \`${escapeTS(p)}\``).join(",\n")}
     coverColor: "${fm.coverColor ?? "#2C3E5A"}",
     excerpt: \`${escapeTS(fm.excerpt ?? "")}\`,
     readingTime: ${Math.ceil(body.split(/\s+/).length / 200)},
+    series: ${fm.series ? `\`${escapeTS(fm.series)}\`` : "null"},
+    seriesPart: ${fm.seriesPart ?? "null"},
+    seriesTotal: ${fm.seriesTotal ?? "null"},
     content: [
 ${blocksCode}
     ],
@@ -222,6 +225,9 @@ export interface BlogPost {
   coverColor: string;
   excerpt: string;
   readingTime: number;
+  series: string | null;
+  seriesPart: number | null;
+  seriesTotal: number | null;
   content: BlogContentBlock[];
 }
 
