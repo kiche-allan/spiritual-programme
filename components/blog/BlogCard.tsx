@@ -2,127 +2,83 @@
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog-content";
 
-interface Props {
-  post: BlogPost;
-  featured?: boolean;
-}
+interface Props { post: BlogPost; }
 
-export function BlogCard({ post, featured }: Props) {
+export function BlogCard({ post }: Props) {
   const date = new Date(post.publishedAt).toLocaleDateString("en-GB", {
-    day: "numeric", month: "long", year: "numeric",
+    day: "numeric", month: "short", year: "numeric",
   });
 
-  const statusLabel =
-    post.readingTime < 5 ? "Quick read"
-    : post.readingTime < 10 ? `${post.readingTime} min read`
-    : `${post.readingTime} min read`;
-
   return (
-    <Link href={`/blog/${post.slug}`} className="blog-card">
+    <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+      <article style={{
+        border: "1px solid var(--border)",
+        borderLeft: `3px solid ${post.coverColor}`,
+        borderRadius: 10, padding: 16,
+        background: "var(--bg)",
+        transition: "box-shadow .2s",
+        cursor: "pointer",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
+          <div style={{
+            width: 24, height: 24, borderRadius: "50%",
+            background: `${post.coverColor}18`,
+            border: `1px solid ${post.coverColor}40`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: "Lato,sans-serif",
+            fontSize: 10, fontWeight: 700, color: post.coverColor,
+          }}>
+            {post.author.charAt(0)}
+          </div>
+          <span style={{ fontFamily: "Lato,sans-serif", fontSize: 11, color: "var(--tm)", fontWeight: 600 }}>
+            {post.author}
+          </span>
+          <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
+          <span style={{ fontFamily: "Lato,sans-serif", fontSize: 11, color: "var(--tl)" }}>{date}</span>
+          <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
+          <span style={{ fontFamily: "Lato,sans-serif", fontSize: 11, color: "var(--tl)" }}>{post.readingTime} min</span>
+        </div>
 
-      {/* Accent bar */}
-      <div style={{ height: featured ? 5 : 3, background: post.coverColor }} />
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond',Georgia,serif",
+          fontSize: "clamp(1.1rem,1.8vw,1.3rem)",
+          fontWeight: 400, lineHeight: 1.35,
+          color: "var(--t1)", marginBottom: 6,
+        }}>
+          {post.title}
+        </h2>
 
-      <div style={{ padding: featured ? "22px 26px 24px" : "18px 20px 20px" }}>
+        <p style={{
+          fontFamily: "'Cormorant Garamond',Georgia,serif",
+          fontSize: 13, lineHeight: 1.65,
+          color: "var(--tm)", marginBottom: 10,
+        }}>
+          {post.excerpt.slice(0, 140)}...
+        </p>
 
-        {/* Tags */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 11 }}>
-          {post.tags.map(tag => (
+        <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+          {post.tags.slice(0, 3).map(tag => (
             <span key={tag} style={{
               fontFamily: "Lato,sans-serif",
-              fontSize: 9, fontWeight: 700, letterSpacing: ".1em",
-              textTransform: "uppercase", padding: "2px 8px", borderRadius: 2,
-              background: `${post.coverColor}14`,
+              fontSize: 9, fontWeight: 700,
+              letterSpacing: ".1em", textTransform: "uppercase",
+              padding: "2px 8px", borderRadius: 3,
+              background: `${post.coverColor}12`,
               color: post.coverColor,
-              border: `1px solid ${post.coverColor}35`,
+              border: `0.5px solid ${post.coverColor}35`,
             }}>
               {tag}
             </span>
           ))}
         </div>
-
-        {/* Series indicator */}
-        {post.series && (
-          <div style={{
-            fontFamily: "Lato,sans-serif",
-            fontSize: 9, fontWeight: 700, letterSpacing: ".14em",
-            textTransform: "uppercase",
-            color: post.coverColor, marginBottom: 6,
-          }}>
-            {post.series} · Part {post.seriesPart}
-          </div>
-        )}
-
-        {/* Title */}
-        <h2 style={{
-          fontFamily: "'Cormorant Garamond',Georgia,serif",
-          fontSize: featured
-            ? "clamp(1.3rem,2.5vw,1.65rem)"
-            : "clamp(1.1rem,2vw,1.35rem)",
-          fontWeight: 400, lineHeight: 1.28,
-          color: "var(--t1)", marginBottom: 8,
-        }}>
-          {post.title}
-        </h2>
-
-        {/* Subtitle */}
-        {post.subtitle && (
-          <p style={{
-            fontFamily: "'Cormorant Garamond',Georgia,serif",
-            fontSize: 14, fontStyle: "italic",
-            color: "var(--tm)", marginBottom: 10, lineHeight: 1.55,
-          }}>
-            {post.subtitle}
-          </p>
-        )}
-
-        {/* Excerpt */}
-        <p style={{
-          fontFamily: "'Cormorant Garamond',Georgia,serif",
-          fontSize: 14, lineHeight: 1.7,
-          color: "var(--tm)", marginBottom: 14,
-        }}>
-          {post.excerpt}
-        </p>
-
-        {/* Footer */}
-        <div style={{
-          display: "flex", justifyContent: "space-between",
-          alignItems: "center", paddingTop: 12,
-          borderTop: "1px solid var(--border)",
-        }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
-            <div style={{
-              width: 24, height: 24, borderRadius: "50%",
-              background: post.coverColor,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontFamily: "Lato,sans-serif",
-              fontSize: 10, color: "#fff", fontWeight: 700, flexShrink: 0,
-            }}>
-              {post.author.charAt(0)}
-            </div>
-            <span style={{
-              fontFamily: "Lato,sans-serif",
-              fontSize: 11, color: "var(--t2)", fontWeight: 600,
-            }}>
-              {post.author}
-            </span>
-          </div>
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            <span style={{
-              fontFamily: "Lato,sans-serif",
-              fontSize: 10, color: "var(--tl)", fontWeight: 600,
-            }}>
-              {statusLabel}
-            </span>
-            <span style={{ fontFamily: "Lato,sans-serif", fontSize: 10, color: "var(--tl)" }}>
-              {date}
-            </span>
-          </div>
-        </div>
-
-      </div>
+      </article>
     </Link>
   );
+}
+
+
+interface Props {
+  post: BlogPost;
+  featured?: boolean;
 }
 

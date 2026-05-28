@@ -1,9 +1,7 @@
 // app/blog/page.tsx
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { BlogCard } from "@/components/blog/BlogCard";
-import { SeriesPanel } from "@/components/blog/SeriesPanel";
-import { getStandalonePosts, getAllTags } from "@/lib/blog-content";
+import { getStandalonePosts, getSeriesList, getAllTags } from "@/lib/blog-content";
 
 export const metadata = {
   title: "Blog · Walking With God",
@@ -11,10 +9,18 @@ export const metadata = {
 };
 
 export default function BlogIndexPage() {
-  const posts    = getStandalonePosts();
-  const tags     = getAllTags();
-  const featured = posts[0];
-  const rest     = posts.slice(1);
+  const posts      = getStandalonePosts();
+  const seriesList = getSeriesList();
+  const tags       = getAllTags();
+  const latestWeekData = {
+    id: 10,
+    subtitle: "Week Ten",
+    title: "Prayer, Submission, Trust & Holy Living",
+    heroVerse: "Yet not my will, but yours be done.",
+    heroRef: "Luke 22:42",
+    publishedAt: "2026-05-25",
+    accentColor: "#2C3E5A",
+  };
 
   return (
     <>
@@ -23,7 +29,7 @@ export default function BlogIndexPage() {
       {/* ── HERO ── */}
       <header style={{
         background: "var(--hero)", color: "var(--hero-t)",
-        padding: "96px 24px 64px", textAlign: "center",
+        padding: "72px 24px 48px", textAlign: "center",
         position: "relative", overflow: "hidden",
       }}>
         <div style={{
@@ -31,262 +37,501 @@ export default function BlogIndexPage() {
           backgroundImage: "radial-gradient(circle,#fff 1px,transparent 1px)",
           backgroundSize: "50px 50px", pointerEvents: "none",
         }} />
-        <div style={{ maxWidth: 640, margin: "0 auto", position: "relative" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", position: "relative" }}>
           <div style={{
             fontFamily: "Lato,sans-serif",
             fontSize: 10, fontWeight: 700, letterSpacing: ".22em",
-            textTransform: "uppercase", color: "var(--hero-a)", marginBottom: 14,
+            textTransform: "uppercase", color: "var(--hero-a)", marginBottom: 12,
           }}>
             Spiritual Blog
           </div>
           <h1 style={{
             fontFamily: "'Cormorant Garamond',Georgia,serif",
-            fontSize: "clamp(2.6rem,5.5vw,3.8rem)",
-            fontWeight: 300, lineHeight: 1.15, marginBottom: 16,
+            fontSize: "clamp(2.2rem,5vw,3.2rem)",
+            fontWeight: 300, lineHeight: 1.15, marginBottom: 12,
           }}>
-            Thoughts on the<br />
+            Thoughts on the{" "}
             <em style={{ fontStyle: "italic", color: "#E8C97A" }}>Walking Life</em>
           </h1>
           <p style={{
             fontFamily: "'Cormorant Garamond',Georgia,serif",
-            fontSize: "clamp(1rem,1.5vw,1.2rem)",
+            fontSize: "clamp(1rem,1.5vw,1.1rem)",
             color: "var(--hero-a)", lineHeight: 1.75,
             fontStyle: "italic", fontWeight: 300,
           }}>
-            Reflections on faith, prayer, Scripture, and what it means
-            to walk with God in the ordinary and the extraordinary.
+            Reflections on faith, prayer, Scripture, and what it means to walk with God.
           </p>
         </div>
       </header>
 
-      {/* ── MAIN LAYOUT ── */}
+      {/* ── THREE COLUMN LAYOUT ── */}
       <div
-        className="blog-layout"
+        className="blog-three-col"
         style={{
-          maxWidth: 1100, margin: "0 auto",
-          padding: "56px 24px 80px",
+          maxWidth: 1160, margin: "0 auto",
+          padding: "0 16px 64px",
           display: "grid",
-          gridTemplateColumns: "1fr 340px",
-          gap: 48,
+          gridTemplateColumns: "200px 1fr 240px",
+          gap: 0,
           alignItems: "start",
         }}
       >
 
-        {/* ── LEFT: STANDALONE BLOGS ── */}
-        <div>
-          {posts.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "80px 0" }}>
-              <p style={{
-                fontFamily: "'Cormorant Garamond',Georgia,serif",
-                fontSize: "1.5rem", color: "var(--tm)", fontStyle: "italic",
-              }}>
-                The first post is coming soon.
-              </p>
-            </div>
-          ) : (
-            <>
-              {/* ── FEATURED ── */}
-              {featured && (
-                <div style={{ marginBottom: 48 }}>
-                  <div style={{
-                    fontFamily: "Lato,sans-serif",
-                    fontSize: 10, fontWeight: 700, letterSpacing: ".2em",
-                    textTransform: "uppercase", color: "var(--tl)", marginBottom: 10,
-                  }}>
-                    Latest Post
-                  </div>
-                  <Link
-                    href={`/blog/${featured.slug}`}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <div
-                      className="featured-card"
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "5fr 4fr",
-                        border: "1px solid var(--border)",
-                        borderRadius: 4, overflow: "hidden",
-                        cursor: "pointer",
-                        boxShadow: "var(--sh)",
-                      }}
-                    >
-                      {/* Colour panel */}
-                      <div style={{
-                        background: featured.coverColor,
-                        padding: "36px 32px",
-                        display: "flex", flexDirection: "column",
-                        justifyContent: "space-between",
-                      }}>
-                        <div>
-                          <div style={{
-                            fontFamily: "Lato,sans-serif",
-                            fontSize: 9, fontWeight: 700, letterSpacing: ".2em",
-                            textTransform: "uppercase",
-                            color: "rgba(255,255,255,.55)", marginBottom: 14,
-                          }}>
-                            {featured.readingTime} min read
-                          </div>
-                          <h2 style={{
-                            fontFamily: "'Cormorant Garamond',Georgia,serif",
-                            fontSize: "clamp(1.3rem,2.5vw,1.85rem)",
-                            fontWeight: 400, lineHeight: 1.25,
-                            color: "#fff", marginBottom: 10,
-                          }}>
-                            {featured.title}
-                          </h2>
-                          {featured.subtitle && (
-                            <p style={{
-                              fontFamily: "'Cormorant Garamond',Georgia,serif",
-                              fontSize: 14, fontStyle: "italic",
-                              color: "rgba(255,255,255,.72)", lineHeight: 1.6,
-                            }}>
-                              {featured.subtitle}
-                            </p>
-                          )}
-                        </div>
-                        <div style={{
-                          display: "flex", alignItems: "center",
-                          gap: 10, marginTop: 24, paddingTop: 18,
-                          borderTop: "1px solid rgba(255,255,255,.15)",
-                        }}>
-                          <div style={{
-                            width: 28, height: 28, borderRadius: "50%",
-                            background: "rgba(255,255,255,.2)",
-                            display: "flex", alignItems: "center",
-                            justifyContent: "center",
-                            fontFamily: "Lato,sans-serif",
-                            fontSize: 11, fontWeight: 700, color: "#fff",
-                          }}>
-                            {featured.author.charAt(0)}
-                          </div>
-                          <span style={{
-                            fontFamily: "Lato,sans-serif",
-                            fontSize: 12, color: "rgba(255,255,255,.6)",
-                          }}>
-                            {featured.author} · {new Date(featured.publishedAt)
-                              .toLocaleDateString("en-GB", {
-                                day: "numeric", month: "long", year: "numeric",
-                              })}
-                          </span>
-                        </div>
-                      </div>
+        {/* ── LEFT SIDEBAR ── */}
+        <aside style={{
+          borderRight: "1px solid var(--border)",
+          paddingTop: 28, paddingBottom: 28,
+          position: "sticky", top: 60,
+          height: "calc(100vh - 60px)",
+          overflowY: "auto",
+        }}>
+          {/* Branding */}
+          <div style={{
+            padding: "0 16px 16px",
+            borderBottom: "1px solid var(--border)",
+            marginBottom: 16,
+          }}>
+            <p style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+              textTransform: "uppercase", color: "var(--tl)", marginBottom: 6,
+            }}>
+              Walking With God
+            </p>
+            <p style={{
+              fontFamily: "'Cormorant Garamond',Georgia,serif",
+              fontSize: 20, fontWeight: 300, color: "var(--t1)", lineHeight: 1.2,
+            }}>
+              Blog &amp; Series
+            </p>
+          </div>
 
-                      {/* Excerpt panel */}
-                      <div style={{
-                        background: "var(--bg2)", padding: "36px 28px",
-                        display: "flex", flexDirection: "column",
-                        justifyContent: "space-between",
-                      }}>
-                        <div>
-                          <div style={{
-                            fontFamily: "Lato,sans-serif",
-                            fontSize: 9, fontWeight: 700, letterSpacing: ".2em",
-                            textTransform: "uppercase", color: "var(--tl)", marginBottom: 14,
-                          }}>
-                            Opening Lines
-                          </div>
-                          <p style={{
-                            fontFamily: "'Cormorant Garamond',Georgia,serif",
-                            fontSize: "clamp(1rem,1.4vw,1.1rem)",
-                            fontStyle: "italic", lineHeight: 1.85,
-                            color: "var(--t2)",
-                          }}>
-                            &ldquo;{featured.excerpt}&rdquo;
-                          </p>
-                        </div>
-                        <div style={{ marginTop: 20 }}>
-                          <div style={{
-                            display: "flex", flexWrap: "wrap",
-                            gap: 5, marginBottom: 14,
-                          }}>
-                            {featured.tags.map(tag => (
-                              <span key={tag} style={{
-                                fontFamily: "Lato,sans-serif",
-                                fontSize: 9, fontWeight: 700,
-                                letterSpacing: ".1em", textTransform: "uppercase",
-                                padding: "2px 8px", borderRadius: 2,
-                                background: `${featured.coverColor}14`,
-                                color: featured.coverColor,
-                                border: `1px solid ${featured.coverColor}35`,
-                              }}>
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          <span style={{
-                            fontFamily: "Lato,sans-serif",
-                            fontSize: 11, fontWeight: 700,
-                            letterSpacing: ".1em", textTransform: "uppercase",
-                            color: featured.coverColor,
-                          }}>
-                            Read the full post →
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              )}
-
-              {/* ── TAG PILLS ── */}
-              {tags.length > 0 && (
-                <div style={{
-                  display: "flex", flexWrap: "wrap",
-                  gap: 8, marginBottom: 24,
+          {/* Navigation */}
+          <div style={{ padding: "0 8px", marginBottom: 20 }}>
+            {[
+              { label: "All Posts", count: posts.length, active: true },
+              { label: "Series", count: seriesList.length, active: false },
+            ].map(item => (
+              <div
+                key={item.label}
+                style={{
+                  display: "flex", alignItems: "center", gap: 8,
+                  padding: "8px 10px", borderRadius: 8, marginBottom: 2,
+                  background: item.active ? "var(--bg2)" : "transparent",
+                  cursor: "pointer",
+                }}
+              >
+                <span style={{
+                  fontFamily: "Lato,sans-serif",
+                  fontSize: 13,
+                  fontWeight: item.active ? 700 : 400,
+                  color: item.active ? "var(--t1)" : "var(--tm)",
+                  flex: 1,
                 }}>
-                  {tags.map(tag => (
-                    <span key={tag} style={{
-                      fontFamily: "Lato,sans-serif",
-                      fontSize: 10, fontWeight: 700, letterSpacing: ".1em",
-                      textTransform: "uppercase", padding: "4px 12px",
-                      borderRadius: 2, background: "var(--bg2)",
-                      border: "1px solid var(--border)", color: "var(--tm)",
-                    }}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+                  {item.label}
+                </span>
+                <span style={{
+                  fontFamily: "Lato,sans-serif",
+                  fontSize: 10, fontWeight: 700, color: "var(--tl)",
+                }}>
+                  {item.count}
+                </span>
+              </div>
+            ))}
+          </div>
 
-              {/* ── POST GRID ── */}
-              {rest.length > 0 && (
-                <>
-                  <div style={{
+          {/* Topics */}
+          <div style={{
+            padding: "16px 16px 0",
+            borderTop: "1px solid var(--border)",
+          }}>
+            <p style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+              textTransform: "uppercase", color: "var(--tl)", marginBottom: 10,
+            }}>
+              Browse by topic
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+              {tags.map(tag => (
+                <span
+                  key={tag}
+                  style={{
                     fontFamily: "Lato,sans-serif",
-                    fontSize: 10, fontWeight: 700, letterSpacing: ".2em",
-                    textTransform: "uppercase", color: "var(--tl)", marginBottom: 12,
-                  }}>
-                    All Posts
-                  </div>
-                  <div style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))",
-                    gap: 18,
-                  }}>
-                    {rest.map(post => <BlogCard key={post.slug} post={post} />)}
-                  </div>
-                </>
-              )}
-            </>
-          )}
-        </div>
-
-        {/* ── RIGHT: SERIES ── */}
-        <aside style={{ position: "sticky", top: 80 }}>
-          <SeriesPanel />
+                    fontSize: 9, fontWeight: 700, letterSpacing: ".1em",
+                    textTransform: "uppercase", padding: "2px 8px",
+                    borderRadius: 3,
+                    background: "var(--bg2)",
+                    border: "0.5px solid var(--border)",
+                    color: "var(--tm)",
+                    cursor: "pointer",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </aside>
 
+        {/* ── CENTRE: POSTS ── */}
+        <main style={{
+          borderRight: "1px solid var(--border)",
+          padding: "28px 24px",
+        }}>
+          {/* Search */}
+          <div style={{
+            display: "flex", alignItems: "center", gap: 8,
+            background: "var(--bg2)",
+            border: "1px solid var(--border)",
+            borderRadius: 8, padding: "9px 14px",
+            marginBottom: 20,
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="var(--tl)" strokeWidth="2" strokeLinecap="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            <span style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 13, color: "var(--tl)",
+            }}>
+              Search posts by topic or keyword...
+            </span>
+          </div>
+
+          {/* Count */}
+          <div style={{
+            display: "flex", justifyContent: "space-between",
+            alignItems: "center", marginBottom: 16,
+          }}>
+            <span style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+              textTransform: "uppercase", color: "var(--tl)",
+            }}>
+              {posts.length} article{posts.length !== 1 ? "s" : ""}
+            </span>
+          </div>
+
+          {/* Posts list */}
+          {posts.length === 0 ? (
+            <p style={{
+              fontFamily: "'Cormorant Garamond',Georgia,serif",
+              fontSize: "1.3rem", color: "var(--tm)",
+              fontStyle: "italic", textAlign: "center", padding: "60px 0",
+            }}>
+              The first post is coming soon.
+            </p>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {posts.map((post, i) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <article
+                    className="post-card"
+                    style={{
+                      border: "1px solid var(--border)",
+                      borderLeft: `3px solid ${post.coverColor}`,
+                      borderRadius: 10,
+                      padding: 16,
+                      background: i === 0 ? "var(--bg2)" : "var(--bg)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {/* Author row */}
+                    <div style={{
+                      display: "flex", alignItems: "center",
+                      gap: 6, marginBottom: 8,
+                    }}>
+                      <div style={{
+                        width: 24, height: 24, borderRadius: "50%",
+                        background: `${post.coverColor}18`,
+                        border: `1px solid ${post.coverColor}40`,
+                        display: "flex", alignItems: "center",
+                        justifyContent: "center",
+                        fontFamily: "Lato,sans-serif",
+                        fontSize: 10, fontWeight: 700,
+                        color: post.coverColor, flexShrink: 0,
+                      }}>
+                        {post.author.charAt(0)}
+                      </div>
+                      <span style={{
+                        fontFamily: "Lato,sans-serif",
+                        fontSize: 11, color: "var(--tm)", fontWeight: 600,
+                      }}>
+                        {post.author}
+                      </span>
+                      <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
+                      <span style={{
+                        fontFamily: "Lato,sans-serif",
+                        fontSize: 11, color: "var(--tl)",
+                      }}>
+                        {new Date(post.publishedAt).toLocaleDateString("en-GB", {
+                          day: "numeric", month: "short", year: "numeric",
+                        })}
+                      </span>
+                      <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
+                      <span style={{
+                        fontFamily: "Lato,sans-serif",
+                        fontSize: 11, color: "var(--tl)",
+                      }}>
+                        {post.readingTime} min
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h2 style={{
+                      fontFamily: "'Cormorant Garamond',Georgia,serif",
+                      fontSize: "clamp(1.1rem,1.8vw,1.3rem)",
+                      fontWeight: 400, lineHeight: 1.35,
+                      color: "var(--t1)", marginBottom: 6,
+                    }}>
+                      {post.title}
+                    </h2>
+
+                    {/* Excerpt */}
+                    <p style={{
+                      fontFamily: "'Cormorant Garamond',Georgia,serif",
+                      fontSize: 13, lineHeight: 1.65,
+                      color: "var(--tm)", marginBottom: 10,
+                    }}>
+                      {post.excerpt.slice(0, 140)}...
+                    </p>
+
+                    {/* Tags */}
+                    <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+                      {post.tags.slice(0, 3).map(tag => (
+                        <span
+                          key={tag}
+                          style={{
+                            fontFamily: "Lato,sans-serif",
+                            fontSize: 9, fontWeight: 700,
+                            letterSpacing: ".1em", textTransform: "uppercase",
+                            padding: "2px 8px", borderRadius: 3,
+                            background: `${post.coverColor}12`,
+                            color: post.coverColor,
+                            border: `0.5px solid ${post.coverColor}35`,
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          )}
+        </main>
+
+        {/* ── RIGHT SIDEBAR ── */}
+        <aside style={{
+          padding: "28px 16px",
+          position: "sticky", top: 60,
+          height: "calc(100vh - 60px)",
+          overflowY: "auto",
+          display: "flex", flexDirection: "column", gap: 20,
+        }}>
+
+          {/* Latest Week */}
+          <div>
+            <p style={{
+              fontFamily: "Lato,sans-serif",
+              fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+              textTransform: "uppercase", color: "var(--tl)", marginBottom: 10,
+            }}>
+              Latest Week
+            </p>
+            <Link
+              href={`/week/${latestWeekData.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div
+                className="week-card-hover"
+                style={{
+                  border: "1px solid var(--border)",
+                  borderTop: `3px solid ${latestWeekData.accentColor}`,
+                  borderRadius: 8, padding: 14,
+                  background: "var(--bg2)",
+                  cursor: "pointer",
+                }}
+              >
+                <p style={{
+                  fontFamily: "Lato,sans-serif",
+                  fontSize: 9, fontWeight: 700, letterSpacing: ".14em",
+                  textTransform: "uppercase",
+                  color: latestWeekData.accentColor, marginBottom: 4,
+                }}>
+                  {latestWeekData.subtitle}
+                </p>
+                <p style={{
+                  fontFamily: "'Cormorant Garamond',Georgia,serif",
+                  fontSize: 14, fontWeight: 400,
+                  color: "var(--t1)", lineHeight: 1.35, marginBottom: 6,
+                }}>
+                  {latestWeekData.title}
+                </p>
+                <p style={{
+                  fontFamily: "'Cormorant Garamond',Georgia,serif",
+                  fontSize: 12, fontStyle: "italic",
+                  color: "var(--tm)", lineHeight: 1.5, marginBottom: 10,
+                }}>
+                  &ldquo;{latestWeekData.heroVerse}&rdquo; — {latestWeekData.heroRef}
+                </p>
+                <div style={{
+                  display: "flex", justifyContent: "space-between",
+                  alignItems: "center",
+                }}>
+                  <span style={{
+                    fontFamily: "Lato,sans-serif",
+                    fontSize: 10, color: "var(--tl)",
+                  }}>
+                    7 days · {new Date(latestWeekData.publishedAt).toLocaleDateString("en-GB", {
+                      day: "numeric", month: "short",
+                    })}
+                  </span>
+                  <span style={{
+                    fontFamily: "Lato,sans-serif",
+                    fontSize: 10, fontWeight: 700,
+                    color: latestWeekData.accentColor,
+                  }}>
+                    Begin →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Series */}
+          {seriesList.map(series => (
+            <div key={series.name}>
+              <p style={{
+                fontFamily: "Lato,sans-serif",
+                fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+                textTransform: "uppercase", color: "var(--tl)", marginBottom: 10,
+              }}>
+                Series
+              </p>
+              <div style={{
+                border: "1px solid var(--border)",
+                borderTop: `3px solid ${series.color}`,
+                borderRadius: 8, overflow: "hidden",
+                background: "var(--bg)",
+              }}>
+                {/* Series header */}
+                <div style={{
+                  padding: "12px 14px",
+                  borderBottom: "1px solid var(--border)",
+                }}>
+                  <p style={{
+                    fontFamily: "Lato,sans-serif",
+                    fontSize: 9, fontWeight: 700, letterSpacing: ".14em",
+                    textTransform: "uppercase",
+                    color: series.color, marginBottom: 3,
+                  }}>
+                    {series.posts.length} parts
+                  </p>
+                  <p style={{
+                    fontFamily: "'Cormorant Garamond',Georgia,serif",
+                    fontSize: 14, fontWeight: 400,
+                    color: "var(--t1)", lineHeight: 1.3,
+                  }}>
+                    {series.name}
+                  </p>
+                </div>
+
+                {/* Parts list — show first 4 */}
+                <div style={{ padding: "6px 0" }}>
+                  {series.posts.slice(0, 4).map(post => (
+                    <Link
+                      key={post.slug}
+                      href={`/blog/${post.slug}`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      <div
+                        className="series-part-row"
+                        style={{
+                          display: "flex", alignItems: "flex-start",
+                          gap: 8, padding: "6px 14px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <div style={{
+                          width: 18, height: 18, borderRadius: "50%",
+                          background: `${series.color}18`,
+                          border: `1px solid ${series.color}50`,
+                          display: "flex", alignItems: "center",
+                          justifyContent: "center", flexShrink: 0,
+                          fontFamily: "Lato,sans-serif",
+                          fontSize: 8, fontWeight: 700,
+                          color: series.color, marginTop: 1,
+                        }}>
+                          {post.seriesPart}
+                        </div>
+                        <p style={{
+                          fontFamily: "'Cormorant Garamond',Georgia,serif",
+                          fontSize: 12, color: "var(--tm)",
+                          lineHeight: 1.4, flex: 1,
+                        }}>
+                          {post.title}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+
+                  {series.posts.length > 4 && (
+                    <p style={{
+                      fontFamily: "Lato,sans-serif",
+                      fontSize: 10, color: "var(--tl)",
+                      textAlign: "center", padding: "4px 0 6px",
+                      borderTop: "1px solid var(--border)",
+                      marginTop: 4,
+                    }}>
+                      + {series.posts.length - 4} more parts
+                    </p>
+                  )}
+                </div>
+
+                {/* Progress bar */}
+                <div style={{ padding: "0 14px 12px" }}>
+                  <div style={{
+                    height: 3, background: "var(--border)",
+                    borderRadius: 2, overflow: "hidden",
+                  }}>
+                    <div style={{
+                      height: "100%", borderRadius: 2,
+                      background: series.color,
+                      width: `${(series.posts.length / (series.posts[0]?.seriesTotal ?? series.posts.length)) * 100}%`,
+                      transition: "width .3s ease",
+                    }} />
+                  </div>
+                  <p style={{
+                    fontFamily: "Lato,sans-serif",
+                    fontSize: 10, color: "var(--tl)", marginTop: 4,
+                  }}>
+                    {series.posts.length} of {series.posts[0]?.seriesTotal ?? series.posts.length} published
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </aside>
       </div>
 
       {/* ── FOOTER ── */}
       <footer style={{
         background: "var(--bg2)", borderTop: "1px solid var(--border)",
-        padding: "36px 24px", textAlign: "center",
+        padding: "32px 24px", textAlign: "center",
       }}>
         <p style={{
           fontFamily: "'Cormorant Garamond',Georgia,serif",
-          fontSize: 18, fontStyle: "italic",
-          color: "var(--tm)", marginBottom: 6,
+          fontSize: 17, fontStyle: "italic",
+          color: "var(--tm)", marginBottom: 5,
         }}>
           &ldquo;Let the message of Christ dwell among you richly.&rdquo;
         </p>
@@ -299,20 +544,34 @@ export default function BlogIndexPage() {
         </p>
       </footer>
 
-      {/* Mobile responsive */}
+      {/* Responsive + hover styles */}
       <style>{`
-        @media (max-width: 768px) {
-          .blog-layout {
+        @media (max-width: 900px) {
+          .blog-three-col {
             grid-template-columns: 1fr !important;
           }
         }
-        .featured-card {
-          transition: box-shadow .25s;
+        .post-card {
+          transition: box-shadow .2s, border-color .2s;
         }
-        .featured-card:hover {
+        .post-card:hover {
           box-shadow: var(--sh2);
+          border-color: var(--tl) !important;
+        }
+        .week-card-hover {
+          transition: box-shadow .2s;
+        }
+        .week-card-hover:hover {
+          box-shadow: var(--sh);
+        }
+        .series-part-row {
+          transition: background .15s;
+        }
+        .series-part-row:hover {
+          background: var(--bg2);
         }
       `}</style>
     </>
   );
 }
+
