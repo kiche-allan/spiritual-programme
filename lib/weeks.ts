@@ -218,6 +218,24 @@ export const WEEKS_META: WeekMeta[] = [
     ],
     description: "The disciplines that shape a life oriented toward the coming King — submission in Gethsemane, trust in the waiting, patience in the refusal, prayer that moves heaven, and holy living as expectation made visible.",
   },
+  {
+    id: 11,
+    slug: "community-spiritual-warfare-great-commission",
+    title: "Community, Warfare & the Great Commission",
+    subtitle: "Week Eleven",
+    heroVerse: "As the Father has sent me, I am sending you.",
+    heroRef: "John 20:21",
+    publishedAt: "2026-06-01",
+    totalDays: 7,
+    accentColor: "#1A3A6E",
+    themes: [
+      { label: "Community",          days: "Mon–Tue", color: "#1A3A6E" },
+      { label: "Spiritual Warfare",  days: "Wed–Thu", color: "#7A1A1A" },
+      { label: "Great Commission",   days: "Fri–Sat", color: "#2E6B50" },
+      { label: "The Sent Life",      days: "Sun",     color: "#5A2D82" },
+    ],
+    description: "Eleven weeks of inward formation culminating in the outward sending — equipped in community, armoured for battle, and commissioned to go.",
+  },
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
