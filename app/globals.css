@@ -130,17 +130,17 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 500;
-  color: #BF8B3A;
+  color: #BF8B3A !important;
   margin: 2.8rem 0 1.1rem;
   padding-bottom: 10px;
-  border-bottom: 1.5px solid #BF8B3A30;
+  border-bottom: 1.5px solid rgba(191, 139, 58, 0.19);
   line-height: 1.25;
   letter-spacing: 0.01em;
 }
 
 .dark .article-prose h2 {
-  color: #E8C97A;
-  border-bottom-color: #E8C97A30;
+  color: #E8C97A !important;
+  border-bottom-color: rgba(232, 201, 122, 0.19);
 }
 
 .article-prose em {
@@ -242,5 +242,18 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   .blog-article-card:hover {
     box-shadow: var(--sh2);
     border-color: var(--tl) !important;
+  }
+}
+
+/* Blog three-column grid — collapse on mobile/tablet */
+@media (max-width: 1023px) {
+  .blog-three-col {
+    display: block !important;
+  }
+  .blog-three-col > aside {
+    display: none !important;
+  }
+  .blog-three-col > main {
+    border-right: none !important;
   }
 }
