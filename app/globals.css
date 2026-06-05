@@ -121,9 +121,9 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(17px, 1.8vw, 19px);
   line-height: 1.95;
-  color: var(--t2);
+  color: var(--t1);
   margin-bottom: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .article-prose h2 {
@@ -179,6 +179,7 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   line-height: 1.85;
   color: var(--t1);
   font-style: italic;
+  font-weight: 500;
 }
 
 /* Blog card */
