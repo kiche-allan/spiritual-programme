@@ -140,38 +140,6 @@ export default function BlogIndexPage() {
             ))}
           </div>
 
-          {/* Topics */}
-          <div style={{
-            padding: "16px 16px 0",
-            borderTop: "1px solid var(--border)",
-          }}>
-            <p style={{
-              fontFamily: "Lato,sans-serif",
-              fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
-              textTransform: "uppercase", color: "var(--tl)", marginBottom: 10,
-            }}>
-              Browse by topic
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
-              {tags.map(tag => (
-                <span
-                  key={tag}
-                  style={{
-                    fontFamily: "Lato,sans-serif",
-                    fontSize: 9, fontWeight: 700, letterSpacing: ".1em",
-                    textTransform: "uppercase", padding: "2px 8px",
-                    borderRadius: 3,
-                    background: "var(--bg2)",
-                    border: "0.5px solid var(--border)",
-                    color: "var(--tm)",
-                    cursor: "pointer",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
         </aside>
 
         {/* ── CENTRE: POSTS ── */}
@@ -214,6 +182,42 @@ export default function BlogIndexPage() {
             </span>
           </div>
 
+          {/* Tags — moved here from sidebar */}
+          {tags.length > 0 && (
+            <div style={{
+              display: "flex", flexWrap: "wrap", gap: 6,
+              marginBottom: 20,
+              paddingBottom: 16,
+              borderBottom: "1px solid var(--border)",
+            }}>
+              <span style={{
+                fontFamily: "Lato,sans-serif",
+                fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+                textTransform: "uppercase", color: "var(--tl)",
+                alignSelf: "center", marginRight: 4,
+              }}>
+                Topics:
+              </span>
+              {tags.map(tag => (
+                <span
+                  key={tag}
+                  style={{
+                    fontFamily: "Lato,sans-serif",
+                    fontSize: 9, fontWeight: 700, letterSpacing: ".1em",
+                    textTransform: "uppercase", padding: "3px 10px",
+                    borderRadius: 3,
+                    background: "var(--bg2)",
+                    border: "0.5px solid var(--border)",
+                    color: "var(--tm)",
+                    cursor: "pointer",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
           {/* Posts list */}
           {posts.length === 0 ? (
             <p style={{
@@ -229,99 +233,97 @@ export default function BlogIndexPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  className="blog-article-card"
+                  style={{
+                    textDecoration: "none", color: "inherit", display: "block",
+                    border: "1px solid var(--border)",
+                    borderLeft: `3px solid ${post.coverColor}`,
+                    borderRadius: 10,
+                    padding: 16,
+                    background: i === 0 ? "var(--bg2)" : "var(--bg)",
+                    transition: "box-shadow .2s",
+                    WebkitTapHighlightColor: "transparent",
+                  }}
                 >
-                  <article
-                    className="post-card"
-                    style={{
-                      border: "1px solid var(--border)",
-                      borderLeft: `3px solid ${post.coverColor}`,
-                      borderRadius: 10,
-                      padding: 16,
-                      background: i === 0 ? "var(--bg2)" : "var(--bg)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {/* Author row */}
+                  {/* Author row */}
+                  <div style={{
+                    display: "flex", alignItems: "center",
+                    gap: 6, marginBottom: 8,
+                  }}>
                     <div style={{
+                      width: 24, height: 24, borderRadius: "50%",
+                      background: `${post.coverColor}18`,
+                      border: `1px solid ${post.coverColor}40`,
                       display: "flex", alignItems: "center",
-                      gap: 6, marginBottom: 8,
+                      justifyContent: "center",
+                      fontFamily: "Lato,sans-serif",
+                      fontSize: 10, fontWeight: 700,
+                      color: post.coverColor, flexShrink: 0,
                     }}>
-                      <div style={{
-                        width: 24, height: 24, borderRadius: "50%",
-                        background: `${post.coverColor}18`,
-                        border: `1px solid ${post.coverColor}40`,
-                        display: "flex", alignItems: "center",
-                        justifyContent: "center",
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 10, fontWeight: 700,
-                        color: post.coverColor, flexShrink: 0,
-                      }}>
-                        {post.author.charAt(0)}
-                      </div>
-                      <span style={{
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 11, color: "var(--tm)", fontWeight: 600,
-                      }}>
-                        {post.author}
-                      </span>
-                      <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
-                      <span style={{
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 11, color: "var(--tl)",
-                      }}>
-                        {new Date(post.publishedAt).toLocaleDateString("en-GB", {
-                          day: "numeric", month: "short", year: "numeric",
-                        })}
-                      </span>
-                      <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
-                      <span style={{
-                        fontFamily: "Lato,sans-serif",
-                        fontSize: 11, color: "var(--tl)",
-                      }}>
-                        {post.readingTime} min
-                      </span>
+                      {post.author.charAt(0)}
                     </div>
-
-                    {/* Title */}
-                    <h2 style={{
-                      fontFamily: "'Cormorant Garamond',Georgia,serif",
-                      fontSize: "clamp(1.1rem,1.8vw,1.3rem)",
-                      fontWeight: 400, lineHeight: 1.35,
-                      color: "var(--t1)", marginBottom: 6,
+                    <span style={{
+                      fontFamily: "Lato,sans-serif",
+                      fontSize: 11, color: "var(--tm)", fontWeight: 600,
                     }}>
-                      {post.title}
-                    </h2>
-
-                    {/* Excerpt */}
-                    <p style={{
-                      fontFamily: "'Cormorant Garamond',Georgia,serif",
-                      fontSize: 13, lineHeight: 1.65,
-                      color: "var(--tm)", marginBottom: 10,
+                      {post.author}
+                    </span>
+                    <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
+                    <span style={{
+                      fontFamily: "Lato,sans-serif",
+                      fontSize: 11, color: "var(--tl)",
                     }}>
-                      {post.excerpt.slice(0, 140)}...
-                    </p>
+                      {new Date(post.publishedAt).toLocaleDateString("en-GB", {
+                        day: "numeric", month: "short", year: "numeric",
+                      })}
+                    </span>
+                    <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
+                    <span style={{
+                      fontFamily: "Lato,sans-serif",
+                      fontSize: 11, color: "var(--tl)",
+                    }}>
+                      {post.readingTime} min
+                    </span>
+                  </div>
 
-                    {/* Tags */}
-                    <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-                      {post.tags.slice(0, 3).map(tag => (
-                        <span
-                          key={tag}
-                          style={{
-                            fontFamily: "Lato,sans-serif",
-                            fontSize: 9, fontWeight: 700,
-                            letterSpacing: ".1em", textTransform: "uppercase",
-                            padding: "2px 8px", borderRadius: 3,
-                            background: `${post.coverColor}12`,
-                            color: post.coverColor,
-                            border: `0.5px solid ${post.coverColor}35`,
-                          }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </article>
+                  {/* Title */}
+                  <h2 style={{
+                    fontFamily: "'Cormorant Garamond',Georgia,serif",
+                    fontSize: "clamp(1.1rem,1.8vw,1.3rem)",
+                    fontWeight: 400, lineHeight: 1.35,
+                    color: "var(--t1)", marginBottom: 6,
+                  }}>
+                    {post.title}
+                  </h2>
+
+                  {/* Excerpt */}
+                  <p style={{
+                    fontFamily: "'Cormorant Garamond',Georgia,serif",
+                    fontSize: 13, lineHeight: 1.65,
+                    color: "var(--tm)", marginBottom: 10,
+                  }}>
+                    {post.excerpt.slice(0, 140)}...
+                  </p>
+
+                  {/* Tags */}
+                  <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+                    {post.tags.slice(0, 3).map(tag => (
+                      <span
+                        key={tag}
+                        style={{
+                          fontFamily: "Lato,sans-serif",
+                          fontSize: 9, fontWeight: 700,
+                          letterSpacing: ".1em", textTransform: "uppercase",
+                          padding: "2px 8px", borderRadius: 3,
+                          background: `${post.coverColor}12`,
+                          color: post.coverColor,
+                          border: `0.5px solid ${post.coverColor}35`,
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </Link>
               ))}
             </div>

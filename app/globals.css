@@ -231,3 +231,11 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   color: var(--tl);
   margin-bottom: 10px;
 }
+
+/* Blog article card hover — desktop only */
+@media (hover: hover) {
+  .blog-article-card:hover {
+    box-shadow: var(--sh2);
+    border-color: var(--tl) !important;
+  }
+}
