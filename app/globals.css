@@ -130,12 +130,17 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 500;
-  color: var(--t1);
+  color: #BF8B3A;
   margin: 2.8rem 0 1.1rem;
   padding-bottom: 10px;
-  border-bottom: 1.5px solid var(--border-custom);
+  border-bottom: 1.5px solid #BF8B3A30;
   line-height: 1.25;
   letter-spacing: 0.01em;
+}
+
+.dark .article-prose h2 {
+  color: #E8C97A;
+  border-bottom-color: #E8C97A30;
 }
 
 .article-prose em {
