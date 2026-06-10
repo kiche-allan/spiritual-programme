@@ -13,6 +13,7 @@ const WEEK_LOADERS: Record<number, () => Promise<{ default: DayContent[] }>> = {
   9: () => import("./week-9"),
   10: () => import("./week-10"),
   11: () => import("./week-11"),
+  12: () => import("./week-12"),
 };
 
 export async function getWeekContentAsync(weekId: number): Promise<DayContent[] | null> {

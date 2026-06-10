@@ -236,6 +236,25 @@ export const WEEKS_META: WeekMeta[] = [
     ],
     description: "Eleven weeks of inward formation culminating in the outward sending — equipped in community, armoured for battle, and commissioned to go.",
   },
+  {
+    id: 12,
+    slug: "hell-faithfulness-holy-spirit-salvation-holiness",
+    title: "Hell, Faithfulness, the Spirit & Salvation",
+    subtitle: "Week Twelve",
+    heroVerse: "Come near to God and he will come near to you.",
+    heroRef: "James 4:8",
+    publishedAt: "2026-06-08",
+    totalDays: 7,
+    accentColor: "#7A1A1A",
+    themes: [
+      { label: "The Dread of Hell",    days: "Mon–Tue", color: "#7A1A1A" },
+      { label: "God's Faithfulness",   days: "Wed–Thu", color: "#2C3E5A" },
+      { label: "The Holy Spirit",      days: "Fri",     color: "#2E6B50" },
+      { label: "Salvation & Holiness", days: "Sat",     color: "#BF8B3A" },
+      { label: "Leaning Toward God",   days: "Sun",     color: "#5A2D82" },
+    ],
+    description: "The stakes of eternity, the faithfulness of God in crisis, the person of the Holy Spirit, the full architecture of salvation, and the daily posture of a life leaning toward God.",
+  },
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
