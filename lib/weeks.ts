@@ -255,6 +255,25 @@ export const WEEKS_META: WeekMeta[] = [
     ],
     description: "The stakes of eternity, the faithfulness of God in crisis, the person of the Holy Spirit, the full architecture of salvation, and the daily posture of a life leaning toward God.",
   },
+  {
+  id: 13,
+  slug: "faith-tongue-humility-cross-holiness",
+  title: "Faith, the Tongue, Humility, the Cross & Holiness",
+  subtitle: "Week Thirteen",
+  heroVerse: "Let perseverance finish its work so that you may be mature and complete, not lacking anything.",
+  heroRef: "James 1:4",
+  publishedAt: "2026-06-15",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Steady-State Faith",     days: "Mon–Tue", color: "#1A3A6E" },
+    { label: "The Tongue & Heart",     days: "Wed–Thu", color: "#8A2040" },
+    { label: "The Cross Applied",      days: "Fri",     color: "#5A2D82" },
+    { label: "Prayer & Holiness",      days: "Sat",     color: "#2E6B50" },
+    { label: "The Integrated Life",    days: "Sun",     color: "#1A3A6E" },
+  ],
+  description: "Faith that builds in the comfortable season, a tongue and heart brought under the lordship of Christ, the cross applied to specific broken relationships, and a lifestyle of prayer and holiness that looks the same on the good days and the hard ones.",
+},
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
