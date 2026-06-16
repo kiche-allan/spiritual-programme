@@ -21,9 +21,30 @@ export default function Navbar() {
   return (
     <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:100, background:navBg, borderBottom:navBorder, backdropFilter:scrolled?"blur(12px)":"none", transition:"all .3s" }}>
       <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", height:60, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-        <Link href="/" style={{ fontFamily:"'Cormorant Garamond',Georgia,serif", fontSize:20, fontWeight:500, color:"var(--t1)", textDecoration:"none" }}>
-          Walking With God
-        </Link>
+<Link href="/" style={{ textDecoration: "none" }}>
+  <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+    <span style={{
+      fontFamily: "Lato,sas-serif",
+      fontSize: 11,
+      fontWeight: 900,
+      letterSpacing: ".28em",
+      textTransform: "uppercase",
+      color: "#E8C97A",
+      marginBottom: 3,
+    }}>
+      Hope &nbsp;·&nbsp; Faith &nbsp;·&nbsp; Purpose
+    </span>
+    <span style={{
+      fontFamily: "'Cormorant Garamond',Georgia,serif",
+      fontSize: "1.3rem",
+      fontWeight: 400,
+      color: "var(--hero-t, #FAF7F2)",
+      lineHeight: 1.2,
+    }}>
+      Walking With God
+    </span>
+  </div>
+</Link>
         <div style={{ display:"flex", alignItems:"center", gap:24 }}>
           <a href="/progress" style={{ fontSize:12, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", color:"var(--tm)", textDecoration:"none" }}>Progress</a>
           <Link href="/blog" style={{ fontSize:12, fontWeight:700, letterSpacing:".08em", textTransform:"uppercase", color:"var(--tm)", textDecoration:"none" }}>Blog</Link>

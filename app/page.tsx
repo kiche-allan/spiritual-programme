@@ -51,13 +51,26 @@ export default function HomePage() {
           backgroundImage: "radial-gradient(circle,#fff 1px,transparent 1px)",
           backgroundSize: "50px 50px", pointerEvents: "none",
         }} />
-        <div style={{ maxWidth: 660, margin: "0 auto", position: "relative" }}>
-          <div className="fade-up d1" style={{
-            fontSize: 11, fontWeight: 700, letterSpacing: ".22em",
-            textTransform: "uppercase", color: "var(--hero-a)", marginBottom: 14,
-          }}>
-            Weekly Devotional Programme
-          </div>
+        <div style={{ marginBottom: 16 }}>
+  {/* Hope · Faith · Purpose */}
+      <div style={{
+        fontFamily: "Lato,sans-serif",
+        fontSize: 10, fontWeight: 700, letterSpacing: ".32em",
+        textTransform: "uppercase",
+        color: "#E8C97A",
+        marginBottom: 8,
+      }}>
+        Hope &nbsp;·&nbsp; Faith &nbsp;·&nbsp; Purpose
+      </div>
+      {/* Weekly Devotional Programme */}
+      <div style={{
+        fontFamily: "Lato,sans-serif",
+        fontSize: 11, fontWeight: 700, letterSpacing: ".22em",
+        textTransform: "uppercase", color: "var(--hero-a)",
+      }}>
+        Weekly Devotional Programme
+      </div>
+  
 
           <h1 className="fade-up d2" style={{
             fontFamily: "'Cormorant Garamond',Georgia,serif",
