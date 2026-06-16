@@ -610,6 +610,377 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 
   {
+    slug: "unashamed-part-1",
+    title: `The Conversation the Church Stopped Having`,
+    subtitle: `Part 1 of Unashamed`,
+    publishedAt: "2026-06-08",
+    author: "Allan",
+    tags: ["sexuality", "pornography", "grace", "church", "mental health"],
+    coverColor: "#2C3E5A",
+    excerpt: `The church's silence on pornography and sexual brokenness has not produced purity. It has produced shame — and shame, unlike conviction, does not lead people to the cross. It leads them deeper into hiding.`,
+    readingTime: 7,
+    series: `Unashamed`,
+    seriesPart: 1,
+    seriesTotal: 7,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `There is a conversation the church stopped having. Not because the subject became less urgent — it became more urgent. Not because the problem became less widespread — it became epidemic. The church stopped having the conversation because the subject is uncomfortable, because it offends the sensibilities of a culture that has decided that sexuality is private and therefore unteachable, and because the people responsible for the conversation were often fighting the same battle they were supposed to be addressing. The result is a generation of believers — men and women, married and single, young and middle-aged — who are carrying one of the most powerful and most destructive struggles of their lives entirely alone, in silence, with no framework for understanding what is happening to them, no community equipped to walk through it with them, and no vocabulary for bringing it before God in a way that moves toward genuine freedom rather than deeper shame. This series is the conversation the church stopped having. It will be honest. It will be clinical where the science is clear. It will be theological where Scripture speaks directly. It will be pastoral where people are hurting. And it will not pretend that the problem is smaller or simpler than it actually is — because the people reading this deserve the truth, not a sanitised version of it that leaves them with the same struggle and better vocabulary for describing it.`
+      ],
+    },
+    {
+      heading: `The Scale of What We Are Not Talking About`,
+      paragraphs: [
+        `Before we discuss what pornography does, we need to establish how widespread it is — including among believers. The numbers are not comfortable. They are necessary. Global statistics are sobering. Pornhub alone receives over 42 billion visits per year — roughly 115 million visits every single day. A 2014 study published in the Journal of Adolescent Health found that 64 percent of young people aged 13 to 24 actively seek out pornography weekly. Covenant Eyes, a Christian accountability organisation, reports that 68 percent of church-going men and over 50 percent of pastors view pornography on a regular basis. Among Christian women, 1 in 3 report viewing pornography at least once a month. These are not figures from outside the church. They are figures from inside it — from the same people who take communion, lead worship, and sit on church boards. In Kenya, the conversation is equally urgent. A 2022 survey by the Communications Authority of Kenya found that 35 percent of internet users between the ages of 15 and 35 accessed pornographic content regularly, with the number rising significantly among urban youth. The Nation Media Group has reported on the growing clinical concern among Kenyan urologists about the rise of erectile dysfunction in young men — men in their twenties and early thirties presenting with symptoms historically associated with men in their sixties. Clinicians noted that the common denominator in a significant number of these cases was heavy pornography use, at rates that have no precedent in previous decades. This is not a Western phenomenon Kenya is observing from a distance. It is happening in Nairobi, in Mombasa, in every city where smartphones have made high-speed pornographic content available to anyone with a data connection.`
+      ],
+    },
+    {
+      heading: `The Escalation Problem`,
+      paragraphs: [
+        `One of the most important things to understand about pornography consumption is that it does not stay where it starts. The neurological mechanism that drives this is well documented. Sex has an intrinsically rewarding nature — it produces a dopaminergic response in the brain's reward pathway. But the intensity of that response is significantly heightened by novelty. What this means in practice is that the brain is constantly seeking the novelty edge — the point where stimulation is maximally gratifying. And because the brain adapts to whatever it is repeatedly exposed to, the material that produced a strong response last month no longer produces the same response this month. Clinical psychologist Jordan Peterson, drawing on the neuroscience of reward pathways, has documented this progression in stark terms — noting that what begins with relatively mild content tends to progress through increasingly graphic material, then content that is kinky, then violent, then violently sadistic. He draws a direct parallel to escalation patterns in sexually motivated criminal behaviour, where the sadistic element accelerates across time as the perpetrator searches for the novelty edge that keeps them at maximum gratification. There is reasonable evidence the same escalation dynamic applies to pornography consumption — the user who began with vanilla content does not stay there, and the cultural mainstreaming of increasingly extreme sexual content is the aggregate visible expression of millions of individual escalation journeys happening simultaneously. This is the mechanism behind the statistics. It is the reason that the person who told themselves they would keep it casual could not. It is the reason that believers who genuinely did not want to go where they ended up found themselves there anyway. The escalation is neurological, not merely moral. Understanding it does not remove responsibility. But it does reframe the battle.`
+      ],
+    },
+    {
+      heading: `Why Silence Produces Shame Rather Than Purity`,
+      paragraphs: [
+        `The church has operated on the implicit assumption that discomfort with a subject is a sufficient reason not to address it. This assumption has been catastrophically wrong. When a believer is struggling with pornography and their church has never spoken about it honestly, the message they receive is not that the subject is sacred. The message they receive is that they are uniquely broken — that what they are experiencing is too shameful even for the church to name, and therefore too shameful to bring to God. Shame says I am something wrong. Guilt says I did something wrong. The church has been producing shame rather than guilt — and the difference matters enormously. Guilt leads to the cross. Shame leads away from it. The person who hears from the front of the church that this struggle is real, that it is serious, that the statistics show they are far from alone, and that the grace of God is fully adequate for it — that person has been given something that silence never provides. This series exists because the conversation is necessary. Because the silence has done enough damage. And because the grace of God is not smaller than the sin of pornography — but you cannot receive grace for a struggle you cannot name. In Part 2 we go inside the brain — to understand what pornography is actually doing neurologically, which is the foundation for understanding why the usual approaches to fighting it are inadequate.`
+      ],
+    },
+    {
+      heading: `A Prayer to Begin`,
+      paragraphs: [
+        `Father, I begin this series by bringing the struggle that many reading this have never been able to name out loud. I bring the shame, the secrecy, the failed attempts, the self-disgust, the fear that they are beyond genuine change. I bring them to the cross where every specific, named, documented sin was absorbed and paid for. Let this series be the beginning of the honest conversation that produces freedom rather than the comfortable silence that produces shame. Let everyone who reads it feel understood rather than condemned, equipped rather than merely warned, and closer to You at the end of it than they were at the beginning. In Jesus' name, Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "unashamed-part-2",
+    title: `What It Does to Your Brain: The Neuroscience of Sexual Addiction`,
+    subtitle: `Part 2 of Unashamed`,
+    publishedAt: "2026-06-15",
+    author: "Allan",
+    tags: ["sexuality", "pornography", "neuroscience", "mental health", "addiction"],
+    coverColor: "#2C3E5A",
+    excerpt: `Pornography is not merely a moral problem that requires more willpower. It is a neurological process that rewires the brain in measurable, documented ways — and understanding those ways is the first step toward fighting it effectively.`,
+    readingTime: 7,
+    series: `Unashamed`,
+    seriesPart: 2,
+    seriesTotal: 7,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `The most common pastoral advice given to believers struggling with pornography is some version of try harder. Read your Bible more. Pray more. Be more accountable. Make a stronger commitment. The advice is not wrong in itself — all of those things matter. But it is inadequate because it treats pornography as a simple moral failing that requires more moral effort, when the clinical evidence is clear that it is something more complex and more neurologically specific than that. You cannot fight a battle you do not understand. And the battle against pornography begins in the brain.`
+      ],
+    },
+    {
+      heading: `The Dopamine System: How the Brain Processes Reward`,
+      paragraphs: [
+        `The brain has a reward pathway — technically called the mesolimbic dopamine system — that evolved to motivate behaviours necessary for survival. When you eat food, the pathway releases dopamine. When you exercise, it releases dopamine. When you achieve something significant, it releases dopamine. The dopamine does not produce pleasure directly — it produces the anticipation of pleasure, the drive toward the rewarding behaviour, the motivation to pursue what the brain has registered as good. Sex is one of the most powerful natural activators of the dopamine system. This is by design. The neurological reward associated with sexual activity is part of the mechanism that draws human beings toward the intimacy and bonding that healthy relationships require. The problem is not the dopamine system itself. The problem is what happens when that system is hijacked by an artificial stimulus that produces dopamine response without the relational context the system was designed to serve. When pornography is consumed, the dopamine system activates in patterns similar to the dopamine release associated with addictive substances. Neuroscientist William Struthers, in his landmark book Wired for Intimacy, documents precisely how this happens — how the visual sexual stimuli of pornography trigger a dopamine cascade that the brain experiences as intensely rewarding, and how repeated exposure to that cascade begins to reshape the neural pathways involved.`
+      ],
+    },
+    {
+      heading: `Tolerance, Escalation and the Novelty Mechanism`,
+      paragraphs: [
+        `The brain adapts to whatever it is repeatedly exposed to. This is called neuroplasticity — the brain's capacity to rewire itself based on experience. In the case of pornography, the adaptation takes the form of downregulation — the brain reduces the number of dopamine receptors in response to repeated overstimulation, meaning that more stimulation is required to produce the same dopamine response. This is tolerance. It is the same mechanism that drives drug addiction, and it produces the same progressive escalation. The escalation is further driven by novelty. Research consistently shows that novelty itself produces an additional dopaminergic kick — the brain responds more strongly to new stimuli than to familiar ones. This is why pornography consumption almost never stays where it starts. The user is not making a moral decision to pursue more extreme content. They are following a neurological gradient — chasing the novelty edge that keeps the dopamine response at the level their tolerance now requires. The person who started with mild content and finds themselves consuming material they would once have found repulsive is not morally unique. They are experiencing a predictable neurological process. A peer-reviewed paper by Hilton and Watts, published in Surgical Neurology International in 2011, formally framed pornography addiction using the same neurological criteria applied to substance addiction — documenting the dopamine receptor reduction, the tolerance and escalation mechanism, and the prefrontal cortex impairment that results from prolonged use. The prefrontal cortex is the region of the brain responsible for impulse control, long-term decision making, and the ability to override immediate gratification in favour of future wellbeing. Pornography use measurably impairs this region — which is precisely why the person who genuinely wants to stop often finds themselves unable to, regardless of the sincerity of their commitment.`
+      ],
+    },
+    {
+      heading: `Porn-Induced Erectile Dysfunction: The Physical Evidence`,
+      paragraphs: [
+        `One of the most clinically documented physical consequences of pornography use is erectile dysfunction in otherwise healthy young men. This is now a recognised clinical category — porn-induced erectile dysfunction — and it is appearing at rates that have no historical precedent. The mechanism is straightforward. The brain of a heavy pornography user has been conditioned to respond to screen stimulation — to the specific combination of novelty, variety, and visual intensity that pornographic content provides. Real intimacy, by contrast, is slow, involves a single consistent partner, lacks the novelty gradient of pornography, and requires emotional engagement rather than passive consumption. The brain that has been rewired to respond to pornography is, in many cases, neurologically poorly equipped to respond to a real partner. The conditioning has run in the wrong direction. The Nation Media Group's reporting on the rise of erectile dysfunction among young Kenyan men reflects exactly this pattern. Men in their twenties presenting with symptoms historically associated with men in their sixties. Physically healthy. Neurologically conditioned by years of pornography use. The body is telling the story that the person may not have been willing to tell themselves.`
+      ],
+    },
+    {
+      heading: `What This Means for the Fight`,
+      paragraphs: [
+        `Understanding the neuroscience of pornography addiction has direct and important implications for how the fight is conducted. First, it means that willpower alone is insufficient. The prefrontal cortex — the region responsible for exercising willpower — is precisely the region that pornography use impairs. Telling someone to try harder using the very faculty that the addiction has damaged is like telling someone with a broken arm to lift more weight. The approach is structurally inadequate to the problem. Second, it means that the environment matters as much as the intention. Because pornography addiction is neurologically similar to substance addiction, the environmental triggers that activate the craving need to be identified and disrupted. The time of day, the emotional state, the device, the location — all of these can become conditioned triggers that activate the reward pathway before a conscious decision has been made. Effective recovery addresses the environment, not merely the intention. Third, it means that recovery takes time. The brain that has been rewired by years of pornography use does not rewire itself back in days or weeks. Neuroplasticity works in both directions — the brain can be rewired toward health as well as toward addiction — but the process is gradual, requires consistent new patterns of behaviour, and will involve setbacks that are not evidence of failure but evidence of the process. Fourth, and most importantly for believers, it means that genuine freedom is possible. The brain that can be damaged can be healed. The neural pathways that have been carved by addiction can be redirected. Romans 12:2 — be transformed by the renewing of your mind — is not merely a spiritual metaphor. It is a neurological description of what the Spirit does in a person who is genuinely, consistently, communally pursuing freedom. The renewing of the mind is real. It takes time. It requires support. And it happens. In Part 3 we move from the brain to the soul — to the theological foundations that explain why sexual sin does damage that goes beyond the neurological, and why the body matters to God in ways that make sexual wholeness a genuinely spiritual pursuit.`
+      ],
+    },
+    {
+      heading: `A Prayer for Those Fighting This Battle`,
+      paragraphs: [
+        `Father, I bring to You today everyone reading this who has been fighting a battle they did not fully understand — who has tried harder and failed, who has made commitments and broken them, who has concluded that they are uniquely broken because the usual approaches have not worked. Let the understanding of what is actually happening in the brain be not a counsel of despair but an invitation to a more intelligent, more compassionate, more effective approach to the freedom You have promised. You made the brain. You understand the dopamine system. You designed neuroplasticity. And Romans 12:2 is Your invitation to the renewing of the very faculty that the addiction has damaged. You are not asking people to fix themselves before coming to You. You are offering to do the fixing as they come. In Jesus' name, Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "unashamed-part-3",
+    title: `What It Does to Your Soul: The Theology of the Body`,
+    subtitle: `Part 3 of Unashamed`,
+    publishedAt: "2026-06-22",
+    author: "Allan",
+    tags: ["sexuality", "theology", "grace", "redemption", "purity"],
+    coverColor: "#2C3E5A",
+    excerpt: `The church has a body problem — not in the sense of struggling with embodiment, but in the sense of having inherited a Greek philosophical framework that treats the body as spiritually secondary. This framework is not Christian. And it has made the church's engagement with sexual sin inadequate.`,
+    readingTime: 7,
+    series: `Unashamed`,
+    seriesPart: 3,
+    seriesTotal: 7,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `The church has a body problem. Not in the sense of struggling with embodiment, but in the sense of having inherited — largely unconsciously — a Greek philosophical framework that treats the body as the container of the soul, as spiritually secondary, as the source of temptation rather than the object of redemption. This framework is Platonic. It is not Christian. And it has made the church's engagement with sexual sin fundamentally inadequate, because it has produced a theology that treats what happens to the body as less spiritually significant than what happens to the soul. The Christian doctrine of the body begins not with Plato but with Genesis. And it ends not with death but with resurrection. The arc from creation to new creation is entirely, unapologetically, irreducibly bodily.`
+      ],
+    },
+    {
+      heading: `You Are Not a Soul Trapped in a Body`,
+      paragraphs: [
+        `Genesis 1:31 — God looked at everything He had made and declared it very good. Not provisionally good. Not good-enough-for-now. Very good. The body was made by God, declared good by God, and has never stopped being good in the eyes of its Maker. The fall introduced corruption into the body — death, disease, the weakening of the will — but it did not make the body evil. It did not make embodiment something to be escaped. The incarnation is the permanent theological declaration of the body's significance. The eternal Son of God — through whom all things were made, before whom the angels bow, in whom all the fullness of the Godhead dwells — took on human flesh. Not as a disguise. Not as a temporary vehicle. As a permanent union of the divine nature with human nature, including a human body. John 1:14 — the Word became flesh and made his dwelling among us. The Greek word for flesh is sarx — the most physical, most embodied, most material word available. God became sarx. He still has a body. He will always have a body. The incarnation was not reversed by the ascension. The resurrection confirms everything the incarnation implies. When Christ rose from the dead, He rose bodily. He ate fish with the disciples. He invited Thomas to touch the wounds. He was not a ghost or a disembodied spirit. He was the same Jesus, in a glorified but genuinely physical body, demonstrating that the destination of redemption is not the escape of the soul from the body but the transformation of the whole person — body and soul — into the glory God always intended. And 1 Corinthians 15 says your resurrection will be the same. Not a bodiless existence in a purely spiritual realm. A glorified body — continuous with the body you have now, transformed beyond its current limitations, fully redeemed, fully restored. The body you are living in is going to be raised. It matters what you do with it.`
+      ],
+    },
+    {
+      heading: `The Spousal Meaning of the Body`,
+      paragraphs: [
+        `John Paul II's Theology of the Body — delivered in 129 Wednesday audiences between 1979 and 1984 — is the most sustained and serious Christian engagement with human sexuality in the modern era. Its central insight is this: the human body has a spousal meaning. It is designed for self-gift. The male body and the female body are complementary not merely biologically but theologically — each is ordered toward the other in a way that images the self-giving love of the Trinity. Genesis 2:24–25 gives us the foundation: therefore a man shall leave his father and mother and hold fast to his wife, and they shall become one flesh. And they were both naked and unashamed. The nakedness and the absence of shame are not incidental. They are the sign of a complete, safe, covenanted vulnerability — two people in a relationship where the full exposure of the self to the other produces not shame but belonging. This is what the body was made to express. The one-flesh union is not merely a physical act. It is a theological statement — a visible, embodied sign of something invisible and eternal. Ephesians 5:31–32 reveals what the sign points to: Paul quotes Genesis 2:24 and then says this mystery is profound, and I am saying that it refers to Christ and the church. The one-flesh union of a husband and wife is designed by God to be a living portrait of the most important relationship in the universe — the union between the Son of God and the people He died for. This is what sex means in the Christian framework. Not merely pleasure, not merely reproduction, not merely the expression of desire — but the enactment of a covenant that signifies the love of Christ for His bride.`
+      ],
+    },
+    {
+      heading: `What Pornography Does to the Sign`,
+      paragraphs: [
+        `When this theological framework is understood, the damage that pornography does to the soul becomes clear at a level that secular analysis cannot reach. Pornography takes the nakedness designed for covenant safety and exposes it to strangers for commercial exchange. It takes the vulnerability designed to produce belonging and turns it into a product. It takes the one-flesh union designed to signify the love of Christ for His church and strips it of every dimension except the physical — reducing image-bearers of God to bodies performing for an audience. Matthew 5:28 — anyone who looks at a woman with lust has already committed adultery with her in his heart — is not a statement about thought-crime. It is a statement about personhood. The Greek word translated lust — epithumeo — means to desire in a way that treats the object of desire as a means to your own end rather than as a person with their own dignity and calling. It is the desire that consumes rather than the desire that loves. It is the desire that reduces a person to a function — what they can do for me, how they make me feel, what I can extract from their image. Every person in every piece of pornography is an image-bearer of God. They have a name, a mother, a history, a calling, a dignity that is non-negotiable and permanent. To consume them as a product is to participate in their reduction. And Jesus says this participation begins not with the viewing but with the looking — with the interior decision to see them as less than what they are. 1 Corinthians 6:18–20 adds the dimension most consistently overlooked: every other sin a person commits is outside the body, but the sexually immoral person sins against their own body. Do you not know that your body is a temple of the Holy Spirit within you? Sexual sin is uniquely self-destructive — not merely neurologically and psychologically, but theologically. The body that was designed to be a dwelling place of God, a temple of the Holy Spirit, a site of the most significant acts in the history of redemption — is being defiled from the inside by the accumulation of images, habits, and neural pathways that run contrary to everything the body was made to express.`
+      ],
+    },
+    {
+      heading: `The Body God Is Redeeming`,
+      paragraphs: [
+        `The most important thing to say about the theology of the body in this context is this: God is not disgusted by your body. He is redeeming it. Romans 8:23 — we ourselves groan inwardly as we wait eagerly for our adoption to sonship, the redemption of our bodies. The redemption is coming. The body that has been damaged by addiction, conditioned by pornography, marked by sexual sin — that body is not beyond the reach of the redemption that is already underway. The same Spirit who raised Jesus from the dead dwells in you — and He is working toward the full redemption of your body as surely as He is working toward the full renewal of your soul. The theology of the body is not an argument for shame. It is an argument for hope. Because the body that was made very good, that was dignified by the incarnation, that will be raised and glorified at the resurrection — that body is worth fighting for. The sexual wholeness that the gospel makes`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "unashamed-part-4",
+    title: `Men, Women, and the Different Wounds`,
+    subtitle: `Part 4 of Unashamed`,
+    publishedAt: "2026-06-29",
+    author: "Allan",
+    tags: ["sexuality", "pornography", "marriage", "mental health", "gender"],
+    coverColor: "#2C3E5A",
+    excerpt: `Pornography does not damage men and women in the same ways. The wounds are different, the mechanisms are different, and the pastoral responses need to be different. The church has addressed the male experience inadequately and the female experience almost not at all.`,
+    readingTime: 7,
+    series: `Unashamed`,
+    seriesPart: 4,
+    seriesTotal: 7,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `The church's conversation about pornography — to the extent that it has happened at all — has been almost exclusively addressed to men. The statistics that are quoted, the testimonies that are shared, the accountability structures that are built, the sermons that are preached — they assume a male struggler and a female victim. This assumption misses half the population. Pornography damages men and women — but it damages them differently. The wounds are different, the mechanisms are different, the shame patterns are different, and the pastoral responses need to be different. This post addresses both with the seriousness each deserves.`
+      ],
+    },
+    {
+      heading: `The Male Experience`,
+      paragraphs: [
+        `For the single man, pornography creates what researchers call a fantasy template — a neurologically conditioned set of expectations about sexual stimulation that real relationships cannot match. The brain of a man who has consumed pornography heavily has been trained to associate sexual arousal with novelty, variety, passivity, and the complete absence of relational cost. The woman on the screen makes no demands. She requires no emotional investment. She is available at any moment, in any configuration, without the vulnerability, the conflict, the slow knowing that genuine intimacy requires. The man who arrives at marriage carrying this template is not merely carrying a bad habit. He is carrying a rewired reward system — one that has been conditioned to respond to the screen and may struggle to respond to a real partner in the way that genuine intimacy requires. This is not a character failure. It is a neurological consequence. And it needs to be addressed as such, with the combination of spiritual, psychological, and practical interventions that the complexity of the problem requires. For the married man, the research is consistent and sobering. Maltz and Maltz, in The Porn Trap, document how pornography use correlates with decreased marital satisfaction, reduced emotional intimacy with the spouse, and increased rates of infidelity. The mechanism is straightforward: the married man who uses pornography is constructing a parallel world that competes with his marriage — and the marriage almost always loses. Gradually, then suddenly. The distance that pornography creates is not merely sexual. It is emotional and spiritual — the man who is living a hidden sexual life is presenting a managed version of himself to his wife rather than his actual self, and the gap between the presented self and the actual self becomes a form of loneliness that grows year by year.`
+      ],
+    },
+    {
+      heading: `The Female Experience — The Wound Nobody Talks About`,
+      paragraphs: [
+        `The most significant gap in the church's engagement with pornography is its near-total failure to address the female experience — both the growing number of women who are consumers and the wives who are secondary victims of their husbands' use. Among women who consume pornography, the patterns and the wounds are distinct from those of men. Women who use pornography are more likely to experience body dysmorphia — a sustained, specific shame about their own bodies in comparison with the bodies on screen. They are more likely to experience emotional confusion about their own desires, difficulty distinguishing between genuine sexual desire and conditioned response. And they are more likely to experience pornography as emotionally isolating rather than stimulating — a study in loneliness rather than an expression of desire. The woman who discovers her husband's pornography use experiences what the clinical literature documents as a betrayal trauma — psychologically identical to discovering a physical affair. She asks the same questions a spouse asks upon discovering infidelity: am I not enough? What does she have that I do not? Why did he choose that over me? The fact that the people on the screen are not people her husband knows does not diminish the wound. In some ways it deepens it — she is being compared not to a real person but to a fantasy, and a real person cannot compete with a fantasy. The theological and psychological answers to her questions, however true they are, do not resolve the wound quickly or easily. She needs to be told that her response is accurate — that a real violation of the covenant has occurred — and that the grief she is feeling is the appropriate response to a genuine loss.`
+      ],
+    },
+    {
+      heading: `Women in the Industry — The Suppressed Reality`,
+      paragraphs: [
+        `The most consistently suppressed conversation in the pornography debate is the reality of the women who appear in it. The public narrative of empowerment and choice — the assertion that the industry is populated by freely choosing adults who are doing what they want — is contradicted by the clinical data of what happens to the women who have lived it. Research psychologist Melissa Farley's extensive clinical work with women in the sex industry documents extremely high rates of prior sexual trauma, PTSD during and after their time in the industry, dissociation during filming as a coping mechanism for what their bodies were experiencing, and profound difficulty forming normal relationships after leaving. The women in pornography are not, as a population, freely choosing empowered adults. They are, as a population, people who arrived at that place through a pathway of prior trauma, economic desperation, or exploitation — and whose experience of it produced damage that the camera never showed. Every time a believer consumes pornography, they are participating in the demand that creates the supply. The woman on the screen is a person — an image-bearer of God with a history and a wound that the viewer will never see. The consumption is never truly private. It always has a human cost.`
+      ],
+    },
+    {
+      heading: `What Both Genders Need`,
+      paragraphs: [
+        `What men need in this conversation is not shame. They have enough shame. What men need is the honest naming of what is happening neurologically, the removal of the isolation that shame maintains, the specific practical steps that create conditions for genuine recovery, and the community that makes those steps possible. They need to be told that they are not uniquely broken — that the statistics show they are fighting a battle that the majority of their brothers are also fighting — and that the grace of God is fully adequate for what they are carrying. What women need — whether they are consumers, wives of consumers, or survivors of the industry — is to be seen in this conversation rather than assumed away from it. Women who use pornography need the same honest, non-condemning, grace-grounded engagement that their male counterparts receive — without the additional shame of being told that women do not struggle with this. Wives of men who use pornography need their betrayal trauma to be named as betrayal trauma — real, valid, requiring specific pastoral care — rather than minimised or explained away. And women who have been in the industry need to know that the genealogy of Jesus includes people whose stories look like theirs, and that the redemption He offers is comprehensive enough to reach every dimension of what they have experienced. In Part 5 we address the question that the church most consistently avoids: masturbation. What Scripture says, what it does not say, and the pastoral approach that takes both holiness and grace seriously.`
+      ],
+    },
+    {
+      heading: `A Prayer for the Wounded`,
+      paragraphs: [
+        `Father, I bring to You today the men who are fighting this battle in isolation, the women whose struggle has never been acknowledged, the wives whose pain has been minimised, and the women in the industry whose stories have been hidden. I bring them all to the same cross that is sufficient for all of them. Let the church become a place where every wound in this conversation can be brought into the light — where the men can speak honestly, where the women can be seen, where the betrayed can grieve, and where the exploited can find the specific, comprehensive, bodily redemption that the gospel promises. In Jesus' name, Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "unashamed-part-5",
+    title: `Masturbation: The Question Nobody Asks in Church`,
+    subtitle: `Part 5 of Unashamed`,
+    publishedAt: "2026-07-06",
+    author: "Allan",
+    tags: ["sexuality", "purity", "grace", "theology", "single life"],
+    coverColor: "#2C3E5A",
+    excerpt: `The church's silence on masturbation has not produced clarity. It has produced confusion — and the confusion has left believers without the theological and pastoral framework to engage with one of the most common experiences of their sexual lives.`,
+    readingTime: 7,
+    series: `Unashamed`,
+    seriesPart: 5,
+    seriesTotal: 7,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `This is the post that most churches will never preach. It addresses a subject so consistently avoided in Christian contexts that the very naming of it in a church setting can produce audible discomfort. And yet the experience it describes is among the most common in the sexual lives of believers — male and female, single and married, young and old. The silence has not produced purity. It has produced confusion, shame, and the private management of a struggle that the community was supposed to be equipped to walk through together. Let us have the honest conversation.`
+      ],
+    },
+    {
+      heading: `What Scripture Says Directly`,
+      paragraphs: [
+        `The first thing to say is the most important: Scripture does not directly address masturbation. There is no verse that names it and prohibits it. The passage most commonly cited — the story of Onan in Genesis 38 — is not about masturbation. Onan's sin was his deliberate refusal to fulfil the levirate duty to his brother's widow by withdrawing before ejaculation — a sin of covenant refusal, not of sexual self-stimulation. Citing this passage as a proof-text against masturbation is exegetically indefensible. This does not mean that masturbation is theologically neutral. It means that the theological engagement with it must be more careful and more honest than proof-texting allows. The absence of a direct prohibition does not mean the absence of relevant theological principles — and the theological principles that apply are serious ones.`
+      ],
+    },
+    {
+      heading: `The Lust Problem`,
+      paragraphs: [
+        `Matthew 5:28 is the most relevant passage: anyone who looks at a woman with lust has already committed adultery with her in his heart. The word epithumeo — translated lust — describes the desire that treats another person as an object for personal gratification rather than as a full human being with their own dignity and calling. This is the theological issue with masturbation as it is most commonly practised — not the physical act itself, but the mental content that almost always accompanies it. The honest clinical and pastoral reality is that masturbation rarely occurs in isolation from sexual fantasy or pornography. For most people who are struggling with masturbation, the two are inseparable — masturbation is the physical behaviour and pornography or sexual fantasy provides the mental content. In this context, Matthew 5:28 applies directly. The sexual fantasy that treats a real or imagined person as a stimulus for personal gratification is the lust that Jesus identifies as already a violation — regardless of whether any external act follows. This is the theological problem with masturbation that the church has consistently failed to articulate: not the act itself in isolation, but the lusting that accompanies it. A person who could masturbate without any fantasy content involving another person would be in a different theological category than a person who does so while mentally using another person as an object of gratification. The former is a theoretical possibility. The latter is the lived reality of almost everyone who is actually struggling with this.`
+      ],
+    },
+    {
+      heading: `The Different Situations: Single and Married`,
+      paragraphs: [
+        `The theological and pastoral approach to masturbation is not identical for single and married believers, and treating them the same produces confusion in both directions. For the single believer, masturbation is most commonly the physical expression of a sexual drive that has no legitimate outlet — and the question is not merely whether the act is sinful but how to live faithfully in a body that has sexual desires in a season where those desires cannot be expressed in the way God designed. 1 Corinthians 7:9 — it is better to marry than to burn with passion — acknowledges the reality and the cost of sexual desire in the single person. It does not resolve the question of masturbation directly, but it acknowledges that the struggle is real and that the church's response needs to be more than a prohibition without a pastoral framework. For the single believer, the pastoral approach needs to distinguish between the physical act and the mental content. The cultivation of a rich fantasy life involving other people — whether fuelled by pornography or by imagination — is theologically problematic regardless of whether it is accompanied by physical activity. The physical act in the absence of that content is in a different theological category — and the pastoral conversation needs to make that distinction rather than treating all masturbation as identical. For the married believer, the questions are different. A married person who masturbates to pornography is doing something that directly competes with their covenant relationship — directing their sexual energy away from their spouse and toward a screen, creating a parallel sexual world that undermines the one-flesh union the marriage is designed to express. This is theologically clear. A married person who masturbates in the absence of their spouse, without pornography or fantasy involving other people, is in a different and more complex situation — and the pastoral conversation needs to acknowledge the complexity rather than papering over it with a blanket prohibition.`
+      ],
+    },
+    {
+      heading: `The Grace That Does Not Minimise`,
+      paragraphs: [
+        `The theological conclusion of this post is not that masturbation is fine and the church should stop worrying about it. The theological conclusion is that the church needs to engage with it seriously, honestly, and with the distinctions that the topic requires — because the blanket silence has produced more damage than the honest conversation would have. For the believer who is struggling — who is caught in the cycle of masturbation and pornography and shame and failed commitment — the pastoral priority is not a clearer articulation of why it is wrong. They already know it is wrong. The pastoral priority is the same as it is for every form of sexual brokenness: the removal of the isolation that shame maintains, the honest naming of what is actually happening, the community that creates conditions for genuine change, and the grace of God that is not smaller than the struggle. 1 John 1:9 — if we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness. The cleansing is from all unrighteousness. Not from the manageable sins. Not from the sins that are comfortable to name in church. All unrighteousness — including the struggle that has never been named in the presence of another person and has been carried entirely alone. In Part 6 we address the theology of shame — why the approach of making people feel worse about their sin has not produced holiness, and what the gospel actually offers in place of it.`
+      ],
+    },
+    {
+      heading: `A Prayer for the Struggling`,
+      paragraphs: [
+        `Father, I bring to You the person reading this who has been carrying this struggle entirely alone — who has never been able to name it in the presence of another person, who has concluded that the church is not a safe place to bring it, who has been managing it in silence for months or years without any real movement toward freedom. I bring them to 1 John 1:9. Faithful. Just. Forgiving. Cleansing. All unrighteousness. Let the word all be as large as it needs to be to cover what they are carrying. And let the cleansing be not just the forgiveness of yesterday's failure but the genuine, progressive, Spirit-empowered transformation of desire that Romans 12:2 describes. You are not repulsed by this struggle. You are redeeming it. Let that truth be the thing that changes everything. In Jesus' name, Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "unashamed-part-6",
+    title: `The Theology of Shame: Why Condemnation Does Not Produce Holiness`,
+    subtitle: `Part 6 of Unashamed`,
+    publishedAt: "2026-07-13",
+    author: "Allan",
+    tags: ["grace", "shame", "redemption", "sexuality", "gospel"],
+    coverColor: "#2C3E5A",
+    excerpt: `The church has operated on the implicit assumption that shame produces holiness — that if the believer feels bad enough about their sin, the feeling of badness will eventually motivate them to stop. This assumption is not merely psychologically false. It is theologically false.`,
+    readingTime: 8,
+    series: `Unashamed`,
+    seriesPart: 6,
+    seriesTotal: 7,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Romans 8:1 — there is therefore now no condemnation for those who are in Christ Jesus — is not a consolation prize for people who have failed. It is a theological statement about the nature of the gospel and the mechanism of genuine transformation. And it is the verse that the church's approach to sexual sin has most consistently, most harmfully, and most unintentionally contradicted. The church has operated on the implicit assumption that shame produces holiness. That if the believer feels bad enough about their sin — if the preaching is strong enough, the accountability is sharp enough, the consequences are made vivid enough — the accumulated weight of feeling terrible will eventually tip them toward genuine change. This assumption is not merely psychologically false. It is theologically false. And the damage it has done to the people in the pews who have been carrying sexual shame is incalculable.`
+      ],
+    },
+    {
+      heading: `Guilt and Shame Are Not the Same Thing`,
+      paragraphs: [
+        `The distinction between guilt and shame is one of the most important in the pastoral literature on sexual brokenness, and it is almost never made in church contexts. Guilt says: I did something wrong. It is specific, it is behavioural, and it has a resolution pathway — confession, repentance, forgiveness, restoration. Guilt leads to the cross because the cross is the place where the specific wrong thing is dealt with. The person who feels genuine guilt about a specific sin has a clear theological path: acknowledge it, bring it to God, receive forgiveness, turn from it. Guilt, handled well, is a gift — it is the signal of a conscience that is working, pointing toward the need for the forgiveness that is available. Shame says: I am something wrong. It is not specific and it is not behavioural — it is identity. Shame does not say I did a wrong thing that needs to be corrected. It says I am a wrong person who is beyond correction. And because shame attaches to the self rather than to the behaviour, it has no resolution pathway. You cannot confess your way out of shame because shame is not about what you did — it is about what you are. The person in shame does not think: I feel so terrible about this that I will go to God. They think: I feel so terrible about this that I cannot go to God. Shame does not lead to the cross. It leads away from it. It leads deeper into hiding, deeper into isolation, deeper into the secrecy that creates the conditions under which the addiction strengthens rather than weakens. The church's approach to sexual sin has consistently produced shame rather than guilt — because it has consistently addressed behaviour without addressing identity, has consistently made people feel worse without offering the specific, personal, identity-level grace that shame requires. And the people in the pews who are carrying the accumulated shame of years of sexual struggle have often concluded that the church is not a safe place to bring it — which means they are carrying it alone, which means the community that could create the conditions for genuine change is not functioning for them.`
+      ],
+    },
+    {
+      heading: `Hebrews 12:2 — The Shame That Christ Scorned`,
+      paragraphs: [
+        `Hebrews 12:2 says Jesus endured the cross, scorning its shame. The word translated scorning is kataphroneo — to despise, to treat as beneath consideration, to regard with contempt. Jesus scorned the shame of the cross. He did not merely endure it — He treated it as beneath the dignity of what the cross was accomplishing. The shame was real. The humiliation was complete — public execution, nakedness, the contempt of the religious establishment, the abandonment of His disciples. And He scorned it. Because the joy set before Him — the redemption of everyone who would ever trust Him — was infinitely more significant than the shame. And in scorning His own shame, He absorbed yours. The cross is not merely the place where sin was forgiven. It is the place where shame was dealt with — where the One who had no shame of His own took on the shame of everyone who would ever trust Him, treated it with the contempt it deserves, and left it buried in the tomb. Romans 10:11 — anyone who trusts in him will never be put to shame. The Greek is emphatic and absolute: ou kataischyno — never, under any circumstances, be put to shame. The person who has received what the cross offers has been permanently removed from the jurisdiction of shame. Not because their sin was small but because the cross was sufficient.`
+      ],
+    },
+    {
+      heading: `The Genealogy of Jesus: Nobody Is Too Far Gone`,
+      paragraphs: [
+        `Matthew 1 contains one of the most theologically loaded genealogies in all of Scripture. It lists four women: Tamar, who seduced her father-in-law in Genesis 38. Rahab, who was a prostitute in Jericho. Ruth, a Moabite — from a people associated in Israel's history with sexual idolatry. And Bathsheba, identified only as the wife of Uriah — a woman whose presence in the genealogy is a permanent memorial to David's sexual sin. Matthew put all four of them in the lineage of the Son of God deliberately. He could have left them out. The genealogy would have been shorter and cleaner. He did not leave them out. Because the sexual brokenness in the lineage of Jesus is not incidental to the gospel. It is illustrative of it. The Messiah came from a lineage that bears the marks of every form of sexual sin — exploitation, prostitution, idolatry, adultery — and His arrival did not erase those marks. It redeemed them. He is the great-great-grandson of a prostitute. He came into the world through a lineage that makes it impossible to argue that any form of sexual brokenness places a person beyond the reach of His grace. Nobody is too far gone. Not the person who has been consuming pornography for twenty years. Not the person who has been in the industry. Not the person whose marriage has been destroyed by their sexual sin. Not the person who has caused irreparable damage to another person through sexual exploitation. The lineage of the Messiah contains all of these categories — and He came anyway. Not despite the brokenness. Through it. To redeem it.`
+      ],
+    },
+    {
+      heading: `What the Gospel Actually Offers`,
+      paragraphs: [
+        `Romans 8:1 — no condemnation. This is not a lowering of standards. It is not a theological get-out-of-jail-free card that makes holiness optional. It is the foundation without which genuine holiness is impossible. The person who is living under condemnation is spending all their spiritual energy managing shame — hiding, performing, pretending — and has none left for the genuine transformation that holiness requires. The person who has genuinely received Romans 8:1 — who knows, not just intellectually but experientially, that there is no condemnation for them in Christ — is the person who is finally free to change, because the change is no longer driven by the need to escape condemnation but by the desire to become like the One who already loves them completely. This is the gospel's offer to everyone reading this series: not merely the forgiveness of what you have done, but the transformation of who you are becoming. Not the management of shame, but the removal of it. Not the white-knuckling of behaviour change, but the Spirit-empowered renewal of desire that makes holiness feel like homecoming rather than deprivation. In Part 7 — the final post in this series — we look at what genuine freedom actually looks like in practice: the specific, sustainable, communally grounded path from where you are to where the gospel says you can be.`
+      ],
+    },
+    {
+      heading: `A Prayer Against Shame`,
+      paragraphs: [
+        `Father, I declare over everyone reading this the truth of Romans 8:1: there is therefore now no condemnation. Not for what they have done in secret. Not for what they have been unable to stop. Not for the shame they have been carrying so long it has begun to feel like identity. No condemnation. The cross absorbed it. The blood covers it. The resurrection has rendered it permanently invalid. Let the people reading this receive not just the intellectual knowledge of this truth but the experienced reality of it — the moment when the shame that has been sitting on them lifts because the One who is greater than the shame has arrived. Let that moment happen today, in this reading, in this prayer. In Jesus' name, Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "unashamed-part-7",
+    title: `The Path to Freedom: What Genuine Recovery Actually Looks Like`,
+    subtitle: `Part 7 of Unashamed`,
+    publishedAt: "2026-07-20",
+    author: "Allan",
+    tags: ["sexuality", "freedom", "grace", "recovery", "community"],
+    coverColor: "#2C3E5A",
+    excerpt: `Genuine freedom from pornography and sexual addiction is not the white-knuckling of behaviour change through sufficient willpower. It is the Spirit-empowered renewal of desire — and it almost always comes through community rather than isolation.`,
+    readingTime: 11,
+    series: `Unashamed`,
+    seriesPart: 7,
+    seriesTotal: 7,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Six posts into this series, you now have the neuroscience, the theology, the gender-specific wounds, the honest engagement with masturbation, and the theology of shame that is the foundation of genuine change. This final post is the practical one. What does freedom actually look like? Not the theoretical freedom of a theological position, but the lived, daily, tested, sometimes-failing-and-getting-back-up freedom of a person who is genuinely moving in the right direction? Here is what the evidence — clinical, pastoral, and biblical — consistently shows.`
+      ],
+    },
+    {
+      heading: `What Freedom Is Not`,
+      paragraphs: [
+        `Freedom from pornography and sexual addiction is not the white-knuckling of behaviour change through sufficient willpower. We established in Part 2 that the prefrontal cortex — the region responsible for willpower — is precisely the region that pornography use impairs. The approach of trying harder using the faculty that the addiction has damaged is structurally inadequate. It produces short-term abstinence followed by relapse followed by shame followed by deeper hiding — the cycle that most people reading this are already familiar with. Freedom is also not the management of a permanent condition. The clinical and spiritual literature on recovery is consistent: genuine freedom is possible. Not the freedom of someone who has achieved a state where they are no longer tempted, but the freedom of someone whose desires have been genuinely, progressively renewed — who is increasingly wanting what God wants, rather than increasingly restraining what they still fundamentally desire. Romans 12:2 — be transformed by the renewing of your mind — describes a transformation, not a management. The renewing of the mind is real. It takes time. It requires support. And it results in genuine change, not merely contained behaviour.`
+      ],
+    },
+    {
+      heading: `The Covenant of the Eyes: Job's Ancient Wisdom`,
+      paragraphs: [
+        `Job 31:1 — I made a covenant with my eyes not to look lustfully at a young woman. Job does not resolve to behave better. He makes a covenant — a binding, deliberate, formally committed agreement — with his own eyes. He understands something that the modern church has consistently underemphasised: the eyes are the primary gateway of sexual temptation for most people, and the discipline of vision is a spiritual discipline of the highest order. The covenant of the eyes is not the anxiety of self-monitoring. It is not the posture of a person who walks through the world terrified of what they might accidentally see. It is the posture of a person who has made a prior, settled, deliberate decision about what they will and will not look at — and who enforces that decision not reactively in the heat of temptation but proactively as a standing commitment that precedes the encounter with temptation. In practical terms, this means environmental restructuring — the deliberate modification of the environment to reduce the accessibility of the trigger. This is not a spiritual failure. It is wisdom. The person who keeps pornography accessible on their device while relying entirely on in-the-moment willpower to resist it is fighting from a position of maximum disadvantage. The covenant of the eyes, in the twenty-first century, includes accountability software, device restrictions, honest conversations with accountability partners about specific triggers, and the deliberate removal of access during the high-risk times and emotional states that the person has identified as their vulnerability pattern.`
+      ],
+    },
+    {
+      heading: `The Non-Negotiability of Community`,
+      paragraphs: [
+        `Genuine freedom from pornography almost never happens in isolation. This is not merely a pastoral observation — it is the consistent finding of both the clinical literature on addiction recovery and the theological literature on sanctification. James 5:16 — confess your sins to one another and pray for one another, so that you may be healed — is not an optional spiritual enhancement. It is the description of the mechanism through which healing becomes possible. The secret that is kept is the secret that maintains its power. The struggle that cannot be named is the struggle that wins. The person who brings their pornography struggle into the light — who tells one trusted person the truth, not the managed version but the actual truth — has done the single most powerful thing available to them for their recovery. Not because the other person can fix them, but because the exposure of the secret removes the conditions of isolation under which the shame feeds and the addiction strengthens. What this person needs is not a shocked response, not a list of action points, and not a theological lecture. They need what the clinical literature calls a non-anxious presence — someone who can hear the truth without being destabilised by it, who can stay engaged without either minimising the struggle or amplifying the shame, and who can commit to the ongoing, practical, specific accountability that genuine recovery requires. This is what the body of Christ is supposed to be. This is what the community that takes James 5:16 seriously actually looks like. Mark Laaser, in Healing the Wounds of Sexual Addiction, documents consistently that recovery that happens in community is more durable, more complete, and more spiritually productive than recovery attempted in isolation. The community is not the supplement to recovery. It is the environment in which recovery becomes possible.`
+      ],
+    },
+    {
+      heading: `The Spirit's Power: Transformation, Not Management`,
+      paragraphs: [
+        `Romans 8:13 — if by the Spirit you put to death the misdeeds of the body, you will live. The putting to death of the misdeeds of the body happens by the Spirit — not by the will, not by accountability software, not by theological knowledge, not even by community, though all of these things matter. The Spirit is the agent of the transformation that genuine freedom requires. And the Spirit does not suppress desire. He transforms it. Galatians 5:16 — walk by the Spirit and you will not gratify the desires of the flesh. The mechanism is not the suppression of one desire by a superior act of will. It is the redirection of desire toward its actual object — toward the God who is the real source of the satisfaction that pornography promises and cannot deliver. Augustine said it four centuries after Christ: our heart is restless until it rests in You. Pornography is restlessness posing as satisfaction. The Spirit is the actual rest — and the person who is learning to walk in the Spirit is discovering, gradually and genuinely, that what they were looking for was never on the screen.`
+      ],
+    },
+    {
+      heading: `The Practical Path: Specific Next Steps`,
+      paragraphs: [
+        `Here are the specific, concrete steps that the clinical and pastoral evidence consistently identifies as the foundation of genuine recovery: **Tell someone the truth today.** Not everyone — one person. A pastor, a trusted friend, a counsellor who understands both the psychological and spiritual dimensions. Choose the person carefully but do not wait until you have chosen perfectly. The secret that has been feeding the shame will begin to lose its power the moment it is brought into the light. **Restructure your environment.** Install accountability software — Covenant Eyes is the most widely used in Christian contexts. Remove the app, the browser bookmark, the device setting that makes access easy. The goal is not to make temptation impossible but to introduce enough friction that the compulsive, unthinking access that characterises addiction is disrupted. **Identify your triggers.** Pornography use is almost always preceded by a specific emotional state — loneliness, boredom, anxiety, stress, rejection. Learn your pattern. When you know which emotional states make you most vulnerable, you can address the emotional state before it leads to the behaviour. The person who prays when they are lonely, calls their accountability partner when they are anxious, and exercises when they are bored has addressed the trigger rather than merely fighting the behaviour. **Build a prayer rhythm.** The person whose prayer life is a rhythm rather than a crisis response has a resource available in the moment of temptation that the person who only prays in emergencies does not. The daily, unhurried, consistent practice of prayer builds the spiritual attentiveness that makes the Spirit's voice audible in the moment when the compulsion is loudest. **Receive forgiveness specifically and repeatedly.** 1 John 1:9 — if we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness. When you fail — and in the early stages of recovery, you will fail — receive the forgiveness specifically rather than collapsing into shame. Name the sin, confess it, receive the forgiveness, get up. The person who receives forgiveness specifically and gets up is the person who is recovering. The person who collapses into shame and hides is the person who is staying stuck. **Give yourself time.** The brain that has been rewired by years of pornography use does not rewire itself in weeks. Genuine recovery is typically measured in months and years, not days. This is not a counsel of despair. It is a realistic expectation that prevents the discouragement that comes from expecting a process to be complete before it has had time to run. Progress is not the absence of failure. Progress is the trend line — the general direction of travel over time.`
+      ],
+    },
+    {
+      heading: `The Freedom That Is Available`,
+      paragraphs: [
+        `The freedom that the gospel offers is not the freedom of a person who has successfully avoided pornography for a sufficient number of days. It is the freedom of a person whose desires are being genuinely, progressively renewed — who is increasingly wanting what God wants, who is finding in prayer and Scripture and community and worship a satisfaction that the screen cannot match, whose orientation toward their own sexuality is gradually, imperfectly, but genuinely being reordered toward the purposes for which God designed it. This freedom is available. It is real. It has been experienced by people whose struggles were as deep and as long as yours. It is available to you — not when you have cleaned yourself up sufficiently, not when you have demonstrated sufficient willpower, not when you have earned it by sustained abstinence. It is available now, today, in the same state you are in as you read this, through the same cross that absorbed the sin and the same Spirit that transforms the desire and the same community that creates the conditions for the transformation to take hold. Come near to God and He will come near to you. The drawing near is your part. The nearness is His response. And His nearness — the actual, experienced, personal presence of the God who made you and loves you and is not repulsed by your struggle — is the thing that changes everything.`
+      ],
+    },
+    {
+      heading: `A Final Prayer`,
+      paragraphs: [
+        `Father, I close this series with everyone who has read every word of it — who has stayed with the neuroscience and the theology and the gender-specific wounds and the honest engagement with masturbation and the theology of shame and the practical path — and who is sitting now with a clearer understanding of what they are carrying and what is available to them. I ask for the specific grace that each of them needs. For the one who has never told anyone: give them the courage to tell someone today. For the one whose marriage has been damaged: begin the restoration that only You can do. For the one who has failed repeatedly and concluded they are beyond change: let Romans 8:1 land in them today with the force of a truth they have never fully received. For the one who is just beginning to understand what they are dealing with: give them the community, the accountability, the time, and the Spirit's power that genuine recovery requires. You are not repulsed by any of this. You entered the lineage of a prostitute to redeem it. You absorbed the shame of the cross to remove ours. You sent Your Spirit to transform the very desires that feel most resistant to transformation. None of this is beyond You. None of it is beyond the reach of what You accomplished on the cross and continue to accomplish through the Spirit. Come near to every person who has drawn near to You through this series. As they draw near — You draw near. In Jesus' name, Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
     slug: "when-god-is-silent",
     title: `When God Is Silent`,
     subtitle: `Finding faith in the spaces between answers`,
