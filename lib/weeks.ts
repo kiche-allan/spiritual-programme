@@ -274,6 +274,48 @@ export const WEEKS_META: WeekMeta[] = [
   ],
   description: "Faith that builds in the comfortable season, a tongue and heart brought under the lordship of Christ, the cross applied to specific broken relationships, and a lifestyle of prayer and holiness that looks the same on the good days and the hard ones.",
 },
+{
+  id: 14,
+  slug: "crisis-waiting-trusting-the-unseen-god",
+  title: "Crisis, Waiting & Trusting the Unseen God",
+  subtitle: "Week Fourteen",
+  heroVerse: "I wait for the Lord, my whole being waits, and in his word I put my hope.",
+  heroRef: "Psalm 130:5",
+  publishedAt: "2026-06-22",
+  totalDays: 7,
+  accentColor: "#2C3E5A",
+  themes: [
+    { label: "Naming the Crisis",      days: "Mon–Tue", color: "#2C3E5A" },
+    { label: "When Faith Falters",     days: "Wed",     color: "#7A1A1A" },
+    { label: "The Theology of Waiting",days: "Thu",     color: "#2E6B50" },
+    { label: "The Reward of Waiting",  days: "Fri",     color: "#BF8B3A" },
+    { label: "Trusting the Unseen",    days: "Sat",     color: "#5A2D82" },
+    { label: "The Integrated Life",    days: "Sun",     color: "#1A3A6E" },
+  ],
+  description: "For those battling crisis in health, family, work, marriage and need — and for those whose faith is faltering from waiting too long. A week on what it means to wait on the Lord, the reward of faithful waiting, and trusting the God you cannot see.",
+},
+
+{
+  id: 14,
+  slug: "crisis-waiting-trusting-the-unseen-god",
+  title: "Crisis, Waiting & Trusting the Unseen God",
+  subtitle: "Week Fourteen",
+  heroVerse: "I wait for the Lord, my whole being waits, and in his word I put my hope.",
+  heroRef: "Psalm 130:5",
+  publishedAt: "2026-06-22",
+  totalDays: 7,
+  accentColor: "#2C3E5A",
+  themes: [
+    { label: "Naming the Crisis",      days: "Mon–Tue", color: "#2C3E5A" },
+    { label: "When Faith Falters",     days: "Wed",     color: "#7A1A1A" },
+    { label: "The Theology of Waiting",days: "Thu",     color: "#2E6B50" },
+    { label: "The Reward of Waiting",  days: "Fri",     color: "#BF8B3A" },
+    { label: "Trusting the Unseen",    days: "Sat",     color: "#5A2D82" },
+    { label: "The Integrated Life",    days: "Sun",     color: "#1A3A6E" },
+  ],
+  description: "For those battling crisis in health, family, work, marriage and need — and for those whose faith is faltering from waiting too long. A week on what it means to wait on the Lord, the reward of faithful waiting, and trusting the God you cannot see.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
