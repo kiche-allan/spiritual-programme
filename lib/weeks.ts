@@ -295,6 +295,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "For those battling crisis in health, family, work, marriage and need — and for those whose faith is faltering from waiting too long. A week on what it means to wait on the Lord, the reward of faithful waiting, and trusting the God you cannot see.",
 },
 
+{
+  id: 15,
+  slug: "grace-peace-identity-faith-fruit-forgiveness",
+  title: "Grace, Peace, Identity, Faith, Fruit & Forgiveness",
+  subtitle: "Week Fifteen",
+  heroVerse: "I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit.",
+  heroRef: "John 15:5",
+  publishedAt: "2026-06-29",
+  totalDays: 7,
+  accentColor: "#5A2D82",
+  themes: [
+    { label: "Grace & Love",       days: "Mon", color: "#5A2D82" },
+    { label: "Peace in Anxiety",   days: "Tue", color: "#2C3E5A" },
+    { label: "Identity & Purpose", days: "Wed", color: "#BF8B3A" },
+    { label: "Faith, Not Fear",    days: "Thu", color: "#7A1A1A" },
+    { label: "Fruit of the Spirit",days: "Fri", color: "#2E6B50" },
+    { label: "Forgiveness",        days: "Sat", color: "#8A2040" },
+    { label: "Abiding",            days: "Sun", color: "#1A3A6E" },
+  ],
+  description: "A week tracing one continuous thread — grace as the foundation, and peace, identity, faith, fruit, and forgiveness as its natural expressions, all rooted in abiding in Christ.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────

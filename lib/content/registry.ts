@@ -17,6 +17,7 @@ import week_11 from "./week-11";
 import week_12 from "./week-12";
 import week13 from "./week-13";
 import week14 from "./week-14";
+import week15 from "./week-15";
 
 
 const CONTENT_REGISTRY: Record<number, DayContent[]> = {
@@ -34,6 +35,7 @@ const CONTENT_REGISTRY: Record<number, DayContent[]> = {
   12: week_12,
   13: week13,
   14: week14,
+  15: week15,
 };
 
 export function getWeekContent(weekId: number): DayContent[] | null {
