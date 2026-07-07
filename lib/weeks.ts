@@ -316,7 +316,26 @@ export const WEEKS_META: WeekMeta[] = [
   ],
   description: "A week tracing one continuous thread — grace as the foundation, and peace, identity, faith, fruit, and forgiveness as its natural expressions, all rooted in abiding in Christ.",
 },
-
+{
+  id: 16,
+  slug: "knowing-god-prince-of-peace-lords-supper-well-hezekiah",
+  title: "Knowing God, Prince of Peace & Three Encounters",
+  subtitle: "Week Sixteen",
+  heroVerse: "I no longer call you servants. Instead, I have called you friends.",
+  heroRef: "John 15:15",
+  publishedAt: "2026-07-06",
+  totalDays: 7,
+  accentColor: "#5A2D82",
+  themes: [
+    { label: "Knowing God",         days: "Mon–Tue", color: "#5A2D82" },
+    { label: "Prince of Peace",     days: "Wed",     color: "#1A3A6E" },
+    { label: "The Lord's Supper",   days: "Thu",     color: "#8A2040" },
+    { label: "Woman at the Well",   days: "Fri",     color: "#2E6B50" },
+    { label: "Hezekiah's Prayer",   days: "Sat",     color: "#BF8B3A" },
+    { label: "The Integrated Life", days: "Sun",     color: "#2C3E5A" },
+  ],
+  description: "Five encounters with the same Person — at the garden, at the storm, at the table, at the well, and at the wall — and the one thread running through all of them: a God who is present, specific, and genuinely knowable.",
+},
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
