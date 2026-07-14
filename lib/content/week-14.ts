@@ -10,7 +10,7 @@ const week_14: DayContent[] = [
     num: 1,
     abbr: "Mon",
     name: "Monday",
-    title: `Navigating Lifes Challenges`,
+    title: `When Crisis Comes From Every Direction`,
     theme: `Health, Family, Job, Need · Naming What You Are Actually Carrying`,
     accent: "#2C3E5A",
     bg: "#EEF2F7",
