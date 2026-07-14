@@ -336,6 +336,27 @@ export const WEEKS_META: WeekMeta[] = [
   ],
   description: "Five encounters with the same Person — at the garden, at the storm, at the table, at the well, and at the wall — and the one thread running through all of them: a God who is present, specific, and genuinely knowable.",
 },
+{
+  id: 17,
+  slug: "enthroned-still-golden-rule-handle-blind-man-silence-anchored",
+  title: "Enthroned, Still, the Golden Rule & the Anchored Life",
+  subtitle: "Week Seventeen",
+  heroVerse: "We have this hope as an anchor for the soul, firm and secure.",
+  heroRef: "Hebrews 6:19",
+  publishedAt: "2026-07-13",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "God Enthroned",       days: "Mon", color: "#1A3A6E" },
+    { label: "Be Still",            days: "Tue", color: "#2C3E5A" },
+    { label: "Do Unto Others",      days: "Wed", color: "#2E6B50" },
+    { label: "More Than You Can Handle", days: "Thu", color: "#7A1A1A" },
+    { label: "The Blind Man",       days: "Fri", color: "#5A2D82" },
+    { label: "The Silence of God",  days: "Sat", color: "#8A2040" },
+    { label: "Anchored",            days: "Sun", color: "#2E6B50" },
+  ],
+  description: "Seven truths for the person whose world is shaking — the enthroned God, the holy stillness, the golden rule, the more than you can handle, the blind man's persistent faith, the silence of God, and the anchor that holds through all of it.",
+},
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
