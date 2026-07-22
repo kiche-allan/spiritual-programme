@@ -357,6 +357,29 @@ export const WEEKS_META: WeekMeta[] = [
   ],
   description: "Seven truths for the person whose world is shaking — the enthroned God, the holy stillness, the golden rule, the more than you can handle, the blind man's persistent faith, the silence of God, and the anchor that holds through all of it.",
 },
+
+{
+  id: 18,
+  slug: "faithfulness-prayer-possibility-waiting-thanksgiving-ruth-fasting",
+  title: "Faithfulness, Prayer, Possibility & Ruth",
+  subtitle: "Week Eighteen",
+  heroVerse: "Because of the Lord's great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness.",
+  heroRef: "Lamentations 3:22–23",
+  publishedAt: "2026-07-20",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Great Is Thy Faithfulness", days: "Mon", color: "#1A3A6E" },
+    { label: "Pray, Not Worry",           days: "Tue", color: "#2C3E5A" },
+    { label: "You Are a Possibility",     days: "Wed", color: "#2E6B50" },
+    { label: "Faithful in Waiting",       days: "Thu", color: "#BF8B3A" },
+    { label: "Thanksgiving",              days: "Fri", color: "#5A2D82" },
+    { label: "Ruth",                      days: "Sat", color: "#8A2040" },
+    { label: "Prayer and Fasting",        days: "Sun", color: "#7A1A1A" },
+  ],
+  description: "Seven themes rooted in one truth — the faithfulness of a God whose character never changes — explored through prayer, possibility, waiting, thanksgiving, covenant love, and the disciplines that sustain everything.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
