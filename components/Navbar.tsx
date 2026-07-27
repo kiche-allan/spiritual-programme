@@ -97,6 +97,17 @@ export default function Navbar() {
         {/* Nav links */}
         <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
           <Link
+            href="/progress"
+            style={{
+              fontSize: 11, fontWeight: 700,
+              letterSpacing: ".1em", textTransform: "uppercase",
+              color: linkColor, textDecoration: "none",
+              transition: "color .3s",
+            }}
+          >
+            Progress
+          </Link>
+          <Link
             href="/blog"
             style={{
               fontSize: 11, fontWeight: 700,
