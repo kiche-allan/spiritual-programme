@@ -380,6 +380,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven themes rooted in one truth — the faithfulness of a God whose character never changes — explored through prayer, possibility, waiting, thanksgiving, covenant love, and the disciplines that sustain everything.",
 },
 
+{
+  id: 19,
+  slug: "holiness-hiddenness-glory-cruciformity-intercession-theosis-eschaton",
+  title: "Holiness, Glory, the Cross & the New Creation",
+  subtitle: "Week Nineteen",
+  heroVerse: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away.",
+  heroRef: "Revelation 21:4",
+  publishedAt: "2026-07-27",
+  totalDays: 7,
+  accentColor: "#7A1A1A",
+  themes: [
+    { label: "Holiness of God",       days: "Mon", color: "#7A1A1A" },
+    { label: "Hiddenness of God",     days: "Tue", color: "#2C3E5A" },
+    { label: "Weight of Glory",       days: "Wed", color: "#BF8B3A" },
+    { label: "Cruciformity",          days: "Thu", color: "#5A2D82" },
+    { label: "Intercession of Christ",days: "Fri", color: "#2E6B50" },
+    { label: "Theosis",               days: "Sat", color: "#1A3A6E" },
+    { label: "Eschatological Hope",   days: "Sun", color: "#8A2040" },
+  ],
+  description: "Seven of the deepest theological truths available to the Christian life — the holiness that restores awe, the hiddenness that produces depth, the glory that gives weight to the present, the cross that shapes everything, the intercession that never stops, the theosis that is the destination, and the new creation that is coming.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
