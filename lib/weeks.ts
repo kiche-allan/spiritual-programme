@@ -402,6 +402,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven of the deepest theological truths available to the Christian life — the holiness that restores awe, the hiddenness that produces depth, the glory that gives weight to the present, the cross that shapes everything, the intercession that never stops, the theosis that is the destination, and the new creation that is coming.",
 },
 
+{
+  id: 20,
+  slug: "el-roi-nothing-wasted-goodness-names-prodigal-surrender-benediction",
+  title: "El Roi, Nothing Wasted & the Prodigal Father",
+  subtitle: "Week Twenty",
+  heroVerse: "The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you; the Lord turn his face toward you and give you peace.",
+  heroRef: "Numbers 6:24–26",
+  publishedAt: "2026-08-03",
+  totalDays: 7,
+  accentColor: "#2E6B50",
+  themes: [
+    { label: "El Roi",             days: "Mon", color: "#2E6B50" },
+    { label: "Nothing Wasted",     days: "Tue", color: "#1A3A6E" },
+    { label: "Goodness of God",    days: "Wed", color: "#BF8B3A" },
+    { label: "Names of God",       days: "Thu", color: "#5A2D82" },
+    { label: "Prodigal Father",    days: "Fri", color: "#8A2040" },
+    { label: "Surrender",          days: "Sat", color: "#2C3E5A" },
+    { label: "The Benediction",    days: "Sun", color: "#2E6B50" },
+  ],
+  description: "Seven truths about the God who sees the overlooked, wastes nothing, is unconditionally good, has a name for every crisis, runs toward the returning, receives surrender with grace, and sends His people into the week with His face turned toward them.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
