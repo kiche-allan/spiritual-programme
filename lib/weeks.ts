@@ -424,6 +424,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven truths about the God who sees the overlooked, wastes nothing, is unconditionally good, has a name for every crisis, runs toward the returning, receives surrender with grace, and sends His people into the week with His face turned toward them.",
 },
 
+{
+  id: 21,
+  slug: "fear-sovereignty-lament-new-creation-spirit-suffering-maranatha",
+  title: "Fear, Sovereignty, Lament & Maranatha",
+  subtitle: "Week Twenty-One",
+  heroVerse: "He who testifies to these things says, 'Yes, I am coming soon.' Amen. Come, Lord Jesus.",
+  heroRef: "Revelation 22:20",
+  publishedAt: "2026-08-10",
+  totalDays: 7,
+  accentColor: "#7A1A1A",
+  themes: [
+    { label: "Fear of the Lord",      days: "Mon", color: "#7A1A1A" },
+    { label: "Sovereignty of God",    days: "Tue", color: "#1A3A6E" },
+    { label: "Lament",                days: "Wed", color: "#2C3E5A" },
+    { label: "New Creation",          days: "Thu", color: "#2E6B50" },
+    { label: "Holy Spirit",           days: "Fri", color: "#5A2D82" },
+    { label: "Suffering and Glory",   days: "Sat", color: "#8A2040" },
+    { label: "Maranatha",             days: "Sun", color: "#BF8B3A" },
+  ],
+  description: "Seven of the deepest and most practically urgent truths in the Christian life — the awe that is the beginning of everything, the sovereignty that governs all things, the lament the church forgot, the new creation identity, the Spirit's communion, the inseparable pair of suffering and glory, and the blessed hope of His return.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────

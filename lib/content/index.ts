@@ -22,6 +22,7 @@ const WEEK_LOADERS: Record<number, () => Promise<{ default: DayContent[] }>> = {
   18: () => import("./week-18"),
   19: () => import("./week-19"),
   20: () => import("./week-20"), 
+  21: () => import("./week-21"),
 
 };
 
