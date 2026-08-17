@@ -446,6 +446,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven of the deepest and most practically urgent truths in the Christian life — the awe that is the beginning of everything, the sovereignty that governs all things, the lament the church forgot, the new creation identity, the Spirit's communion, the inseparable pair of suffering and glory, and the blessed hope of His return.",
 },
 
+{
+  id: 22,
+  slug: "garden-blood-wilderness-righteousness-tongue-discipleship-emmaus",
+  title: "The Garden, the Blood, the Wilderness & Emmaus",
+  subtitle: "Week Twenty-Two",
+  heroVerse: "Were not our hearts burning within us while he talked with us on the road and opened the Scriptures to us?",
+  heroRef: "Luke 24:32",
+  publishedAt: "2026-08-17",
+  totalDays: 7,
+  accentColor: "#2E6B50",
+  themes: [
+    { label: "Garden to Glory",        days: "Mon", color: "#2E6B50" },
+    { label: "Blood of the Covenant",  days: "Tue", color: "#7A1A1A" },
+    { label: "The Wilderness",         days: "Wed", color: "#BF8B3A" },
+    { label: "Righteousness",          days: "Thu", color: "#5A2D82" },
+    { label: "Power of the Tongue",    days: "Fri", color: "#8A2040" },
+    { label: "Discipleship",           days: "Sat", color: "#1A3A6E" },
+    { label: "Table and the Road",     days: "Sun", color: "#2C3E5A" },
+  ],
+  description: "From the garden of Eden to the road to Emmaus — one week tracing the full arc of the Christian life through the blood that accomplished everything, the wilderness that prepares everything, the righteousness that secures everything, the tongue that expresses everything, and the discipleship that costs everything.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
