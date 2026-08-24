@@ -468,6 +468,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "From the garden of Eden to the road to Emmaus — one week tracing the full arc of the Christian life through the blood that accomplished everything, the wilderness that prepares everything, the righteousness that secures everything, the tongue that expresses everything, and the discipleship that costs everything.",
 },
 
+{
+  id: 23,
+  slug: "beatitudes-secret-place-idolatry-resurrection-disciplines-church-amen",
+  title: "The Beatitudes, the Secret Place & the Great Amen",
+  subtitle: "Week Twenty-Three",
+  heroVerse: "For no matter how many promises God has made, they are 'Yes' in Christ. And so through him the 'Amen' is spoken by us to the glory of God.",
+  heroRef: "2 Corinthians 1:20",
+  publishedAt: "2026-08-24",
+  totalDays: 7,
+  accentColor: "#2E6B50",
+  themes: [
+    { label: "The Beatitudes",      days: "Mon", color: "#2E6B50" },
+    { label: "The Secret Place",    days: "Tue", color: "#1A3A6E" },
+    { label: "Idolatry",            days: "Wed", color: "#7A1A1A" },
+    { label: "Resurrection Body",   days: "Thu", color: "#5A2D82" },
+    { label: "Spiritual Disciplines",days: "Fri", color: "#BF8B3A" },
+    { label: "The Church",          days: "Sat", color: "#8A2040" },
+    { label: "The Great Amen",      days: "Sun", color: "#2C3E5A" },
+  ],
+  description: "Seven dimensions of the fully inhabited Christian life — the upside-down kingdom of the Beatitudes, the hidden life of the secret place, the idols that must be dethroned, the resurrection body that is coming, the disciplines that form the soul, the church that cannot be replaced, and the Great Amen that says yes to all of it with the whole life.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
