@@ -490,6 +490,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven dimensions of the fully inhabited Christian life — the upside-down kingdom of the Beatitudes, the hidden life of the secret place, the idols that must be dethroned, the resurrection body that is coming, the disciplines that form the soul, the church that cannot be replaced, and the Great Amen that says yes to all of it with the whole life.",
 },
 
+{
+  id: 24,
+  slug: "goodness-presence-lords-prayer-contentment-armor-wounds-come",
+  title: "Goodness, Presence, Contentment & Come",
+  subtitle: "Week Twenty-Four",
+  heroVerse: "Come to me, all you who are weary and burdened, and I will give you rest.",
+  heroRef: "Matthew 11:28",
+  publishedAt: "2026-08-30",
+  totalDays: 7,
+  accentColor: "#2E6B50",
+  themes: [
+    { label: "Goodness of God",       days: "Mon", color: "#2E6B50" },
+    { label: "Ministry of Presence",  days: "Tue", color: "#2C3E5A" },
+    { label: "The Lord's Prayer",     days: "Wed", color: "#1A3A6E" },
+    { label: "Contentment",           days: "Thu", color: "#BF8B3A" },
+    { label: "Armor of Light",        days: "Fri", color: "#7A1A1A" },
+    { label: "The Wounds of God",     days: "Sat", color: "#5A2D82" },
+    { label: "Come to Me",            days: "Sun", color: "#8A2040" },
+  ],
+  description: "A week that begins with confident trust in God's goodness and ends with the simplest and most complete invitation available — come. Between the confidence and the coming: presence, prayer, contentment, wakefulness, and the wounds of a God who still bears the marks of what love cost Him.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
