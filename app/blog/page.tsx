@@ -183,39 +183,6 @@ export default function BlogIndexPage() {
           </div>
 
           {/* Tags — moved here from sidebar */}
-          {tags.length > 0 && (
-            <div style={{
-              display: "flex", flexWrap: "wrap", gap: 6,
-              marginBottom: 20,
-              paddingBottom: 16,
-              borderBottom: "1px solid var(--border)",
-            }}>
-              <span style={{
-                fontFamily: "Lato,sans-serif",
-                fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
-                textTransform: "uppercase", color: "var(--tl)",
-                alignSelf: "center", marginRight: 4,
-              }}>
-                Topics:
-              </span>
-              {tags.map(tag => (
-                <span
-                  key={tag}
-                  style={{
-                    fontFamily: "Lato,sans-serif",
-                    fontSize: 9, fontWeight: 700, letterSpacing: ".1em",
-                    textTransform: "uppercase", padding: "3px 10px",
-                    borderRadius: 3,
-                    background: "var(--bg2)",
-                    border: "0.5px solid var(--border)",
-                    color: "var(--tm)",
-                    cursor: "pointer",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           )}
 
           {/* Posts list */}
