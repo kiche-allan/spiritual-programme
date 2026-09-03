@@ -1337,7 +1337,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: "why-your-arguments and in-fightings-are-hurting-the-body-of-christ",
-    title: `Why Your Arguments Are Hurting the Body of Christ`,
+    title: `Why Your Arguments And in-fightingsAre Hurting the Body of Christ`,
     subtitle: `A word about what happens after someone leaves; and what it reveals about us`,
     publishedAt: "2026-09-03",
     author: "Allan",
