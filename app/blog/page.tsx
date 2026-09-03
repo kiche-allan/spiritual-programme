@@ -182,8 +182,6 @@ export default function BlogIndexPage() {
             </span>
           </div>
 
-          {/* Tags — moved here from sidebar */}
-          )}
 
           {/* Posts list */}
           {posts.length === 0 ? (
