@@ -512,6 +512,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "A week that begins with confident trust in God's goodness and ends with the simplest and most complete invitation available — come. Between the confidence and the coming: presence, prayer, contentment, wakefulness, and the wounds of a God who still bears the marks of what love cost Him.",
 },
 
+{
+  id: 25,
+  slug: "fear-sovereignty-overlooked-adopted-table-intercession-elder-brother",
+  title: "The Fear of the Lord, the Overlooked & the Elder Brother",
+  subtitle: "Week Twenty-Five",
+  heroVerse: "Son, you are always with me, and everything I have is yours.",
+  heroRef: "Luke 15:31",
+  publishedAt: "2026-09-07",
+  totalDays: 7,
+  accentColor: "#7A1A1A",
+  themes: [
+    { label: "Fear of the Lord",     days: "Mon", color: "#7A1A1A" },
+    { label: "Sovereignty",          days: "Tue", color: "#1A3A6E" },
+    { label: "The Overlooked",       days: "Wed", color: "#2C3E5A" },
+    { label: "Adopted",              days: "Thu", color: "#2E6B50" },
+    { label: "The Table Is Ready",   days: "Fri", color: "#BF8B3A" },
+    { label: "Intercession",         days: "Sat", color: "#5A2D82" },
+    { label: "The Elder Brother",    days: "Sun", color: "#8A2040" },
+  ],
+  description: "A week that moves from the awe of the throne room to the field outside the feast — through the sovereignty that governs the specific story, the God who sees the overlooked, the table of adoption, the feast that never runs out, the gap that needs filling, and the elder brother who finally goes in.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
