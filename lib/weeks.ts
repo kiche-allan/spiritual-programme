@@ -534,6 +534,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "A week that moves from the awe of the throne room to the field outside the feast — through the sovereignty that governs the specific story, the God who sees the overlooked, the table of adoption, the feast that never runs out, the gap that needs filling, and the elder brother who finally goes in.",
 },
 
+{
+  id: 26,
+  slug: "created-singleness-identity-heart-calling-desire-whole-life",
+  title: "Created on Purpose, Called Before Married & the Whole Life",
+  subtitle: "Week Twenty-Six",
+  heroVerse: "I have come that they may have life, and have it to the full.",
+  heroRef: "John 10:10",
+  publishedAt: "2026-09-14",
+  totalDays: 7,
+  accentColor: "#2E6B50",
+  themes: [
+    { label: "Created on Purpose",    days: "Mon", color: "#2E6B50" },
+    { label: "Singleness",            days: "Tue", color: "#1A3A6E" },
+    { label: "Identity",              days: "Wed", color: "#2E6B50" },
+    { label: "Guard Your Heart",      days: "Thu", color: "#7A1A1A" },
+    { label: "Called Before Married", days: "Fri", color: "#5A2D82" },
+    { label: "Trust God With Desire", days: "Sat", color: "#8A2040" },
+    { label: "The Whole Life",        days: "Sun", color: "#2E6B50" },
+  ],
+  description: "A week for the single believer who is navigating purpose, identity, calling, and desire — from the declaration of Jeremiah 1:5 to the fullness of Colossians 2:10, through the dignity of the waiting season, the discipline of the guarded heart, the activation of the irrevocable calling, and the honest prayer of Hannah.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
