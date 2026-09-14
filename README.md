@@ -73,6 +73,17 @@ cd spiritual-programme7
 npm install
 ```
 
+### Supabase Setup
+
+The community walls, blog comments and reactions, and email subscriptions use Supabase at runtime.
+
+1. Create a Supabase project and copy `.env.example` to `.env.local`.
+2. Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`.
+3. Run [`sql/supabase-setup.sql`](sql/supabase-setup.sql) in the Supabase SQL Editor.
+4. Add the same variables to the deployment environment. Keep `SUPABASE_SERVICE_ROLE_KEY` server-only and never expose it as a `NEXT_PUBLIC_*` variable.
+
+The browser reads public records through the anon key and RLS policies. Server-side writes use the service-role key through the API routes.
+
 ### Development
 
 ```bash
