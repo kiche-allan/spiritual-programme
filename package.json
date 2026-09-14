@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "next build --webpack",
     "prebuild": "node scripts/build-content.js && node scripts/build-blog.js",
     "start": "next start",
     "content": "node scripts/build-content.js",
@@ -27,6 +27,7 @@
     "report:coverage": "open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.9",
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
@@ -36,27 +37,26 @@
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-toast": "^1.2.15",
-    "@supabase/supabase-js": "^2.105.3",
+    "@supabase/supabase-js": "latest",
     "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "gray-matter": "^4.0.3",
+    "gray-matter": "latest",
     "lucide-react": "^0.383.0",
-    "next": "14.2.5",
-    "next-pwa": "^5.6.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "resend": "^6.12.3",
     "tailwind-merge": "^3.6.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",
+    "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
-    "@types/next-pwa": "^5.6.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -74,5 +74,8 @@
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.4.9",
     "typescript": "^5"
+  },
+  "overrides": {
+    "js-yaml": "3.14.1"
   }
 }

@@ -11,8 +11,9 @@ export async function generateStaticParams() {
   return WEEKS_META.map(w => ({ id: String(w.id) }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const meta = WEEKS_META.find(w => w.id === Number(params.id));
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const meta = WEEKS_META.find(w => w.id === Number(id));
   if (!meta) return {};
   return {
     title: `${meta.title} · Walking With God`,
@@ -24,8 +25,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function WeekPage({ params }: { params: { id: string } }) {
-  const weekId = Number(params.id);
+export default async function WeekPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const weekId = Number(id);
   const meta = WEEKS_META.find(w => w.id === weekId);
   const days = getWeekContent(weekId);
 

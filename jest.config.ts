@@ -17,7 +17,7 @@ const config: Config = {
         "^@/(.*)$": "<rootDir>/$1",
       },
       transform: {
-        "^.+\\.tsx?$": ["ts-jest", { tsconfig: { jsx: "react" } }],
+        "^.+\\.tsx?$": ["ts-jest", { tsconfig: { jsx: "react-jsx" } }],
       },
     },
     {
@@ -29,7 +29,7 @@ const config: Config = {
         "^@/(.*)$": "<rootDir>/$1",
       },
       transform: {
-        "^.+\\.tsx?$": ["ts-jest", { tsconfig: { jsx: "react" } }],
+        "^.+\\.tsx?$": ["ts-jest", { tsconfig: { jsx: "react-jsx" } }],
       },
     },
   ],

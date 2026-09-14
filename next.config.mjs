@@ -1,13 +1,18 @@
-import withPWA from "next-pwa";
+import withPWA from "@ducanh2912/next-pwa";
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  turbopack: {},
+};
 
 const pwaConfig = withPWA({
-  dest: "public", // service worker goes in /public
-  disable: process.env.NODE_ENV === "development", // off in dev
-  register: true, // auto-register the SW
-  skipWaiting: true, // activate new SW immediately
+  dest: "public",
+  disable: process.env.NODE_ENV !== "production",
+  buildExcludes: [/middleware-manifest\.json$/],
+  register: true,
+  skipWaiting: true,
   runtimeCaching: [
     {
-      // Cache all page navigations
       urlPattern: /^https?.*/,
       handler: "NetworkFirst",
       options: {
@@ -18,8 +23,5 @@ const pwaConfig = withPWA({
     },
   ],
 });
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
 
 export default pwaConfig(nextConfig);
