@@ -137,29 +137,31 @@ const STORIES: Story[] = [
 export function BibleStories() {
   return (
     <section style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px 56px" }}>
-      <Eyebrow text="Stories retold" />
-      <SectionTitle text="Bible Stories" />
-      <p style={{
-        fontFamily: "'Cormorant Garamond',Georgia,serif",
-        fontSize: "1.1rem", fontStyle: "italic",
-        color: "var(--tm)", marginTop: -12, marginBottom: 24,
-      }}>
-        Faith, failure, and hope
-      </p>
+      <div className="bible-stories-card">
+        <Eyebrow text="Stories retold" />
+        <SectionTitle text="Bible Stories" />
+        <p style={{
+          fontFamily: "'Cormorant Garamond',Georgia,serif",
+          fontSize: "1.1rem", fontStyle: "italic",
+          color: "var(--tm)", marginTop: -12, marginBottom: 28,
+        }}>
+          Faith, failure, and hope
+        </p>
 
-      <div className="bible-stories-row">
-        {STORIES.map(story => (
-          <Link
-            key={story.slug}
-            href={`/blog/${story.slug}`}
-            className="bible-story-card"
-          >
-            <span className="bible-story-icon">
-              {story.icon}
-            </span>
-            <span className="bible-story-title">{story.title}</span>
-          </Link>
-        ))}
+        <div className="bible-stories-row">
+          {STORIES.map(story => (
+            <Link
+              key={story.slug}
+              href={`/blog/${story.slug}`}
+              className="bible-story-card"
+            >
+              <span className="bible-story-icon">
+                {story.icon}
+              </span>
+              <span className="bible-story-title">{story.title}</span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

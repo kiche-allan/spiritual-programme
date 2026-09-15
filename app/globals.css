@@ -177,6 +177,13 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
 }
 
 /* ── BIBLE STORIES ───────────────────────────────────────────────────────── */
+.bible-stories-card {
+  background: linear-gradient(160deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border-custom);
+  border-radius: 20px;
+  padding: 40px 32px;
+  box-shadow: var(--sh);
+}
 .bible-stories-row {
   display: flex;
   gap: 16px;
@@ -196,7 +203,9 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
-  transition: transform .2s ease, background .2s ease;
+  background: var(--bg);
+  border: 1px solid var(--border-custom);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
 }
 .bible-story-icon {
   width: 72px;
@@ -220,7 +229,8 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
 @media (hover: hover) {
   .bible-story-card:hover {
     transform: translateY(-3px);
-    background: var(--bg2);
+    box-shadow: var(--sh);
+    border-color: var(--tl);
   }
 }
 @media (min-width: 760px) {
@@ -228,6 +238,12 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     overflow-x: visible;
+  }
+}
+@media (max-width: 560px) {
+  .bible-stories-card {
+    padding: 28px 18px;
+    border-radius: 16px;
   }
 }
 
