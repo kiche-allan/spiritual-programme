@@ -3,6 +3,85 @@ import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({ dir: "./" });
 
+const SUBSET_TEST_FLAGS = [
+  "--findRelatedTests",
+  "--runTestsByPath",
+  "--selectProjects",
+  "--shard",
+  "--testPathPattern",
+  "--testPathPatterns",
+];
+
+const isSubsetTestArg = (arg: string) => SUBSET_TEST_FLAGS.some(
+  (flag) => arg === flag || arg.startsWith(`${flag}=`)
+);
+
+const FLAGS_WITH_FOLLOWING_VALUE = new Set([
+  "--changedSince",
+  "--config",
+  "--coverageDirectory",
+  "--coverageProvider",
+  "--env",
+  "--filter",
+  "--globals",
+  "--ignoreProjects",
+  "--injectGlobals",
+  "--maxWorkers",
+  "--notifyMode",
+  "--outputFile",
+  "--preset",
+  "--projects",
+  "--reporters",
+  "--resolver",
+  "--roots",
+  "--seed",
+  "--setupFilesAfterEnv",
+  "--shard",
+  "--testEnvironment",
+  "--testEnvironmentOptions",
+  "--testFailureExitCode",
+  "--testMatch",
+  "--testPathIgnorePatterns",
+  "--testPathPattern",
+  "--testPathPatterns",
+  "--testRunner",
+  "--testSequencer",
+  "--testTimeout",
+  "--transform",
+]);
+
+const hasCoverageFlag = process.argv.some(
+  (arg) => arg === "--coverage" || arg.startsWith("--coverage=")
+);
+
+const hasPositionalTestSelector = (() => {
+  const cliArgs = process.argv.slice(2);
+
+  for (let index = 0; index < cliArgs.length; index++) {
+    const arg = cliArgs[index];
+
+    if (isSubsetTestArg(arg)) {
+      return true;
+    }
+
+    if (arg.startsWith("-")) {
+      const flag = arg.split("=")[0];
+      if (!arg.includes("=") && FLAGS_WITH_FOLLOWING_VALUE.has(flag)) {
+        index++;
+      }
+      continue;
+    }
+
+    if (arg.includes("__tests__") || /\.(spec|test)\.[jt]sx?$/.test(arg)) {
+      return true;
+    }
+  }
+
+  return false;
+})();
+
+const isSubsetCoverageRun = hasCoverageFlag && hasPositionalTestSelector;
+
 const config: Config = {
   coverageProvider: "v8",
 
@@ -34,14 +113,16 @@ const config: Config = {
     },
   ],
 
-  coverageThreshold: {
-    global: {
-      branches: 70,
-      functions: 75,
-      lines: 75,
-      statements: 75,
+  ...(!isSubsetCoverageRun && {
+    coverageThreshold: {
+      global: {
+        branches: 70,
+        functions: 75,
+        lines: 75,
+        statements: 75,
+      },
     },
-  },
+  }),
 
   collectCoverageFrom: [
     "app/**/*.{ts,tsx}",
