@@ -17,12 +17,72 @@ const isSubsetTestArg = (arg: string) => SUBSET_TEST_FLAGS.some(
   (flag) => arg === flag || arg.startsWith(`${flag}=`)
 );
 
+const FLAGS_WITH_FOLLOWING_VALUE = new Set([
+  "--changedSince",
+  "--config",
+  "--coverageDirectory",
+  "--coverageProvider",
+  "--env",
+  "--filter",
+  "--globals",
+  "--ignoreProjects",
+  "--injectGlobals",
+  "--maxWorkers",
+  "--notifyMode",
+  "--outputFile",
+  "--preset",
+  "--projects",
+  "--reporters",
+  "--resolver",
+  "--roots",
+  "--seed",
+  "--setupFilesAfterEnv",
+  "--shard",
+  "--testEnvironment",
+  "--testEnvironmentOptions",
+  "--testFailureExitCode",
+  "--testMatch",
+  "--testNamePattern",
+  "--testPathIgnorePatterns",
+  "--testPathPattern",
+  "--testPathPatterns",
+  "--testRunner",
+  "--testSequencer",
+  "--testTimeout",
+  "--transform",
+]);
+
 const hasCoverageFlag = process.argv.some(
   (arg) => arg === "--coverage" || arg.startsWith("--coverage=")
 );
 
-const isSubsetCoverageRun = hasCoverageFlag
-  && process.argv.some(isSubsetTestArg);
+const hasPositionalTestSelector = (() => {
+  const cliArgs = process.argv.slice(2);
+
+  for (let index = 0; index < cliArgs.length; index++) {
+    const arg = cliArgs[index];
+
+    if (isSubsetTestArg(arg)) {
+      return true;
+    }
+
+    if (arg.startsWith("-")) {
+      const flag = arg.split("=")[0];
+      if (!arg.includes("=") && FLAGS_WITH_FOLLOWING_VALUE.has(flag)) {
+        index++;
+      }
+      continue;
+    }
+
+    if (/[/.\\]/.test(arg)) {
+      return true;
+    }
+  }
+
+  return false;
+})();
+
+const isSubsetCoverageRun = hasCoverageFlag && hasPositionalTestSelector;
 
 const config: Config = {
   coverageProvider: "v8",
