@@ -3,10 +3,22 @@ import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({ dir: "./" });
 
+const SUBSET_TEST_FLAGS = [
+  "--findRelatedTests",
+  "--runTestsByPath",
+  "--selectProjects",
+  "--shard",
+  "--testNamePattern",
+  "--testPathPattern",
+  "--testPathPatterns",
+];
+
+const isSubsetTestArg = (arg: string) => SUBSET_TEST_FLAGS.some(
+  (flag) => arg === flag || arg.startsWith(`${flag}=`)
+);
+
 const isSubsetCoverageRun = process.argv.includes("--coverage")
-  && process.argv.some(
-    (arg) => arg.startsWith("--testPathPatterns") || arg.startsWith("--testPathPattern")
-  );
+  && process.argv.some(isSubsetTestArg);
 
 const config: Config = {
   coverageProvider: "v8",
