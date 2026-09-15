@@ -14,11 +14,9 @@ export function BlogCover({ color, title, eyebrow, variant = "card" }: Props) {
 
   return (
     <div
-      className="blog-cover"
+      className={isHero ? "blog-cover blog-cover--hero" : "blog-cover blog-cover--card"}
       style={{
         background: `linear-gradient(135deg, ${light} 0%, ${color} 45%, ${dark} 100%)`,
-        aspectRatio: isHero ? undefined : "16 / 11",
-        minHeight: isHero ? 280 : undefined,
       }}
     >
       <span className="blog-cover-pattern" aria-hidden="true" />
