@@ -1,6 +1,7 @@
 // components/blog/BlogCard.tsx
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog-content";
+import { BlogCover } from "./BlogCover";
 
 interface Props { post: BlogPost; }
 
@@ -10,23 +11,29 @@ export function BlogCard({ post }: Props) {
   });
 
   return (
-    <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
-      <article style={{
-        border: "1px solid var(--border)",
-        borderLeft: `3px solid ${post.coverColor}`,
-        borderRadius: 10, padding: 16,
-        background: "var(--bg)",
-        transition: "box-shadow .2s",
-        cursor: "pointer",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
+    <Link href={`/blog/${post.slug}`} className="blog-grid-card">
+      <BlogCover color={post.coverColor} title={post.title} eyebrow={post.tags[0]} />
+
+      <div style={{ padding: "16px 18px 18px" }}>
+        <p style={{
+          fontFamily: "'Cormorant Garamond',Georgia,serif",
+          fontSize: 14, lineHeight: 1.6,
+          color: "var(--tm)", marginBottom: 14,
+        }}>
+          {post.excerpt.slice(0, 120)}{post.excerpt.length > 120 ? "…" : ""}
+        </p>
+
+        <div style={{
+          display: "flex", alignItems: "center", gap: 8,
+          paddingTop: 12, borderTop: "1px solid var(--border)",
+        }}>
           <div style={{
-            width: 24, height: 24, borderRadius: "50%",
+            width: 22, height: 22, borderRadius: "50%",
             background: `${post.coverColor}18`,
             border: `1px solid ${post.coverColor}40`,
             display: "flex", alignItems: "center", justifyContent: "center",
             fontFamily: "Lato,sans-serif",
-            fontSize: 10, fontWeight: 700, color: post.coverColor,
+            fontSize: 10, fontWeight: 700, color: post.coverColor, flexShrink: 0,
           }}>
             {post.author.charAt(0)}
           </div>
@@ -38,47 +45,7 @@ export function BlogCard({ post }: Props) {
           <span style={{ color: "var(--tl)", fontSize: 10 }}>·</span>
           <span style={{ fontFamily: "Lato,sans-serif", fontSize: 11, color: "var(--tl)" }}>{post.readingTime} min</span>
         </div>
-
-        <h2 style={{
-          fontFamily: "'Cormorant Garamond',Georgia,serif",
-          fontSize: "clamp(1.1rem,1.8vw,1.3rem)",
-          fontWeight: 400, lineHeight: 1.35,
-          color: "var(--t1)", marginBottom: 6,
-        }}>
-          {post.title}
-        </h2>
-
-        <p style={{
-          fontFamily: "'Cormorant Garamond',Georgia,serif",
-          fontSize: 13, lineHeight: 1.65,
-          color: "var(--tm)", marginBottom: 10,
-        }}>
-          {post.excerpt.slice(0, 140)}...
-        </p>
-
-        <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
-          {post.tags.slice(0, 3).map(tag => (
-            <span key={tag} style={{
-              fontFamily: "Lato,sans-serif",
-              fontSize: 9, fontWeight: 700,
-              letterSpacing: ".1em", textTransform: "uppercase",
-              padding: "2px 8px", borderRadius: 3,
-              background: `${post.coverColor}12`,
-              color: post.coverColor,
-              border: `0.5px solid ${post.coverColor}35`,
-            }}>
-              {tag}
-            </span>
-          ))}
-        </div>
-      </article>
+      </div>
     </Link>
   );
 }
-
-
-interface Props {
-  post: BlogPost;
-  featured?: boolean;
-}
-
