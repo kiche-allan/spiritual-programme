@@ -1,16 +1,64 @@
 // app/blog/page.tsx
 "use client";
-import { useMemo, useState } from "react";
+import { Suspense, useCallback, useMemo, useState } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { SectionTitle } from "@/components/ui/SectionTitle";
+import { Pagination } from "@/components/ui/Pagination";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { TagFilterTabs } from "@/components/blog/TagFilterTabs";
 import { SeriesPanel } from "@/components/blog/SeriesPanel";
-import { getStandalonePosts } from "@/lib/blog-content";
+import { getStandalonePosts, type BlogPost } from "@/lib/blog-content";
+
+const ARTICLES_PER_PAGE = 8;
+const STORIES_PER_PAGE = 8;
+
+const BIBLE_STORY_SLUGS = new Set([
+  "joseph-and-the-pit",
+  "hagar-in-the-wilderness",
+  "mephibosheth",
+  "hannahs-prayer",
+  "ruth-and-boaz",
+  "moses-and-the-red-sea",
+  "zacchaeus",
+  "the-prodigal-father",
+  "bartimaeus",
+  "the-emmaus-road",
+]);
+
+function isBibleStory(post: BlogPost): boolean {
+  if (BIBLE_STORY_SLUGS.has(post.slug)) return true;
+  return post.tags.some(t => t.toLowerCase().replace(/[\s-]+/g, "") === "biblestory");
+}
 
 export default function BlogIndexPage() {
+  return (
+    <Suspense fallback={null}>
+      <BlogIndexContent />
+    </Suspense>
+  );
+}
+
+function BlogIndexContent() {
   const posts = getStandalonePosts();
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const blogPage = Math.max(1, parseInt(searchParams.get("blogPage") ?? "1", 10) || 1);
+  const storyPage = Math.max(1, parseInt(searchParams.get("storyPage") ?? "1", 10) || 1);
+
+  const setPageParam = useCallback((key: "blogPage" | "storyPage", value: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value <= 1) params.delete(key);
+    else params.set(key, String(value));
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  }, [router, pathname, searchParams]);
 
   const tags = useMemo(() => {
     const all = posts.flatMap(p => p.tags);
@@ -28,6 +76,22 @@ export default function BlogIndexPage() {
       return matchesTag && matchesQuery;
     });
   }, [posts, query, activeTag]);
+
+  const articles = useMemo(() => filtered.filter(p => !isBibleStory(p)), [filtered]);
+  const stories = useMemo(() => filtered.filter(isBibleStory), [filtered]);
+
+  const articleTotalPages = Math.max(1, Math.ceil(articles.length / ARTICLES_PER_PAGE));
+  const storyTotalPages = Math.max(1, Math.ceil(stories.length / STORIES_PER_PAGE));
+
+  const safeBlogPage = Math.min(blogPage, articleTotalPages);
+  const safeStoryPage = Math.min(storyPage, storyTotalPages);
+
+  const pagedArticles = articles.slice(
+    (safeBlogPage - 1) * ARTICLES_PER_PAGE, safeBlogPage * ARTICLES_PER_PAGE
+  );
+  const pagedStories = stories.slice(
+    (safeStoryPage - 1) * STORIES_PER_PAGE, safeStoryPage * STORIES_PER_PAGE
+  );
 
   return (
     <>
@@ -101,41 +165,119 @@ export default function BlogIndexPage() {
         <TagFilterTabs tags={tags} active={activeTag} onChange={setActiveTag} />
       </div>
 
-      {/* ── LAYOUT: GRID + SIDEBAR ── */}
+      {/* ── LAYOUT: SECTIONS + SIDEBAR ── */}
       <div className="blog-layout" style={{
         maxWidth: 1200, margin: "0 auto", padding: "24px 24px 64px",
         display: "grid", gridTemplateColumns: "1fr 300px", gap: 40,
         alignItems: "start",
       }}>
         <main>
+
+          {/* ── SECTION 1: REFLECTIONS & TEACHING ── */}
+          <section>
+            <Eyebrow text="The Blog" />
+            <div style={{
+              display: "flex", justifyContent: "space-between",
+              alignItems: "flex-end", flexWrap: "wrap", gap: 8, marginBottom: 4,
+            }}>
+              <SectionTitle text="Reflections & Teaching" />
+              <span style={{
+                fontFamily: "Lato,sans-serif",
+                fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+                textTransform: "uppercase", color: "var(--tl)", marginBottom: 20,
+              }}>
+                {articles.length} article{articles.length !== 1 ? "s" : ""}
+              </span>
+            </div>
+
+            {articles.length === 0 ? (
+              <p style={{
+                fontFamily: "'Cormorant Garamond',Georgia,serif",
+                fontSize: "1.3rem", color: "var(--tm)",
+                fontStyle: "italic", textAlign: "center", padding: "60px 0",
+              }}>
+                No posts match your search yet.
+              </p>
+            ) : (
+              <>
+                <div className="blog-card-grid">
+                  {pagedArticles.map(post => (
+                    <BlogCard key={post.slug} post={post} />
+                  ))}
+                </div>
+                <Pagination
+                  page={safeBlogPage}
+                  totalPages={articleTotalPages}
+                  onChange={p => setPageParam("blogPage", p)}
+                />
+              </>
+            )}
+          </section>
+
+          {/* ── DIVIDER ── */}
           <div style={{
-            display: "flex", justifyContent: "space-between",
-            alignItems: "center", marginBottom: 18,
+            display: "flex", alignItems: "center", gap: 14,
+            margin: "16px 0 40px",
           }}>
+            <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
             <span style={{
               fontFamily: "Lato,sans-serif",
-              fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+              fontSize: 10, fontWeight: 700, letterSpacing: ".2em",
               textTransform: "uppercase", color: "var(--tl)",
             }}>
-              {filtered.length} article{filtered.length !== 1 ? "s" : ""}
+              ✦
             </span>
+            <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
           </div>
 
-          {filtered.length === 0 ? (
+          {/* ── SECTION 2: BIBLE STORIES ── */}
+          <section>
+            <Eyebrow text="Stories Retold" />
+            <div style={{
+              display: "flex", justifyContent: "space-between",
+              alignItems: "flex-end", flexWrap: "wrap", gap: 8, marginBottom: 4,
+            }}>
+              <SectionTitle text="Bible Stories" />
+              <span style={{
+                fontFamily: "Lato,sans-serif",
+                fontSize: 9, fontWeight: 700, letterSpacing: ".18em",
+                textTransform: "uppercase", color: "var(--tl)", marginBottom: 20,
+              }}>
+                {stories.length} stor{stories.length !== 1 ? "ies" : "y"}
+              </span>
+            </div>
             <p style={{
               fontFamily: "'Cormorant Garamond',Georgia,serif",
-              fontSize: "1.3rem", color: "var(--tm)",
-              fontStyle: "italic", textAlign: "center", padding: "60px 0",
+              fontSize: "1.1rem", fontStyle: "italic",
+              color: "var(--tm)", marginTop: -12, marginBottom: 24,
             }}>
-              No posts match your search yet.
+              Faith, failure, and hope
             </p>
-          ) : (
-            <div className="blog-card-grid">
-              {filtered.map(post => (
-                <BlogCard key={post.slug} post={post} />
-              ))}
-            </div>
-          )}
+
+            {stories.length === 0 ? (
+              <p style={{
+                fontFamily: "'Cormorant Garamond',Georgia,serif",
+                fontSize: "1.3rem", color: "var(--tm)",
+                fontStyle: "italic", textAlign: "center", padding: "60px 0",
+              }}>
+                No stories match your search yet.
+              </p>
+            ) : (
+              <>
+                <div className="blog-card-grid">
+                  {pagedStories.map(post => (
+                    <BlogCard key={post.slug} post={post} />
+                  ))}
+                </div>
+                <Pagination
+                  page={safeStoryPage}
+                  totalPages={storyTotalPages}
+                  onChange={p => setPageParam("storyPage", p)}
+                />
+              </>
+            )}
+          </section>
+
         </main>
 
         <aside style={{ position: "sticky", top: 76 }}>
