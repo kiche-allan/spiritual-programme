@@ -13,7 +13,7 @@ import { BibleStories } from "@/components/home/BibleStories";
 import { useAllProgress } from "@/hooks/useProgress";
 import { WEEKS_META, weekProgress } from "@/lib/weeks";
 
-const WEEKS_PER_PAGE = 5;
+const WEEKS_PER_PAGE = 6;
 
 export default function HomePage() {
   const store = useAllProgress();
