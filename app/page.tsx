@@ -1,5 +1,5 @@
 "use client";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -8,11 +8,16 @@ import { WeekCard } from "@/components/week/WeekCard";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProgressBackup } from "@/components/ui/ProgressBackup";
+import { Pagination } from "@/components/ui/Pagination";
+import { BibleStories } from "@/components/home/BibleStories";
 import { useAllProgress } from "@/hooks/useProgress";
 import { WEEKS_META, weekProgress } from "@/lib/weeks";
 
+const WEEKS_PER_PAGE = 10;
+
 export default function HomePage() {
   const store = useAllProgress();
+  const [page, setPage] = useState(1);
 
   const sorted = useMemo(
     () => [...WEEKS_META].sort(
@@ -23,6 +28,13 @@ export default function HomePage() {
 
   const latest = sorted[0];
   const rest = sorted.slice(1);
+  const totalPages = Math.max(1, Math.ceil(rest.length / WEEKS_PER_PAGE));
+  const pagedRest = rest.slice((page - 1) * WEEKS_PER_PAGE, page * WEEKS_PER_PAGE);
+
+  const goToPage = (p: number) => {
+    setPage(Math.min(Math.max(1, p), totalPages));
+    document.getElementById("weeks")?.scrollIntoView({ block: "start" });
+  };
 
   const getProgress = (id: number) => {
     const pct = weekProgress(store, id, WEEKS_META.find(w => w.id === id)?.totalDays ?? 7);
@@ -142,10 +154,30 @@ export default function HomePage() {
       </header>
 
       {/* WEEK LIBRARY */}
-      <section id="weeks" style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 24px 20px" }}>
-        <Eyebrow text="Featured" />
-        <SectionTitle text="This Week's Programme" />
-        <div style={{ marginBottom: 48 }}>
+      <section id="weeks" className="home-library" style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 24px 20px" }}>
+        <div className="featured-week-intro">
+          <div>
+            <Eyebrow text="Begin here" />
+            <SectionTitle text="This Week's Programme" />
+            <p className="featured-week-lede">
+              Seven days to slow down, listen closely, and make room for what God is doing in you now.
+            </p>
+          </div>
+          <Link className="text-link" href={`/week/${latest.id}`}>
+            Open this week <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+
+        <div className="featured-week-layout">
+          <div className="featured-week-note">
+            <span className="featured-week-kicker">{latest.subtitle}</span>
+            <h2>{latest.title}</h2>
+            <p>{latest.description}</p>
+            <div className="featured-week-statline">
+              <span><strong>{latest.totalDays}</strong> days</span>
+              <span><strong>{getProgress(latest.id).done}</strong> completed</span>
+            </div>
+          </div>
           <WeekCard week={latest} progress={getProgress(latest.id)} isLatest />
         </div>
 
@@ -156,15 +188,18 @@ export default function HomePage() {
             <div style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill,minmax(320px,1fr))",
-              gap: 20, marginBottom: 56,
+              gap: 20, marginBottom: 20,
             }}>
-              {rest.map(w => (
+              {pagedRest.map(w => (
                 <WeekCard key={w.id} week={w} progress={getProgress(w.id)} />
               ))}
             </div>
+            <Pagination page={page} totalPages={totalPages} onChange={goToPage} />
           </>
         )}
       </section>
+
+      <BibleStories />
 
       {/* PROGRESS SETTINGS */}
       <section style={{

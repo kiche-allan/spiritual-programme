@@ -26,6 +26,183 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "bartimaeus",
+    title: `Bartimaeus`,
+    subtitle: `A blind beggar shouted over a crowd trying to silence him, and Jesus stopped`,
+    publishedAt: "2026-09-02",
+    author: "Allan",
+    tags: ["bible story", "faith", "healing", "persistence", "jesus"],
+    coverColor: "#2C3E5A",
+    excerpt: `Bartimaeus could not see Jesus approaching. All he had was a voice, a crowd telling him to shut up, and a decision about whether to believe he was worth stopping for. He shouted louder.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Mark 10:46 places Bartimaeus precisely — sitting by the roadside outside Jericho, a blind beggar, named specifically by Mark in a way most minor characters in the Gospels are not. His father's name, Timaeus, is preserved alongside his own, a small but deliberate detail suggesting this was a man with a known history, a known family, and a known condition that had reduced him to begging by the side of a road that thousands of pilgrims traveled every year on their way to Jerusalem.`
+      ],
+    },
+    {
+      heading: `A Voice Is All He Has`,
+      paragraphs: [
+        `When Bartimaeus hears that it is Jesus of Nazareth passing by, Mark 10:47 says he "began to shout, 'Jesus, Son of David, have mercy on me!'" This is worth pausing on. Bartimaeus could not see the crowd, could not judge distance or timing the way a sighted person could, could not position himself strategically to be noticed. His entire access to Jesus in that moment depended on one thing — his voice, and whether he was willing to use it loudly enough to be heard over an enormous crowd. The title he uses, "Son of David," is also significant — a messianic title, a theological claim about who Jesus actually was, spoken by a blind beggar with more clarity than many of the sighted people around him who had witnessed Jesus' ministry firsthand.`
+      ],
+    },
+    {
+      heading: `The Crowd That Tried to Silence Him`,
+      paragraphs: [
+        `Mark 10:48 records the response of the people around him: "Many rebuked him and told him to be quiet." The crowd's instinct is a familiar one — a beggar shouting was an embarrassment, a disruption, an interruption to whatever orderly procession they imagined Jesus should be allowed to have. It is worth noticing how quickly a crowd following Jesus can become an obstacle between someone in need and Jesus himself, policing who gets to be loud enough to be noticed and who should learn to stay quiet and accept their circumstances. Bartimaeus's response to being told to be silent is not to comply. The text says he "shouted all the more, 'Son of David, have mercy on me!'" Opposition from the crowd did not decrease his volume. It increased it.`
+      ],
+    },
+    {
+      heading: `Jesus Stopped`,
+      paragraphs: [
+        `Mark 10:49 contains one of the most understated and significant sentences in the entire Gospel: "Jesus stopped and said, 'Call him.'" Jesus was in motion, surrounded by a large crowd, on his way toward Jerusalem for the events that would lead to his crucifixion within days. And he stopped — for one blind beggar's voice, rising above a crowd that had tried to suppress it. The same people who had just been telling Bartimaeus to be quiet now turn around and encourage him: "Cheer up! On your feet! He's calling you." The crowd's posture toward him flips instantly once Jesus signals that Bartimaeus matters. It is a small but sharp commentary on how quickly people's treatment of the marginalized can shift once they see how the person with real authority treats them.`
+      ],
+    },
+    {
+      heading: `Throwing Off the Cloak`,
+      paragraphs: [
+        `Mark 10:50 includes a detail easy to miss but rich with meaning: "Throwing his cloak aside, he jumped to his feet and came to Jesus." For a blind beggar, a cloak was not a minor accessory. It would have functioned as his primary possession — something to sit on, to collect coins in, to keep warm in, possibly his only real asset in the world. Throwing it aside as he ran toward Jesus was an act of total, unhedged commitment. He was not preserving a fallback position in case this encounter came to nothing. He left behind the one thing that had structured his entire life as a beggar, trusting that whatever Jesus had for him was worth more than the security the cloak represented.`
+      ],
+    },
+    {
+      heading: `What Do You Want Me to Do for You`,
+      paragraphs: [
+        `Jesus' question to Bartimaeus in verse 51 is strikingly direct, and it is the same question he had asked James and John just a few verses earlier when they came to him with a request for status and power. "What do you want me to do for you?" Bartimaeus's answer is simple and specific: "Rabbi, I want to see." He does not ask for money, though as a beggar money would have been an entirely reasonable request. He asks for the one thing that would change the entire trajectory of his life, the thing that had defined his exclusion and his poverty from the start.`
+      ],
+    },
+    {
+      heading: `Your Faith Has Healed You`,
+      paragraphs: [
+        `Jesus' response completes the story: "Go, your faith has healed you." Immediately, Mark says, Bartimaeus received his sight. But the final line of the account is the one that carries the weight — "and followed Jesus along the road." Jesus told him to go, and instead Bartimaeus chose to follow. Having received exactly what he asked for, he did not return to his old life by the roadside, healed and independent. He attached himself to Jesus and joined the road toward Jerusalem, toward the cross, toward whatever was coming next. The story of Bartimaeus is a story about the difference between a crowd that tells you to be quiet and a Savior who stops when he hears you — and about what happens when a person who has been given sight chooses not to walk away, but to follow.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "hagar-in-the-wilderness",
+    title: `Hagar in the Wilderness`,
+    subtitle: `The God who sees the woman nobody else was looking for`,
+    publishedAt: "2026-07-15",
+    author: "Allan",
+    tags: ["bible story", "wilderness", "identity", "el roi", "motherhood"],
+    coverColor: "#BF8B3A",
+    excerpt: `Hagar was an Egyptian servant, used and then discarded by the very family that was supposed to be a blessing to the nations. Twice she fled into the wilderness alone. Twice God met her there — and named himself after what he did.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Hagar appears in Genesis with almost no introduction — an Egyptian servant belonging to Sarai, handed to Abram as a means of producing the heir God had promised but had not yet delivered. She had no say in the arrangement that made her pregnant with Abram's child, and she had no say in what happened afterward, when Sarai's jealousy turned into mistreatment severe enough that Hagar ran.`
+      ],
+    },
+    {
+      heading: `Fleeing Into Nothing`,
+      paragraphs: [
+        `Genesis 16:7 finds her by a spring in the desert, on the road to Shur — a woman alone, pregnant, with nowhere to go and no family structure to return to. This is the position so many people find themselves in when they have been used by people more powerful than they are and then discarded once they were no longer useful. Hagar's wilderness was not metaphorical. It was an actual desert, an actual dead end, an actual place where a pregnant woman with no resources could easily have died. And it is precisely there, in the place with no audience, no reputation to protect, and no one watching, that the angel of the Lord finds her.`
+      ],
+    },
+    {
+      heading: `The Question That Sees`,
+      paragraphs: [
+        `The angel does not begin by giving Hagar instructions. He begins with a question: "Hagar, servant of Sarai, where have you come from, and where are you going?" Genesis 16:8. The question is not information-gathering — the angel of the Lord does not need Hagar to explain her situation. The question is an act of attention. It is the kind of question a person asks when they have already decided the other person matters enough to be asked. Hagar's whole existence up to this point had been defined by what she was for — a womb for Sarai's plan, an instrument in someone else's story. The question in the wilderness is the first time in the narrative anyone asks Hagar about herself.`
+      ],
+    },
+    {
+      heading: `El Roi — The God Who Sees Me`,
+      paragraphs: [
+        `What Hagar does next is the most theologically significant moment in her entire story. She names God. Genesis 16:13 records it: "She gave this name to the Lord who spoke to her: 'You are the God who sees me,' for she said, 'I have now seen the One who sees me.'" This is a striking thing for anyone to do in Genesis, let alone an Egyptian servant with no standing in Abram's household. Hagar is the only person in the entire book of Genesis who names God. Not Abraham, not Sarah, not Isaac, not Jacob — Hagar, in the wilderness, alone, with nothing left but the experience of having been seen by the God who found her. The name El Roi does not describe a God who sees everything in some abstract, distant, surveillance sense. It describes a God whose seeing is personal, specific, and directed — the kind of seeing that finds one woman by one spring and addresses her by name.`
+      ],
+    },
+    {
+      heading: `Sent Back, Not Abandoned`,
+      paragraphs: [
+        `What happens next is often skipped over because it is uncomfortable: the angel tells Hagar to go back and submit to Sarai. This is not an endorsement of her mistreatment, and it is not God asking her to simply absorb abuse. It is, in the context of the ancient world Hagar lived in, the only realistic path to survival for a pregnant woman with no resources of her own — and it comes bundled with an enormous promise, that her son Ishmael would become the father of a multitude too numerous to count. God did not remove Hagar from her difficult circumstances. He met her honestly inside them, gave her a future worth returning for, and let her carry both the difficulty and the promise back into the same household that had mistreated her.`
+      ],
+    },
+    {
+      heading: `The Second Wilderness`,
+      paragraphs: [
+        `Hagar's story does not end there. Genesis 21 finds her in the wilderness again, this time cast out for good, wandering with Ishmael until the water runs out and she puts the boy under a bush because she cannot bear to watch him die. And once again, in the exact place where hope had run out completely, God hears — the text plays on Ishmael's name, which means "God hears" — and opens Hagar's eyes to see a well of water that had been there the whole time. The wilderness did not change. What changed was that God opened her eyes to see provision that was already present.`
+      ],
+    },
+    {
+      heading: `What Hagar's Story Still Says`,
+      paragraphs: [
+        `Hagar's story matters because it refuses to locate God's attention only among the powerful, the covenant-bearing, the central characters of the narrative. She was a foreign servant, used and discarded twice, and she is the person in Genesis who gets to name God. Every person who has ever felt used by people who should have protected them, discarded once they were no longer useful, and alone in a wilderness with no one watching, has Hagar's testimony available to them: I have now seen the One who sees me. The wilderness is real. And so is the God who finds people in it.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "hannahs-prayer",
+    title: `Hannah's Prayer`,
+    subtitle: `What honest, wordless grief looks like when it finally reaches the temple`,
+    publishedAt: "2026-07-29",
+    author: "Allan",
+    tags: ["bible story", "prayer", "barrenness", "waiting", "surrender"],
+    coverColor: "#8A2040",
+    excerpt: `Hannah prayed so silently, with her lips moving and no sound coming out, that the priest at the door of the temple assumed she was drunk. Nobody at Shiloh had seen grief that honest come that close to God before.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `1 Samuel 1 opens with a household arrangement designed to produce exactly the kind of pain Hannah lived with year after year. Elkanah had two wives — Hannah, whom he loved, and Peninnah, who had children. The text is direct about what this produced: Peninnah "kept provoking her in order to irritate her," 1 Samuel 1:6, year after year, every time the family went up to Shiloh to worship. Hannah's grief was not private. It was staged, repeatedly, in front of an audience that knew exactly where to aim.`
+      ],
+    },
+    {
+      heading: `A Grief With No Room to Land`,
+      paragraphs: [
+        `What makes Hannah's situation especially painful is that even the people who loved her did not fully understand what she needed. Elkanah, in his own well-meaning way, asks her: "Hannah, why are you weeping? Why don't you eat? Why are you downhearted? Don't I mean more to you than ten sons?" 1 Samuel 1:8. It is a tender question and a completely inadequate one. Elkanah's love was not the thing Hannah was grieving the absence of. Her grief was specific — a body that would not do what every other woman's body around her seemed to do without effort, a household rival who used that specific wound as a weapon, and a culture in which a woman's worth was often measured by the children she produced. No amount of being loved by her husband could substitute for what she actually wanted, and the story does not pretend otherwise.`
+      ],
+    },
+    {
+      heading: `Praying Past the Point of Composure`,
+      paragraphs: [
+        `1 Samuel 1:10 says Hannah was "deeply distressed" and "prayed to the Lord, weeping bitterly." This is not composed, liturgically correct prayer. It is the kind of praying that happens after every other strategy has been exhausted — after years of provocation, after a husband's well-meaning but insufficient comfort, after enough disappointment that the only thing left to do is go to the temple and simply pour it all out. Verse 15 has Hannah's own description of what she was doing: "I was pouring out my soul to the Lord." The Hebrew image behind that phrase is of liquid being emptied from a container until nothing is left inside it — the complete opposite of managed, polite, rehearsed prayer.`
+      ],
+    },
+    {
+      heading: `Mistaken for Drunk`,
+      paragraphs: [
+        `The priest Eli watches her lips moving with no sound coming out and assumes she is drunk, rebuking her publicly for it. 1 Samuel 1:13-14. It is a devastating misreading, and it is worth sitting with, because it says something true about how raw, wordless grief often looks to people who have not carried it themselves. Hannah's prayer was so far outside the expected shape of temple worship that the person whose job it was to discern the presence of God completely misidentified what he was witnessing. Hannah's answer to him is remarkable for its restraint and its honesty at once: "I was pouring out my soul to the Lord... I have been praying here out of my great anguish and grief." No defensiveness, no shame, just the plain truth of what had actually been happening inside her.`
+      ],
+    },
+    {
+      heading: `The Vow and the Release`,
+      paragraphs: [
+        `Before Eli's rebuke, Hannah had already made a vow — that if God gave her a son, she would give him back, dedicated to the Lord all the days of his life. 1 Samuel 1:11. This vow is often read simply as a bargain, but it is better understood as the shape Hannah's surrender finally took. She was not negotiating for a child she intended to keep for herself. She was asking for a child she had already, in her heart, decided to release back to the God who gave him. This is a different posture than desperate bargaining. It is the prayer of someone who has stopped trying to control the outcome and has instead handed the entire situation — including whatever the answer turns out to be — back to God.`
+      ],
+    },
+    {
+      heading: `After the Prayer, Before the Answer`,
+      paragraphs: [
+        `The detail easiest to miss in the whole account comes in verse 18: after Eli blesses her and sends her away, Hannah eats something, and "her face was no longer downcast." This happens before Samuel is conceived. Nothing about her physical situation had changed yet. What had changed was that she had finally prayed the prayer all the way to the bottom, and something about having poured it all out — without an answer yet in hand — was enough to change her countenance. This is worth noticing for anyone waiting on an answer that has not come: the relief Hannah experienced was not the relief of getting what she asked for. It was the relief of having finally said, completely and honestly, what she actually needed to say.`
+      ],
+    },
+    {
+      heading: `Samuel, and the Song That Followed`,
+      paragraphs: [
+        `Hannah did conceive, did bear Samuel, and did keep her vow — bringing the boy to Eli once he was weaned and leaving him at Shiloh to serve the Lord for the rest of his life. 1 Samuel 2 records her song of praise, and it is not merely a song about her own son. It widens out into a declaration about the God who "raises the poor from the dust and lifts the needy from the ash heap," a theology forged specifically in the years of provocation, barrenness, and grief that came before it. Hannah's prayer still stands as permission for anyone whose grief has stopped being polite — permission to pour it all out, unfiltered, even if the people watching mistake it for something it is not.`
+      ],
+    }
+    ],
+  },
+
+  {
     slug: "healing-rain-the-mercy-that-falls-on-everyone",
     title: `Healing Rain: The Mercy That Falls on Everyone`,
     subtitle: `What Michael W. Smith's most enduring song understands about healing that most prayers miss`,
@@ -162,6 +339,118 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 
   {
+    slug: "joseph-and-the-pit",
+    title: `Joseph and the Pit`,
+    subtitle: `What to do when the people who should protect you are the ones who throw you in`,
+    publishedAt: "2026-07-08",
+    author: "Allan",
+    tags: ["bible story", "betrayal", "purpose", "forgiveness", "suffering"],
+    coverColor: "#7A1A1A",
+    excerpt: `Before Joseph ever wore a crown in Egypt, he sat in the dark at the bottom of a pit, listening to his own brothers negotiate his price over a meal. The pit is not a detour from the story. It is where the story actually begins.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Genesis 37 does not soften what happened. Joseph's brothers saw him coming, decided to kill him, talked themselves down to merely selling him, stripped him of the coat their father gave him, and threw him into an empty cistern while they sat down to eat. Then they ate. That detail is the most disturbing one in the whole account — not the betrayal itself, but the appetite that survived it. The people closest to Joseph did the most damage to him, and they were not even particularly troubled by it.`
+      ],
+    },
+    {
+      heading: `The Pit Is Not a Detour`,
+      paragraphs: [
+        `It is tempting to read the pit as an unfortunate delay on the way to the real story — Joseph in Egypt, Joseph before Pharaoh, Joseph reunited with his family. But the pit is not incidental to Joseph's formation; it is part of it. Psalm 105:18-19 says that until his prediction came true, the Lord tested Joseph. The Hebrew word for tested there does not mean God engineered the betrayal, but it does mean the years between the pit and the palace were not wasted years, hidden years, or years God had lost track of. They were years in which something in Joseph was being formed that would not have been formed any other way — the capacity to hold power without using it for revenge. If you are in a pit right now, put there by people who should have protected you, the first thing worth saying honestly is: the pit is real, the wound is real, and the story is not over.`
+      ],
+    },
+    {
+      heading: `What the Brothers Reveal About Ordinary Cruelty`,
+      paragraphs: [
+        `It is worth resisting the temptation to make the brothers into monsters, because that lets everyone else off the hook. Genesis presents them as ordinary men — jealous, tired of hearing about their brother's dreams, resentful of a father's obvious favoritism. Their cruelty did not arrive out of nowhere. It grew in the soil of unaddressed comparison, a father who could not manage his own household well, and a young Joseph who, whatever his gifts, was not always wise about how he reported his dreams to brothers already primed to resent him. None of that justifies what they did. But it is a sober reminder that pits are usually dug by people who have convinced themselves they have a reason. Understanding this does not excuse the betrayal. It does help explain why so many pits in ordinary life are dug not by strangers but by family, by close friends, by people inside the same household of faith.`
+      ],
+    },
+    {
+      heading: `Potiphar's House and the Second Pit`,
+      paragraphs: [
+        `Joseph's story does not move in a straight line from pit to palace. After Egypt, after Potiphar's house, after real integrity in the face of real temptation, Joseph is falsely accused and thrown into a second pit — an actual prison. Genesis 39:20-21 records this with a phrase that deserves to be underlined: "but while Joseph was there in the prison, the Lord was with him." Not after the prison. While he was there. This is the theology the whole account is built around — that God's presence is not contingent on your circumstances improving first. The prison did not disqualify Joseph from being someone the Lord was with. It was, in fact, the place where that presence is most explicitly stated in the entire narrative.`
+      ],
+    },
+    {
+      heading: `Thirteen Years and No Bitterness`,
+      paragraphs: [
+        `By the time Joseph stands before Pharaoh in Genesis 41, thirteen years have passed since the pit. Thirteen years is not a quick turnaround. It is long enough to become a different person — hardened, cynical, permanently altered by what was done to him. And yet when Joseph finally reveals himself to his brothers in Genesis 45, he weeps so loudly the Egyptians hear it, and he says the words that summarize the entire theology of the account: "you intended to harm me, but God intended it for good to accomplish what is now being done, the saving of many lives." This is not denial of what his brothers did. It is not minimizing the pit. It is the specific and hard-won capacity to hold two truths at once — that real evil was done to him, and that the same God who did not prevent it was present in it, working toward an end his brothers could never have engineered on their own.`
+      ],
+    },
+    {
+      heading: `The Pit as Preparation, Not Punishment`,
+      paragraphs: [
+        `If there is one thing the story of Joseph refuses to let you believe, it is that suffering caused by other people's sin is evidence that God has abandoned you. The pit, Potiphar's house, the prison — none of them were punishment for something Joseph did. They were the specific, unchosen, unwanted terrain across which his purpose was being carried, largely invisible to him at the time. Joseph could not see, from inside the pit, that it would lead to Egypt. He could not see, from inside the prison, that Pharaoh's cupbearer would remember him two years later. Faith, in the story of Joseph, is not the ability to see the whole plan in advance. It is the willingness to keep doing the next right thing — serving well, refusing temptation, interpreting dreams honestly — in the pit you can actually see, trusting a purpose you cannot.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "mephibosheth",
+    title: `Mephibosheth`,
+    subtitle: `A permanent seat at the king's table for a man who could not walk toward it`,
+    publishedAt: "2026-07-22",
+    author: "Allan",
+    tags: ["bible story", "covenant", "grace", "identity", "adoption"],
+    coverColor: "#5A2D82",
+    excerpt: `Dropped by a nurse as a child, crippled in both feet, hiding in a place called Lo Debar — 'no pasture' — Mephibosheth had every reason to expect the new king would finish what his family's collapse had started. Instead, David asked one question: is there anyone left of Saul's house to whom I can show kindness?`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Mephibosheth's story begins with an accident that changed everything about his life before he had any say in it. 2 Samuel 4:4 tells us that when news came of Saul and Jonathan's deaths, Mephibosheth's nurse picked him up to flee — he was five years old — and in her hurry, she dropped him. He became lame in both feet. One panicked moment, and a child born into the royal line of Israel spent the rest of his life unable to walk without help.`
+      ],
+    },
+    {
+      heading: `Lo Debar — No Pasture`,
+      paragraphs: [
+        `By the time we meet Mephibosheth as an adult in 2 Samuel 9, he is living in a place called Lo Debar, a name that literally means "no pasture" or "no word." It is about as bleak a location as the text could have chosen — a barren, forgotten place east of the Jordan, far from Jerusalem, far from the royal court his family once belonged to. Mephibosheth was not hiding there by accident. In the ancient world, a new dynasty typically eliminated every remaining member of the previous royal line to prevent future claims to the throne. Mephibosheth had every rational reason to believe that if David's men ever found him, it would be to kill him, not to bless him. Lo Debar was not just where he happened to end up. It was where a man with a legitimate fear of the new king chose to disappear.`
+      ],
+    },
+    {
+      heading: `David Remembers a Promise, Not a Threat`,
+      paragraphs: [
+        `What makes 2 Samuel 9:1 remarkable is the question David asks once he is firmly established on the throne, with every reason to feel secure and no political need to look backward: "Is there anyone still left of the house of Saul to whom I can show kindness for Jonathan's sake?" David is not looking for a threat to neutralize. He is looking for a covenant to keep. Years earlier, in 1 Samuel 20:14-15, Jonathan had made David promise that he would show unfailing kindness to Jonathan's descendants, even after Jonathan was gone. David's question in chapter 9 is not political strategy. It is a man who remembers a promise to a friend long after political convenience would have permitted him to forget it.`
+      ],
+    },
+    {
+      heading: `Brought In Afraid`,
+      paragraphs: [
+        `When Mephibosheth is found and brought before David, his response is telling: he bows down with his face to the ground and says, "What is your servant, that you should notice a dead dog like me?" 2 Samuel 9:8. This is not false humility. Mephibosheth genuinely believes he is worthless — crippled, from a fallen house, living in a place named for its own bleakness, summoned by a king who could execute him with a word. He walks into David's presence expecting judgment and receives, instead, a complete reversal of everything he thought his life had become.`
+      ],
+    },
+    {
+      heading: `Restored, Not Just Spared`,
+      paragraphs: [
+        `David does not merely spare Mephibosheth's life, which would have been generous on its own. He restores to him all the land that belonged to Saul, assigns Saul's own servant Ziba to farm it on his behalf, and then delivers the line that defines the entire story: "you will always eat at my table." 2 Samuel 9:7. This is covenant language, not charity language. David is not offering Mephibosheth a handout to ease his conscience. He is bringing a member of a defeated, disgraced royal line into permanent, ongoing fellowship at his own table — the place of highest honor in the ancient world, reserved for family and closest allies.`
+      ],
+    },
+    {
+      heading: `Eating at the Table Every Day, Feet Still Lame`,
+      paragraphs: [
+        `The detail the text will not let you forget is repeated at the very end of the chapter: "Mephibosheth ate at the king's table like one of the king's sons... he was lame in both feet." 2 Samuel 9:11-13. His condition did not change. He did not walk into that dining hall on healed legs. He was carried there, and he remained lame for the rest of his life, and none of it disqualified him from a permanent place at the table. This is the whole theology of grace compressed into a single scene — that the seat at the table is never earned by what your legs can do. It is given because of a covenant someone else made, kept by someone whose character did not depend on convenience.`
+      ],
+    },
+    {
+      heading: `What Mephibosheth Still Offers`,
+      paragraphs: [
+        `Every person who has ever believed their brokenness disqualifies them from belonging in the presence of God has Mephibosheth's story as evidence to the contrary. You do not have to arrive whole. You do not have to walk in on your own strength. The table was never set for people who could earn their way to it. It was set because of a promise kept by someone whose loyalty did not depend on what you could offer in return — and that is precisely the shape of the grace held out in Christ, who seeks out the lame, the hidden, and the afraid, and says: you will always eat at my table.`
+      ],
+    }
+    ],
+  },
+
+  {
     slug: "michael-satan-and-the-body-of-moses",
     title: `Michael, Satan, and the Body of Moses`,
     subtitle: `The strangest verse in the Bible — and what it reveals about spiritual warfare, accusation, and the God who protects His servants even in death`,
@@ -221,6 +510,65 @@ export const BLOG_POSTS: BlogPost[] = [
       heading: `A Prayer for Those in Spiritual Battle`,
       paragraphs: [
         `Lord God, I come to You today carrying the weight of whatever the enemy has been presenting against me. The record of my failures. The list of my inconsistencies. The specific accusation that says this time, this particular failure, has finally put me beyond Your reach. I reject that lie today in the name of Jesus — the same name that Michael invoked, the same name that is above every name, the same name before which every knee will bow. You buried Moses in a hidden valley and kept him from every strategy the enemy devised. You appeared with him on a mountain three thousand years later in glory. What You did for him You are capable of doing for me — not because I am Moses, but because the God who buried Moses is the same God who hides my life in Christ. Where the enemy is fighting over something in me — my testimony, my calling, my dignity, my legacy — I declare that the battle belongs to You. I will not fight it in my own strength. I will say what Michael said: the Lord rebuke you. And I will trust that it is enough. Because it always has been. In the name of Jesus, who holds the keys of death and Hades. Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "moses-and-the-red-sea",
+    title: `Moses and the Red Sea`,
+    subtitle: `Trapped between an army and an ocean, with only one instruction: stand still`,
+    publishedAt: "2026-08-12",
+    author: "Allan",
+    tags: ["bible story", "deliverance", "fear", "trust", "exodus"],
+    coverColor: "#1A3A6E",
+    excerpt: `Pharaoh's army at their backs, the sea in front of them, and nowhere left to run — the Israelites at the Red Sea were not in a position that faith could improve by trying harder. They were in a position that only God could resolve, and Moses knew it.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `By the time the Israelites reach the shore of the Red Sea in Exodus 14, they have already experienced ten plagues, a hurried midnight departure, and the beginning of what should have been a straightforward journey toward freedom. Then Pharaoh changes his mind. Exodus 14:5-9 describes Pharaoh mobilizing six hundred of his best chariots and his entire army to pursue the people he had just released, and the Israelites, camped by the sea with mountains on either side, find themselves in a position with no possible way out through their own effort.`
+      ],
+    },
+    {
+      heading: `Trapped by Design, Not by Accident`,
+      paragraphs: [
+        `What is easy to miss in this account is that God deliberately led Israel into this trap. Exodus 14:1-4 has the Lord instructing Moses to have the people camp in a spot that would appear to Pharaoh as confusion — "hemmed in by the desert" — precisely so that Pharaoh would be tempted to pursue them. The impossible position at the sea was not a failure of Moses' leadership or a wrong turn in the journey. It was engineered, in advance, by God himself, for a purpose the people camped there had no way of seeing yet: "I will gain glory through Pharaoh and all his army." The trap the Israelites found themselves in was not evidence that God had lost control of the situation. It was evidence that he had planned the entire confrontation from the start.`
+      ],
+    },
+    {
+      heading: `The People's Honest Terror`,
+      paragraphs: [
+        `The response of the Israelites is not admirable, and the text does not pretend otherwise. Exodus 14:10-12 records them terrified, crying out to the Lord, and then turning that fear into bitter accusation against Moses: "Was it because there were no graves in Egypt that you brought us to the desert to die? What have you done to us by bringing us out of Egypt? Didn't we say to you in Egypt, 'Leave us alone; let us serve the Egyptians'? It would have been better for us to serve the Egyptians than to die in the desert." This is real fear speaking, and it is worth noting how quickly the memory of slavery in Egypt gets rewritten into something that sounds preferable to the terror of the present moment. Fear does that. It makes the misery you already know feel safer than the uncertainty you are currently facing, even when the misery was genuinely worse.`
+      ],
+    },
+    {
+      heading: `Do Not Be Afraid — Stand Firm`,
+      paragraphs: [
+        `Moses' response to the people is one of the clearest statements of what faith actually requires in an impossible situation: "Do not be afraid. Stand firm, and you will see the deliverance the Lord will bring you today... The Lord will fight for you; you need only to be still." Exodus 14:13-14. This is not passivity as a general life strategy — elsewhere in Scripture God's people are called to act, to obey, to move. But at this specific moment, with an army behind them and a sea in front of them, there was nothing constructive left for the people to do with their own strength. The instruction to stand firm and be still was not an evasion of responsibility. It was an accurate assessment of a situation only God could resolve, paired with the refusal to let panic drive them into some frantic, useless motion that would accomplish nothing except exhausting them further.`
+      ],
+    },
+    {
+      heading: `Then Move Forward`,
+      paragraphs: [
+        `Immediately after telling the people to be still, God tells Moses something that seems to contradict it: "Why are you crying out to me? Tell the Israelites to move on." Exodus 14:15. The stillness was internal — a refusal to panic, a posture of trust — but it was not meant to become an excuse for inaction once God gave the actual instruction to move. Moses raises his staff, stretches his hand over the sea, and the Lord drives the sea back with a strong east wind all through the night, turning it into dry ground, with walls of water on either side. The people then walk forward, into the middle of the sea on dry ground, between two walls of water that had not existed hours earlier and would not remain in that state a moment longer than necessary.`
+      ],
+    },
+    {
+      heading: `Walking Between Two Walls of Water`,
+      paragraphs: [
+        `There is something worth sitting with in the image of the Israelites walking between two walls of water that were, by every law of nature, supposed to be crashing down on them. Faith in this account does not mean the danger stopped being dangerous. The walls of water were real, held back by nothing except the specific, temporary intervention of God. Every step forward was a step taken inside a miracle still actively in progress, not a miracle that had already been completed and made safe in advance. The Egyptians who pursued them into the same path did not survive it — Exodus 14:27-28 records the sea returning to its place and covering the entire army.`
+      ],
+    },
+    {
+      heading: `The Song on the Other Side`,
+      paragraphs: [
+        `Exodus 15 records the song Moses and the people sang once they reached the other shore — a song that does not simply celebrate survival but declares who God is: "The Lord is my strength and my defense; he has become my salvation." The Red Sea crossing remains, throughout the rest of Scripture, the defining image of what it looks like when God delivers people from a situation they had no ability to escape on their own — not by removing the danger before it arrives, but by making a way straight through the middle of it.`
       ],
     }
     ],
@@ -446,6 +794,65 @@ export const BLOG_POSTS: BlogPost[] = [
       heading: `A Prayer`,
       paragraphs: [
         `Prince of Peace, I bring You the storm I am in right now — the one inside me more than the one around me, the violent sky that has not yet held its breath, the night that is still screaming rather than quieting. I do not ask You to remove it before You arrive. I ask You to arrive as You always have — bursting through the wind, riding on the storm, meeting me there rather than waiting until conditions are more suitable for Your presence. Let my eyes find Yours today. Not after the storm ends. Now, in the middle of it, where the song says You have always been. Be still, my heart. Fear no evil. He is here. In the name of the Prince of Peace, Amen. --- *"Prince of Peace" — Words and Music by Joel Houston, Matt Crocker and Dylan Thomas. © 2015 Hillsong Music Publishing (APRA). All rights reserved. Used for commentary and discussion purposes.*`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "ruth-and-boaz",
+    title: `Ruth and Boaz`,
+    subtitle: `Loyalty, gleaning, and the redeemer who noticed a foreign widow in his field`,
+    publishedAt: "2026-08-05",
+    author: "Allan",
+    tags: ["bible story", "loyalty", "redemption", "provision", "covenant"],
+    coverColor: "#2E6B50",
+    excerpt: `Ruth had every reason to go back to Moab, back to her own people and her own gods, back to whatever safety was left for a young widow. Instead she chose a mother-in-law with nothing to offer her but a God she barely knew — and gleaned in a field she had no idea belonged to her family's redeemer.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `The book of Ruth opens with loss stacked on loss. Naomi and her husband Elimelek had left Bethlehem for Moab to escape a famine, and by the time we reach chapter 1, Elimelek is dead, and so are both of Naomi's sons — one of whom had been married to Ruth. Naomi is left with two Moabite daughters-in-law, no husband, no sons, and no way to provide for anyone, including herself. She decides to return to Bethlehem and releases both young women to go back to their own families, where they at least have some chance of remarrying and rebuilding a life.`
+      ],
+    },
+    {
+      heading: `The Choice at the Crossroads`,
+      paragraphs: [
+        `Ruth 1:14-18 records one of the most quoted declarations of loyalty in all of Scripture, and it is worth remembering what it actually cost. Orpah, the other daughter-in-law, makes the reasonable choice — she kisses Naomi goodbye and returns to Moab, to her own people and her own gods, and nothing in the text condemns her for it. Ruth's choice is the unreasonable one. "Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God." Ruth was choosing to become a foreigner in Naomi's land, attaching herself permanently to a bitter, grieving older woman with no resources, no husband to provide for either of them, and no guarantee of anything except hardship. This was not romantic idealism. It was a covenant made with full knowledge of what it would likely cost.`
+      ],
+    },
+    {
+      heading: `Gleaning as Survival`,
+      paragraphs: [
+        `Back in Bethlehem, Ruth does the only thing available to a poor foreign widow under Israelite law — she goes out to glean, gathering the leftover grain that harvesters were required to leave behind for the poor, under the provision of Leviticus 19:9-10 and Deuteronomy 24:19. This was not a dignified position. Gleaners worked at the margins of other people's fields, dependent entirely on the honesty and generosity of landowners who were under no obligation to be kind about it, only obligated to leave something behind. Ruth 2:3 says she "happened to end up" in a field belonging to Boaz — a detail the text almost certainly wants us to read as anything but coincidence.`
+      ],
+    },
+    {
+      heading: `Boaz Notices Before He Is Asked To`,
+      paragraphs: [
+        `What sets Boaz apart from the moment he appears is that he notices Ruth before anyone points her out to him — he asks his foreman who she is, and when he learns her story, his response goes well beyond what the law required. He tells her to stay in his field, instructs the young men not to touch her, gives her access to water, invites her to eat with his workers, and then privately instructs his harvesters to deliberately pull grain from the bundles and leave it for her to find. Ruth 2:15-16. Boaz is not merely obeying the minimum standard of Israelite law regarding gleaners. He is going well past it, motivated by what he already knows about her — that she left her own country to care for a grieving mother-in-law who had nothing to offer her in return.`
+      ],
+    },
+    {
+      heading: `The Threshing Floor Request`,
+      paragraphs: [
+        `Ruth 3 records one of the boldest and most vulnerable moments in the story — Naomi instructs Ruth to go to the threshing floor at night, after Boaz has eaten and is in good spirits, and to uncover his feet and lie down, asking him to spread the corner of his garment over her, a symbolic request for marriage and protection, rooted in Israelite kinsman-redeemer custom. It is Ruth, the foreigner, initiating the request for redemption, not Boaz. And Boaz's response is striking for its restraint and its honor — he does not take advantage of the vulnerable position she has placed herself in. He calls her a woman of noble character, acknowledges the legal complication of a nearer relative with a prior claim, and commits to resolving it properly, in public, before witnesses.`
+      ],
+    },
+    {
+      heading: `The Redeemer Who Pays the Price`,
+      paragraphs: [
+        `The kinsman-redeemer, or goel, in Israelite law was a relative responsible for redeeming property, restoring family lines, and protecting the vulnerable members of an extended family. Boaz fulfills this role publicly at the city gate in Ruth 4, formally acquiring the right to redeem Elimelek's property and to marry Ruth, ensuring Naomi's family line does not disappear. It costs Boaz something real — property, resources, and a public commitment to a foreign widow that not everyone would have made. He does it anyway.`
+      ],
+    },
+    {
+      heading: `The Line That Leads to David, and Further`,
+      paragraphs: [
+        `Ruth 4:17 closes the story with a genealogical note that quietly reframes everything that came before it: the son born to Ruth and Boaz, Obed, becomes the grandfather of David. A Moabite widow who gleaned in a stranger's field to keep herself and her mother-in-law alive becomes, generations later, an ancestor in the line that leads to Christ, as Matthew 1:5 records. Nothing about Ruth's circumstances suggested she was positioned for anything significant. Her story is a testimony to what covenant loyalty, ordinary faithfulness in unglamorous work, and a redeemer willing to pay the actual cost can produce — often generations before anyone involved could have seen where it was leading.`
       ],
     }
     ],
@@ -847,6 +1254,65 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 
   {
+    slug: "the-emmaus-road",
+    title: `The Emmaus Road`,
+    subtitle: `Two grieving disciples walked seven miles with the risen Christ and did not know it`,
+    publishedAt: "2026-09-09",
+    author: "Allan",
+    tags: ["bible story", "resurrection", "grief", "presence", "scripture"],
+    coverColor: "#1E6060",
+    excerpt: `Cleopas and his companion were walking away from Jerusalem, away from the empty tomb, away from a hope that had died on a Friday afternoon three days earlier. Jesus walked beside them the whole time, and they did not recognize him until the bread broke in his hands.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Luke 24 opens on the same day the women discovered the empty tomb — the same day the news of resurrection had already begun to circulate among the disciples, met mostly with confusion and disbelief. Against that backdrop, two disciples, one named Cleopas, are walking away from Jerusalem toward a village called Emmaus, about seven miles distant, "talking with each other about everything that had happened." They are not walking toward hope. They are walking away from the city where their hope had been crucified three days earlier, and the resurrection reports reaching them had not yet been enough to reverse the direction of their feet.`
+      ],
+    },
+    {
+      heading: `Walking With Them, Unrecognized`,
+      paragraphs: [
+        `Luke 24:15-16 records something quietly remarkable: "As they talked and discussed these things with each other, Jesus himself came up and walked along with them; but they were kept from recognizing him." This detail matters more than it might first appear. The text is explicit that their failure to recognize Jesus was not merely a matter of grief clouding their vision or a disguise Jesus had adopted — something was actively preventing their recognition, for reasons the chapter will only reveal later. What this means practically is that Jesus was present with them, walking at their pace, listening to their conversation, before they had any idea who he was. Presence, in this story, precedes recognition. He does not wait for them to identify him correctly before choosing to walk alongside them.`
+      ],
+    },
+    {
+      heading: `Are You the Only One Who Doesn't Know`,
+      paragraphs: [
+        `When Jesus asks what they are discussing, Cleopas's response carries an edge of exasperation: "Are you the only one visiting Jerusalem who does not know the things that have happened there in these days?" There is something almost darkly comic about a grieving disciple explaining the crucifixion and resurrection of Jesus to Jesus himself, entirely unaware of who is asking. But their explanation is worth reading closely, because it reveals exactly where their faith had stalled: "we had hoped that he was the one who was going to redeem Israel." Past tense. Hope, spoken of as something that used to be alive and now had died along with the man they had hoped would fulfill it. They had heard the women's report of an empty tomb and angels declaring he was alive, and even that had not been enough to move their hope out of the past tense.`
+      ],
+    },
+    {
+      heading: `How Foolish, How Slow to Believe`,
+      paragraphs: [
+        `Jesus' response is direct, even sharp: "How foolish you are, and how slow to believe all that the prophets have spoken! Did not the Messiah have to suffer these things and then enter his glory?" This is not a gentle correction. It is a real rebuke, aimed at disciples who had access to the entire Hebrew Scriptures and still could not see how the crucifixion fit into a pattern that had been laid out for centuries. And then, Luke 24:27 says, "beginning with Moses and all the Prophets, he explained to them what was said in all the Scriptures concerning himself." Jesus does not simply announce who he is. He walks them through the whole shape of the biblical story, showing them how suffering and glory had always been bound together in what the prophets had written, long before either of them had ever heard the name Emmaus.`
+      ],
+    },
+    {
+      heading: `Stay With Us`,
+      paragraphs: [
+        `As they approach the village, Jesus acts as though he is going further, and the two disciples urge him to stay: "it is nearly evening; the day is almost over." Luke 24:29. This small act of hospitality — offering shelter to a stranger as the day faded, without yet knowing who they were sheltering — turns out to be the hinge of the entire story. Jesus accepts, comes in to stay with them, and their willingness to extend ordinary kindness to an unrecognized traveler becomes the setting in which everything is about to change.`
+      ],
+    },
+    {
+      heading: `Their Eyes Were Opened`,
+      paragraphs: [
+        `The recognition finally comes at the table, in Luke 24:30-31: "When he was at the table with them, he took bread, gave thanks, broke it and began to give it to them. Then their eyes were opened and they recognized him, and he disappeared from their sight." It is not a sermon that opens their eyes. It is not even the extended explanation of Scripture along the road, as powerful as that was. It is the breaking of bread — an ordinary meal, an action they had likely watched him perform before, at the feeding of the crowds, at the Last Supper — that becomes the moment recognition finally breaks through whatever had been holding it back.`
+      ],
+    },
+    {
+      heading: `Were Not Our Hearts Burning Within Us`,
+      paragraphs: [
+        `Once Jesus vanishes from their sight, the two disciples say to each other the line that has become the defining phrase of the whole episode: "Were not our hearts burning within us while he talked with us on the road and opened the Scriptures to us?" Their hearts had been responding to his presence and his words the entire time, even while their eyes could not yet confirm who was speaking. Without pausing to eat the meal they had just prepared, without waiting for morning, they get up "at once" and return the seven miles to Jerusalem — walking, this time, in exactly the opposite direction from where the chapter began, carrying news instead of grief. The road to Emmaus had been walked away from hope. The same road, walked back that same night, carried them straight into the middle of it.`
+      ],
+    }
+    ],
+  },
+
+  {
     slug: "the-loneliness-of-the-narrow-road",
     title: `The Loneliness of the Narrow Road: When Your Purity Feels Like Foolishness`,
     subtitle: `What to do when someone else's compromise makes your obedience look like a waste`,
@@ -906,6 +1372,65 @@ export const BLOG_POSTS: BlogPost[] = [
       heading: `A Prayer`,
       paragraphs: [
         `Father, I bring to You the discouragement that comparison produces — the moments when faithfulness feels foolish because someone else's compromise has been dressed up as freedom. Remind me that the road being narrow was never evidence that I chose wrongly. It was Your own warning, given in advance, that the majority pattern would not be the faithful one. Thank You that the obedience I am holding by grace has never actually been my own strength. You have been the One sustaining it, providing the way out before I asked for it, in every moment the pressure felt unbearable. Let me trust that what is being sown in secret is not being wasted, even when the harvest is not yet visible. Keep me near You. Not vindicated. Not proven right in front of anyone. Just near. That is enough. In Jesus' name, Amen.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "the-prodigal-father",
+    title: `The Prodigal Father`,
+    subtitle: `The parable is usually named for the wrong son`,
+    publishedAt: "2026-08-26",
+    author: "Allan",
+    tags: ["bible story", "grace", "forgiveness", "parable", "sonship"],
+    coverColor: "#5A2D82",
+    excerpt: `We call it the parable of the prodigal son, but the word prodigal means recklessly extravagant — and the character who spends the most recklessly in the whole story is not the son who left. It is the father who ran.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Luke 15 gathers three parables together, told in response to Pharisees and teachers of the law grumbling that Jesus "welcomes sinners and eats with them." The lost sheep, the lost coin, and finally the story we call the prodigal son — a story that ends not with a tidy resolution, but with a father standing outside a party, pleading with his older son to come in. The parable is unfinished on purpose. Jesus leaves the ending open because the people he was actually addressing were still standing outside, deciding whether to come in.`
+      ],
+    },
+    {
+      heading: `Requesting the Inheritance Early`,
+      paragraphs: [
+        `The younger son's opening request in Luke 15:12 is more shocking to its original audience than modern readers usually register. Asking for his share of the inheritance while his father was still alive was, in effect, telling his father he wished he were already dead — the inheritance existed only because of the father's death, and asking for it early was a calculated insult, a severing of relationship dressed up as a financial request. The father's response is the first hint of what kind of father this is: he divides the property between his sons without argument, without a lecture, without refusing to release what he had every legal right to withhold.`
+      ],
+    },
+    {
+      heading: `The Distant Country and the Famine`,
+      paragraphs: [
+        `The son takes everything and travels to a distant country, where Luke 15:13 says he "squandered his wealth in wild living." The word used for squandered is the same root behind the label "prodigal" — recklessly, wastefully extravagant. When the money runs out and a famine hits the region, the son is reduced to feeding pigs — about as degrading a position as a Jewish audience could imagine, given the ceremonial status of pigs in Jewish law — and Luke 15:16 says he was so hungry he longed to eat the pods the pigs were eating, and no one gave him anything.`
+      ],
+    },
+    {
+      heading: `Coming to His Senses`,
+      paragraphs: [
+        `The turning point in verse 17 is deliberately understated: "When he came to his senses." Not a dramatic religious conversion, not a vision, not an angelic visitation — simply a starving man, sitting in a pig pen, doing the math. He remembers that even his father's hired servants have food to spare, and he rehearses a speech: he will return, confess that he has sinned against heaven and against his father, and ask only to be treated as a hired servant, forfeiting any claim to sonship. It is worth noticing that his motive at this stage is still largely practical — hunger drove the memory of home before love did. Grace, in this story, does not require the returning person's motives to be pure. It only requires the turning.`
+      ],
+    },
+    {
+      heading: `While He Was Still a Long Way Off`,
+      paragraphs: [
+        `Everything about the story changes in Luke 15:20, in a single verse that carries the entire theology of the parable: "But while he was still a long way off, his father saw him and was filled with compassion for him; he ran to his son, threw his arms around him and kissed him." The father was watching. He had been watching, presumably, for a long time — close enough to the road, attentive enough to the horizon, that he recognized his son's shape while he was still far away. And then the father does something no dignified patriarch in that culture would do: he runs. Running in public, especially for an older man in robes, meant hiking up his garments and exposing his legs — a genuinely undignified, socially humiliating act. The father spends his own dignity recklessly, extravagantly, prodigally, to reach his son before his son could even finish walking home in shame.`
+      ],
+    },
+    {
+      heading: `Cutting Off the Rehearsed Speech`,
+      paragraphs: [
+        `The son begins his prepared confession — "Father, I have sinned against heaven and against you. I am no longer worthy to be called your son" — but the father does not let him finish the part where he offers to become a hired servant. Instead he calls for the best robe, a ring for his finger, sandals for his feet, and orders the fattened calf killed for a celebration, declaring, "this son of mine was dead and is alive again; he was lost and is found." The father interrupts his son's attempt to downgrade his own status. He restores him fully — robe, ring, sandals, all marks of full sonship, not servanthood — before the son has done a single thing to prove the sincerity of his return.`
+      ],
+    },
+    {
+      heading: `The Son Who Stayed and Never Came In`,
+      paragraphs: [
+        `The parable's real tension is saved for the ending. The older son, working in the field when the celebration begins, refuses to go in once he learns the reason for it, and complains bitterly to his father: "All these years I've been slaving for you and never disobeyed your orders. Yet you never gave me even a young goat so I could celebrate with my friends." His complaint reveals that despite never leaving physically, he had never understood himself as a son either — he describes his years at home as slaving, obedience as a transaction, and grace toward his brother as an injustice against his own record of compliance. The father's final words in the parable are addressed to him, and they are just as tender as the embrace given to the younger son: "My son, you are always with me, and everything I have is yours." The parable ends without telling us whether the older son ever goes in. Jesus leaves the door open, the father still standing outside pleading, because the real question the story is asking was never really about either son. It was about whether the people listening would come in.`
       ],
     }
     ],
@@ -1401,6 +1926,65 @@ export const BLOG_POSTS: BlogPost[] = [
       paragraphs: [
         `Before the next difficult conversation, take a moment to examine what is happening underneath your certainty. Ask God whether you want the other person restored or merely defeated. Ask whether you have listened long enough to describe their view fairly. Ask whether your words would sound different if you remembered that Christ loves them with the same costly love He has shown you.`,
         `The body of Christ is already under enough pressure from a world that does not understand its hope. It does not need us to make one another bleed in order to prove our convictions. The cross has settled the deepest question about how God handles people who are wrong: He moves toward them in costly love. That is how we are called to move toward one another.`
+      ],
+    }
+    ],
+  },
+
+  {
+    slug: "zacchaeus",
+    title: `Zacchaeus`,
+    subtitle: `A short, hated tax collector climbs a tree just to see, and gets seen instead`,
+    publishedAt: "2026-08-19",
+    author: "Allan",
+    tags: ["bible story", "repentance", "grace", "restoration", "jesus"],
+    coverColor: "#BF8B3A",
+    excerpt: `Zacchaeus was rich, despised, and short enough that the crowd blocked his view completely. He climbed a sycamore tree just to catch a glimpse of Jesus passing by. He had no idea Jesus was already planning to stop directly underneath him.`,
+    readingTime: 5,
+    series: null,
+    seriesPart: null,
+    seriesTotal: null,
+    content: [
+    {
+      heading: null,
+      paragraphs: [
+        `Luke 19 introduces Zacchaeus with three details packed close together — he was a chief tax collector, he was wealthy, and he was short. Each of these details matters. Tax collectors in first-century Judea were regarded as traitors, Jewish men who had gone into business with the occupying Roman government, collecting more than was owed and keeping the difference. A chief tax collector, overseeing others in that system, would have been among the most despised men in Jericho — wealthy precisely because of a system everyone around him understood to be exploitative.`
+      ],
+    },
+    {
+      heading: `Climbing Above the Crowd That Rejected Him`,
+      paragraphs: [
+        `When Jesus passes through Jericho, Zacchaeus wants to see him, but Luke 19:3 says he could not, "because of the crowd, for he was small in stature." There is something almost comic and deeply sad in this image at once — a wealthy, powerful man, feared and resented by an entire town, physically blocked out by the very people who despised him, unable to see over their shoulders. So he runs ahead and climbs a sycamore-fig tree, a genuinely undignified thing for a man of his position and reputation to do in public. Whatever social standing Zacchaeus had built through his wealth, he was willing to set it aside completely for the chance of a glimpse.`
+      ],
+    },
+    {
+      heading: `Seen First`,
+      paragraphs: [
+        `What happens next reverses the entire dynamic of the scene. Zacchaeus climbed the tree hoping only to see Jesus from a distance, unnoticed, anonymous in the branches above a crowd that would not have made room for him on the ground. Instead, Luke 19:5 says Jesus looked up and said, "Zacchaeus, come down immediately. I must stay at your house today." Jesus does not merely notice him. He uses his name — a detail Luke does not explain, leaving the reader to sit with the implication that Jesus already knew exactly who was in that tree before he ever looked up. The man who had climbed above everyone else specifically to avoid being seen becomes the one person in the entire crowd Jesus stops to address directly.`
+      ],
+    },
+    {
+      heading: `The Crowd's Objection`,
+      paragraphs: [
+        `Luke 19:7 records the crowd's reaction, and it is worth taking seriously rather than dismissing as mere pettiness: "All the people saw this and began to mutter, 'He has gone to be the guest of a sinner.'" Their objection was not irrational. Zacchaeus's wealth was, by the town's own knowledge, built on exploitation. Jesus choosing to eat at his house — an act of significant social and religious intimacy in that culture — would have looked, to anyone watching, like an endorsement of everything Zacchaeus had done to accumulate what he had. The crowd's discomfort is the discomfort every reader should feel with grace extended toward someone whose wrongdoing has been public, specific, and financially measurable. Grace toward Zacchaeus was not cheap. It was aimed at a man everyone in that town had good reason to resent.`
+      ],
+    },
+    {
+      heading: `The Response Grace Actually Produces`,
+      paragraphs: [
+        `What Zacchaeus does next is the part of the story too often skipped in the rush to the happy ending. Luke 19:8: "Zacchaeus stood up and said to the Lord, 'Look, Lord! Here and now I give half my possessions to the poor, and if I have cheated anybody out of anything, I will pay back four times the amount.'" This is not a vague statement of gratitude. It is specific, costly, and immediate — half his wealth given away outright, and anything obtained through fraud repaid at four times its value, a restitution standard well beyond what Mosaic law required for even the most serious cases of theft, Exodus 22:1. Zacchaeus was not performing repentance for an audience. He was responding, in the most concrete terms available to a wealthy man, to having been genuinely seen and welcomed by Jesus before he had done anything to earn it.`
+      ],
+    },
+    {
+      heading: `Salvation Has Come to This House`,
+      paragraphs: [
+        `Jesus' response to Zacchaeus's declaration reframes the entire episode: "Today salvation has come to this house, because this man, too, is a son of Abraham. For the Son of Man came to seek and to save the lost." Luke 19:9-10. Notice the order carefully. Jesus did not require Zacchaeus's restitution as a precondition for the relationship. He initiated the relationship first — inviting himself to Zacchaeus's house before any promise of change had been made — and the restitution followed as the natural fruit of having been genuinely welcomed rather than merely tolerated. This is the pattern the gospel consistently follows: grace precedes transformation, not the other way around.`
+      ],
+    },
+    {
+      heading: `What Zacchaeus Still Says to the People Nobody Wants Near Them`,
+      paragraphs: [
+        `Zacchaeus's story remains one of the sharpest challenges to any instinct to sort people into those worth pursuing and those not. He was hated for good reason, wealthy through exploitation everyone in town could name specifically, and physically excluded even from the crowd gathered to see a traveling rabbi. Jesus stopped, looked up, and said his name before Zacchaeus had said a word in his own defense. The tree Zacchaeus climbed to catch a distant glimpse became the exact place where he was found, named, and invited home.`
       ],
     }
     ],

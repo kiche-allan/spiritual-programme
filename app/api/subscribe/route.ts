@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     if (resend) {
       await resend.emails.send({
-        from: "Walking With God <devotional@resend.dev>",
+        from: "Walking With God <onboarding@resend.dev>",
         to: email,
         subject,
         html,

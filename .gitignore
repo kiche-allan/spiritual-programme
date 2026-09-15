@@ -5,12 +5,6 @@ node_modules/
 *.log
 .DS_Store
 
-# next-pwa generated files
-public/sw.js
-public/workbox-*.js
-public/sw.js.map
-public/workbox-*.js.map
-
 # Test and security reports
 security-results/
 playwright-report/

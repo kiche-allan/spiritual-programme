@@ -96,6 +96,141 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
 .section-divider span { font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; }
 .section-divider::after { content:''; flex:1; height:1px; background:var(--border-custom); }
 
+/* ── HOME FEATURED WEEK ─────────────────────────────────────────────────── */
+.home-library { position: relative; }
+.featured-week-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.featured-week-lede {
+  max-width: 520px;
+  margin: 12px 0 0;
+  color: var(--tm);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.55;
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #8A2040;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.text-link span { font-size: 16px; transition: transform .2s ease; }
+.text-link:hover span { transform: translate(2px, -2px); }
+.featured-week-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+.featured-week-note {
+  padding: 18px 0 18px 24px;
+  border-left: 3px solid #BF8B3A;
+}
+.featured-week-kicker {
+  color: #BF8B3A;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.featured-week-note h2 {
+  margin: 12px 0 10px;
+  color: var(--t1);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.featured-week-note p {
+  margin: 0;
+  color: var(--tm);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.featured-week-statline {
+  display: flex;
+  gap: 18px;
+  margin-top: 22px;
+  color: var(--tl);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.featured-week-statline strong { color: var(--t1); font-size: 16px; letter-spacing: 0; }
+@media (max-width: 680px) {
+  .featured-week-intro { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .featured-week-lede { font-size: 1.1rem; }
+  .featured-week-layout { grid-template-columns: 1fr; gap: 20px; }
+  .featured-week-note { padding: 8px 0 8px 18px; }
+}
+
+/* ── BIBLE STORIES ───────────────────────────────────────────────────────── */
+.bible-stories-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+.bible-story-card {
+  scroll-snap-align: start;
+  flex: 0 0 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 10px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, background .2s ease;
+}
+.bible-story-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: radial-gradient(circle at 35% 30%, #FDE3C4, #F0A868);
+  box-shadow: inset 0 0 0 1px rgba(138,74,30,.15);
+}
+.bible-story-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+  color: var(--t1);
+}
+@media (hover: hover) {
+  .bible-story-card:hover {
+    transform: translateY(-3px);
+    background: var(--bg2);
+  }
+}
+@media (min-width: 760px) {
+  .bible-stories-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    overflow-x: visible;
+  }
+}
+
 /* ── BLOG READING EXPERIENCE ────────────────────────────────────────────── */
 
 /* Reading progress bar — sits below the fixed navbar */
