@@ -17,7 +17,11 @@ const isSubsetTestArg = (arg: string) => SUBSET_TEST_FLAGS.some(
   (flag) => arg === flag || arg.startsWith(`${flag}=`)
 );
 
-const isSubsetCoverageRun = process.argv.includes("--coverage")
+const hasCoverageFlag = process.argv.some(
+  (arg) => arg === "--coverage" || arg.startsWith("--coverage=")
+);
+
+const isSubsetCoverageRun = hasCoverageFlag
   && process.argv.some(isSubsetTestArg);
 
 const config: Config = {
