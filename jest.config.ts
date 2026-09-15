@@ -3,6 +3,11 @@ import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({ dir: "./" });
 
+const isSubsetCoverageRun = process.argv.includes("--coverage")
+  && process.argv.some(
+    (arg) => arg.startsWith("--testPathPatterns") || arg.startsWith("--testPathPattern")
+  );
+
 const config: Config = {
   coverageProvider: "v8",
 
@@ -34,14 +39,16 @@ const config: Config = {
     },
   ],
 
-  coverageThreshold: {
-    global: {
-      branches: 70,
-      functions: 75,
-      lines: 75,
-      statements: 75,
+  ...(!isSubsetCoverageRun && {
+    coverageThreshold: {
+      global: {
+        branches: 70,
+        functions: 75,
+        lines: 75,
+        statements: 75,
+      },
     },
-  },
+  }),
 
   collectCoverageFrom: [
     "app/**/*.{ts,tsx}",
