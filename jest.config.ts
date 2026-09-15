@@ -8,7 +8,6 @@ const SUBSET_TEST_FLAGS = [
   "--runTestsByPath",
   "--selectProjects",
   "--shard",
-  "--testNamePattern",
   "--testPathPattern",
   "--testPathPatterns",
 ];
@@ -42,7 +41,6 @@ const FLAGS_WITH_FOLLOWING_VALUE = new Set([
   "--testEnvironmentOptions",
   "--testFailureExitCode",
   "--testMatch",
-  "--testNamePattern",
   "--testPathIgnorePatterns",
   "--testPathPattern",
   "--testPathPatterns",
@@ -74,7 +72,7 @@ const hasPositionalTestSelector = (() => {
       continue;
     }
 
-    if (/[/.\\]/.test(arg)) {
+    if (arg.includes("__tests__") || /\.(spec|test)\.[jt]sx?$/.test(arg)) {
       return true;
     }
   }
