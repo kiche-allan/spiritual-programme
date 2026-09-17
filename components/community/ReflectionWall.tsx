@@ -27,7 +27,21 @@ export function ReflectionWall({ weekId, dayNum }: Props) {
   const load = useCallback(async () => {
     setLoading(true);
     const res = await fetch(`/api/reflections?weekId=${weekId}&dayNum=${dayNum}`);
-    const data = await res.json();
+
+    if (!res.ok) {
+      setReflections([]);
+      setLoading(false);
+      return;
+    }
+
+    const text = await res.text();
+    if (!text) {
+      setReflections([]);
+      setLoading(false);
+      return;
+    }
+
+    const data = JSON.parse(text);
     setReflections(data.reflections ?? []);
     setLoading(false);
   }, [weekId, dayNum]);

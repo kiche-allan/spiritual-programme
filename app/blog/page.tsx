@@ -137,7 +137,7 @@ function BlogIndexContent() {
 
       {/* ── FILTER BAR ── */}
       <div style={{
-        maxWidth: 1200, margin: "0 auto", padding: "28px 24px 0",
+        maxWidth: 1440, margin: "0 auto", padding: "28px 48px 0",
         display: "flex", flexDirection: "column", gap: 16,
       }}>
         <div style={{
@@ -167,8 +167,8 @@ function BlogIndexContent() {
 
       {/* ── LAYOUT: SECTIONS + SIDEBAR ── */}
       <div className="blog-layout" style={{
-        maxWidth: 1200, margin: "0 auto", padding: "24px 24px 64px",
-        display: "grid", gridTemplateColumns: "1fr 300px", gap: 40,
+        maxWidth: 1440, margin: "0 auto", padding: "24px 48px 64px",
+        display: "grid", gridTemplateColumns: "1fr 280px", gap: 40,
         alignItems: "start",
       }}>
         <main>
@@ -280,7 +280,7 @@ function BlogIndexContent() {
 
         </main>
 
-        <aside style={{ position: "sticky", top: 76 }}>
+        <aside className="blog-sidebar" style={{ position: "sticky", top: 76 }}>
           <SeriesPanel />
         </aside>
       </div>
@@ -307,9 +307,14 @@ function BlogIndexContent() {
       </footer>
 
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
           .blog-layout {
             grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .blog-sidebar {
+            display: none !important;
           }
         }
       `}</style>
