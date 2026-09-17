@@ -12,7 +12,7 @@ describe("WeekCard", () => {
 
   it("renders hero verse", () => {
     render(<WeekCard week={mockWeek} />);
-    expect(screen.getByText(new RegExp(mockWeek.heroRef))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(mockWeek.heroVerse, "i"))).toBeInTheDocument();
   });
 
   it("shows This Week badge when isLatest is true", () => {
