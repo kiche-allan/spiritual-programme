@@ -35,6 +35,7 @@ export function WeekCard({ week, progress, isLatest }: Props) {
           <span className="week-gradient-label">{week.subtitle}</span>
           <h2 className="week-gradient-title">{week.title}</h2>
           <p className="week-gradient-verse">&ldquo;{week.heroVerse}&rdquo;</p>
+          <span className="week-gradient-ref">{week.heroRef}</span>
         </div>
       </div>
 
