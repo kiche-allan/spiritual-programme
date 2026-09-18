@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>{children}
         <Analytics />
+        <SpeedInsights />
         <Toaster />
       </body>
     </html>
