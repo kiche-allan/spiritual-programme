@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { trackEvent } from "@/lib/analytics";
 
 export function SubscribeSection() {
   const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ export function SubscribeSection() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.includes("@")) { setStatus("err"); return; }
+    trackEvent("subscribe.attempted", { source: "homepage" });
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -19,8 +21,10 @@ export function SubscribeSection() {
       if (!res.ok) throw new Error();
       setStatus("ok");
       setEmail("");
+      trackEvent("subscribe.completed", { source: "homepage" });
     } catch {
       setStatus("err");
+      trackEvent("subscribe.failed", { source: "homepage" });
     }
   };
 

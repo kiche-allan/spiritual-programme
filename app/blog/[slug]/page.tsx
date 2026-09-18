@@ -10,12 +10,23 @@ import { SubstackSubscribe } from "@/components/blog/SubstackSubscribe";
 import { SeriesNav } from "@/components/blog/SeriesNav";
 import { getBlogPost, getBlogPosts } from "@/lib/blog-content";
 import { shadeColor } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 export default function BlogPostPage() {
   const { slug } = useParams() as { slug: string };
   const post = getBlogPost(slug);
   const [readPct, setReadPct] = useState(0);
   const articleRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!post) return;
+    trackEvent("blog.post.viewed", {
+      slug: post.slug,
+      title: post.title,
+      series: post.series,
+      tags: post.tags,
+    });
+  }, [post]);
 
   // Reading progress tracker
   useEffect(() => {

@@ -1,6 +1,6 @@
 // app/week/[id]/DayReader.tsx
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { DaySidebar } from "@/components/week/DaySidebar";
@@ -14,6 +14,7 @@ import ShareButton from "@/components/ShareButton";
 import { ReflectionWall } from "@/components/community/ReflectionWall";
 import { useProgress } from "@/hooks/useProgress";
 import { useToast } from "@/hooks/useToast";
+import { trackEvent } from "@/lib/analytics";
 import type { WeekMeta } from "@/lib/weeks";
 import type { DayContent } from "@/lib/content/types";
 import { WEEKS_META } from "@/lib/weeks";
@@ -33,7 +34,10 @@ export function DayReader({ meta, days }: Props) {
     toggle(dayNum);
     const nowDone = !isDone(dayNum);
     toast({ description: nowDone ? "✓ Day marked complete" : "Day unmarked", duration: 2500 });
-  }, [toggle, isDone, toast]);
+    if (nowDone) {
+      trackEvent("devotional.day.completed", { weekId, dayNum, weekTitle: meta.title });
+    }
+  }, [toggle, isDone, toast, weekId, meta.title]);
 
   const handleSelect = (i: number) => {
     setCur(i);
@@ -42,6 +46,15 @@ export function DayReader({ meta, days }: Props) {
 
   const prevW = WEEKS_META.find(w => w.id === weekId - 1);
   const nextW = WEEKS_META.find(w => w.id === weekId + 1);
+
+  useEffect(() => {
+    if (days.length === 0) return;
+    trackEvent("devotional.day.viewed", {
+      weekId,
+      dayNum: days[cur].num,
+      weekTitle: meta.title,
+    });
+  }, [weekId, cur, days, meta.title]);
 
   // ── Guards ──────────────────────────────────────────────────────────────────
   if (days.length === 0) return (
