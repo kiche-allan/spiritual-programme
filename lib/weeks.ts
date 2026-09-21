@@ -556,6 +556,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "A week for the single believer who is navigating purpose, identity, calling, and desire — from the declaration of Jeremiah 1:5 to the fullness of Colossians 2:10, through the dignity of the waiting season, the discipline of the guarded heart, the activation of the irrevocable calling, and the honest prayer of Hannah.",
 },
 
+{
+  id: 27,
+  slug: "god-comes-down-patience-burning-bush-brokenness-friend-cloud-homecoming",
+  title: "The God Who Comes Down, the Burning Bush & the Great Homecoming",
+  subtitle: "Week Twenty-Seven",
+  heroVerse: "He will wipe away every tear from their eyes, and death shall be no more.",
+  heroRef: "Revelation 21:4",
+  publishedAt: "2026-09-21",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "God Who Comes Down",   days: "Mon", color: "#1A3A6E" },
+    { label: "Patience of God",      days: "Tue", color: "#2E6B50" },
+    { label: "The Burning Bush",     days: "Wed", color: "#BF8B3A" },
+    { label: "Brokenness",           days: "Thu", color: "#7A1A1A" },
+    { label: "Friend of Sinners",    days: "Fri", color: "#5A2D82" },
+    { label: "Cloud and Fire",       days: "Sat", color: "#2C3E5A" },
+    { label: "The Homecoming",       days: "Sun", color: "#8A2040" },
+  ],
+  description: "Seven dimensions of the God who is bringing us home — the God who descends, who waits with patience, who meets us in the ordinary, who works through what is broken, who befriends the outcast, who leads by presence, and who is running toward us with the homecoming already in motion.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
