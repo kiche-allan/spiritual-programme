@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { getServiceClient } from "@/lib/supabase";
+import { log, logEvent, logError } from "@/lib/logger";
 
 // GET — fetch reflections for a specific week/day
 export async function GET(req: NextRequest) {
@@ -20,7 +21,14 @@ export async function GET(req: NextRequest) {
     .order("created_at", { ascending: false })
     .limit(50);
 
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  if (error) {
+    logError("reflection.failed", error);
+    await log.flush();
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  logEvent("reflection.fetched", { weekId, dayNum });
+  await log.flush();
   return NextResponse.json(
     { reflections: data ?? [] },
     {
@@ -55,9 +63,18 @@ export async function POST(req: NextRequest) {
       .select("id")
       .single();
 
-    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+    if (error) {
+      logError("reflection.failed", error);
+      await log.flush();
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    logEvent("reflection.saved", { weekId, dayNum });
+    await log.flush();
     return NextResponse.json({ ok: true, id: data.id });
-  } catch {
+  } catch (err) {
+    logError("reflection.failed", err);
+    await log.flush();
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }

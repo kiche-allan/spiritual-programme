@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { getServiceClient } from "@/lib/supabase";
+import { log, logEvent, logError } from "@/lib/logger";
 
 export async function GET() {
   const { data, error } = await supabase
@@ -10,7 +11,14 @@ export async function GET() {
     .order("created_at", { ascending: false })
     .limit(30);
 
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  if (error) {
+    logError("prayer.failed", error);
+    await log.flush();
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  logEvent("prayer.fetched", { count: data?.length ?? 0 });
+  await log.flush();
   return NextResponse.json(
     { prayers: data ?? [] },
     {
@@ -24,6 +32,8 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const { content, displayName } = await req.json();
+
+    logEvent("prayer.submitted", { contentLength: content?.length ?? 0 });
 
     if (!content || content.length < 10 || content.length > 400) {
       return NextResponse.json(
@@ -40,9 +50,17 @@ export async function POST(req: NextRequest) {
         display_name: displayName?.trim() || "Anonymous",
       });
 
-    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+    if (error) {
+      logError("prayer.failed", error);
+      await log.flush();
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    await log.flush();
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    logError("prayer.failed", err);
+    await log.flush();
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
