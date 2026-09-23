@@ -1,47 +1,28 @@
 // app/blog/[slug]/page.tsx
-"use client";
-import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import { ReadingProgress } from "@/components/blog/ReadingProgress";
+import { PostViewTracker } from "@/components/blog/PostViewTracker";
 import { PostReactions } from "@/components/blog/PostReactions";
 import { PostComments } from "@/components/blog/PostComments";
 import { SubstackSubscribe } from "@/components/blog/SubstackSubscribe";
 import { SeriesNav } from "@/components/blog/SeriesNav";
 import { getBlogPost, getBlogPosts } from "@/lib/blog-content";
 import { shadeColor } from "@/lib/utils";
-import { trackEvent } from "@/lib/analytics";
 
-export default function BlogPostPage() {
-  const { slug } = useParams() as { slug: string };
+export const revalidate = 3600; // regenerate at most once an hour
+
+export async function generateStaticParams() {
+  return getBlogPosts().map(post => ({ slug: post.slug }));
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const post = getBlogPost(slug);
-  const [readPct, setReadPct] = useState(0);
-  const articleRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!post) return;
-    trackEvent("blog.post.viewed", {
-      slug: post.slug,
-      title: post.title,
-      series: post.series,
-      tags: post.tags,
-    });
-  }, [post]);
-
-  // Reading progress tracker
-  useEffect(() => {
-    const onScroll = () => {
-      const el = articleRef.current;
-      if (!el) return;
-      const { top, height } = el.getBoundingClientRect();
-      const pct = Math.min(100, Math.max(0,
-        Math.round(((window.innerHeight - top) / height) * 100)
-      ));
-      setReadPct(pct);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   if (!post) return (
     <div style={{
@@ -69,10 +50,12 @@ export default function BlogPostPage() {
     <>
       <Navbar />
 
-      {/* Reading progress */}
-      <div className="reading-progress-bar">
-        <div className="reading-progress-fill" style={{ width: `${readPct}%` }} />
-      </div>
+      <PostViewTracker
+        slug={post.slug}
+        title={post.title}
+        series={post.series}
+        tags={post.tags}
+      />
 
       {/* ── HERO ── */}
       <header
@@ -173,22 +156,25 @@ export default function BlogPostPage() {
       {/* ── ARTICLE ── */}
       <div style={{ maxWidth: 740, margin: "0 auto", padding: "56px 24px 80px" }}>
         <SeriesNav post={post} />
-        <article ref={articleRef} className="article-prose">
-          {post.content.map((block, i) => (
-            <div key={i}>
-              {block.heading && <h2>{block.heading}</h2>}
-              {block.paragraphs.map((p, j) => {
-                // First paragraph of the whole post — make it the opening para
-                const isOpener = i === 0 && j === 0;
-                return (
-                  <p key={j} className={isOpener ? "opening-para" : undefined}>
-                    {p}
-                  </p>
-                );
-              })}
-            </div>
-          ))}
-        </article>
+
+        <ReadingProgress>
+          <article className="article-prose">
+            {post.content.map((block, i) => (
+              <div key={i}>
+                {block.heading && <h2>{block.heading}</h2>}
+                {block.paragraphs.map((p, j) => {
+                  // First paragraph of the whole post — make it the opening para
+                  const isOpener = i === 0 && j === 0;
+                  return (
+                    <p key={j} className={isOpener ? "opening-para" : undefined}>
+                      {p}
+                    </p>
+                  );
+                })}
+              </div>
+            ))}
+          </article>
+        </ReadingProgress>
 
         {/* ── DIVIDER ── */}
         <div style={{
@@ -282,5 +268,3 @@ export default function BlogPostPage() {
     </>
   );
 }
-
-

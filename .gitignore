@@ -11,5 +11,6 @@ playwright-report/
 coverage/
 performance-results/
 allure-results/
+test-results/
 .vercel
 .env*
