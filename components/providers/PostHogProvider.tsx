@@ -1,29 +1,27 @@
 "use client";
 
+import posthog from "posthog-js";
+import { PostHogProvider as PHProvider } from "posthog-js/react";
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
-import { initPostHog, posthog } from "@/lib/posthog";
 
 export function PostHogProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   useEffect(() => {
-    initPostHog();
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com",
+      capture_pageview: false,
+      capture_pageleave: true,
+      persistence: "localStorage",
+      loaded: (ph) => {
+        if (process.env.NODE_ENV === "development") {
+          ph.debug();
+        }
+      },
+    });
   }, []);
 
-  // Track page views automatically
-  useEffect(() => {
-    if (pathname) {
-      posthog.capture("$pageview", {
-        $current_url: window.location.href,
-      });
-    }
-  }, [pathname, searchParams]);
-
-  return <>{children}</>;
+  return <PHProvider client={posthog}>{children}</PHProvider>;
 }

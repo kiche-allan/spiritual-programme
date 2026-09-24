@@ -1,12 +1,12 @@
 // lib/analytics.ts
 import { type ProgressStore } from "@/lib/weeks";
 import { WEEKS_META } from "@/lib/weeks";
-import { posthog } from "@/lib/posthog";
+import posthog from "posthog-js";
 
 // ── PostHog event tracking ───────────────────────────────────────────────────
 
 export function trackEvent(event: string, properties?: Record<string, unknown>) {
-  if (typeof window !== "undefined") {
+  if (typeof window !== "undefined" && posthog.__loaded) {
     posthog.capture(event, properties);
   }
 }
