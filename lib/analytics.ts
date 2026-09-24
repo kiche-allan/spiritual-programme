@@ -6,7 +6,7 @@ import posthog from "posthog-js";
 // ── PostHog event tracking ───────────────────────────────────────────────────
 
 export function trackEvent(event: string, properties?: Record<string, unknown>) {
-  if (typeof window !== "undefined" && posthog.__loaded) {
+  if (typeof window !== "undefined") {
     posthog.capture(event, properties);
   }
 }
