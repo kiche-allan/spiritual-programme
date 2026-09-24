@@ -15,6 +15,7 @@ export function PostHogProvider({
       capture_pageview: false,
       capture_pageleave: true,
       persistence: "localStorage",
+      disable_session_recording: process.env.NODE_ENV === "development",
       loaded: (ph) => {
         if (process.env.NODE_ENV === "development") {
           ph.debug();
