@@ -578,6 +578,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven dimensions of the God who is bringing us home — the God who descends, who waits with patience, who meets us in the ordinary, who works through what is broken, who befriends the outcast, who leads by presence, and who is running toward us with the homecoming already in motion.",
 },
 
+{
+  id: 28,
+  slug: "feel-him-solid-ground-joy-armour-restore",
+  title: "Feel Him or Not, Solid Ground, Choosing Joy & When God Restores",
+  subtitle: "Week Twenty-Eight",
+  heroVerse: "I will repay you for the years the locusts have eaten.",
+  heroRef: "Joel 2:25",
+  publishedAt: "2026-09-28",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Feel Him or Not",      days: "Mon", color: "#1A3A6E" },
+    { label: "Best Is Yet to Come",  days: "Tue", color: "#2E6B50" },
+    { label: "Promise from the Word", days: "Wed", color: "#BF8B3A" },
+    { label: "Only Solid Ground",    days: "Thu", color: "#7A1A1A" },
+    { label: "Choosing Joy",         days: "Fri", color: "#5A2D82" },
+    { label: "Armour of God",        days: "Sat", color: "#2C3E5A" },
+    { label: "When God Restores",    days: "Sun", color: "#8A2040" },
+  ],
+  description: "Seven days anchored in the faithfulness of God — His presence whether felt or not, His plans for the future, His word as compass, His unshakeable nature, the choice of joy over worry, the full armour for the real battle, and His specific promise to restore the locust years.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
