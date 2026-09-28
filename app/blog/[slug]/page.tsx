@@ -1,4 +1,5 @@
 // app/blog/[slug]/page.tsx
+import { ViewTransition } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
@@ -47,7 +48,7 @@ export default async function BlogPostPage({
   const dark = shadeColor(post.coverColor, -28);
 
   return (
-    <>
+    <ViewTransition>
       <Navbar />
 
       <PostViewTracker
@@ -265,6 +266,6 @@ export default async function BlogPostPage({
           </a>
         </div>
       </div>
-    </>
+    </ViewTransition>
   );
 }

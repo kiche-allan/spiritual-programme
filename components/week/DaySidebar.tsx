@@ -32,7 +32,7 @@ export function DaySidebar({ days, current, progress, onSelect, onToggle }: Prop
             onClick={() => onSelect(i)}
             style={{
               display: "flex", alignItems: "center", gap: 10,
-              width: "100%", padding: "9px 10px", border: "none",
+              width: "100%", minHeight: 44, padding: "12px 14px", border: "none",
               background: active ? "var(--bg2)" : "transparent",
               cursor: "pointer", borderRadius: 8,
               textAlign: "left", marginBottom: 2,

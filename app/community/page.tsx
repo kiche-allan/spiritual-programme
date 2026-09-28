@@ -1,11 +1,12 @@
 // app/community/page.tsx
 "use client";
+import { ViewTransition } from "react";
 import Navbar from "@/components/Navbar";
 import { PrayerWall } from "@/components/community/PrayerWall";
 
 export default function CommunityPage() {
   return (
-    <>
+    <ViewTransition>
       <Navbar />
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "96px 24px 64px" }}>
         <a href="/" style={{
@@ -27,6 +28,6 @@ export default function CommunityPage() {
 
         <PrayerWall />
       </div>
-    </>
+    </ViewTransition>
   );
 }

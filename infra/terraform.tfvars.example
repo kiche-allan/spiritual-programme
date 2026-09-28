@@ -1,0 +1,17 @@
+# Copy this file to terraform.tfvars and fill in real values.
+# terraform.tfvars is gitignored — never commit it.
+
+vercel_token              = "your-vercel-token"
+vercel_team               = "kicheallans-projects"
+github_token              = "your-github-token"
+supabase_url              = "https://your-project.supabase.co"
+supabase_anon_key         = "your-anon-key"
+supabase_service_role_key = "your-service-role-key"
+posthog_key               = "your-posthog-project-key"
+posthog_host              = "https://us.i.posthog.com"
+axiom_token               = "your-axiom-token"
+axiom_dataset             = "spiritual-programme"
+resend_api_key            = "your-resend-key"
+sentry_token              = "your-sentry-token"
+sentry_org                = "your-sentry-org-slug"
+app_url                   = "https://spiritual-programme.vercel.app"

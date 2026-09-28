@@ -622,3 +622,10 @@ export function weekProgress(store: ProgressStore, weekId: number, total: number
   const done = Object.values(store[String(weekId)] ?? {}).filter(Boolean).length;
   return total > 0 ? Math.round((done / total) * 100) : 0;
 }
+export function nextIncompleteDay(store: ProgressStore, weekId: number, totalDays: number): number | null {
+  const dayProgress = store[String(weekId)] ?? {};
+  for (let d = 1; d <= totalDays; d++) {
+    if (!dayProgress[String(d)]) return d;
+  }
+  return null;
+}

@@ -14,3 +14,9 @@ allure-results/
 test-results/
 .vercel
 .env*
+
+# Terraform
+infra/terraform.tfvars
+infra/.terraform/
+infra/terraform.tfstate
+infra/terraform.tfstate.backup

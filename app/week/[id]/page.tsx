@@ -1,5 +1,6 @@
 // app/week/[id]/page.tsx
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import { WEEKS_META } from "@/lib/weeks";
 import { getWeekContent } from "@/lib/content/registry";
@@ -33,6 +34,10 @@ export default async function WeekPage({ params }: { params: Promise<{ id: strin
 
   if (!meta) notFound();
 
-  return <DayReader meta={meta} days={days ?? []} />;
+  return (
+    <ViewTransition>
+      <DayReader meta={meta} days={days ?? []} />
+    </ViewTransition>
+  );
 }
 

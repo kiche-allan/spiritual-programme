@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 // needs to hydrate — the article content itself stays static HTML.
 export function ReadingProgress({ children }: { children: React.ReactNode }) {
   const [readPct, setReadPct] = useState(0);
+  const [visible, setVisible] = useState(false);
   const articleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,14 +18,16 @@ export function ReadingProgress({ children }: { children: React.ReactNode }) {
         Math.round(((window.innerHeight - top) / height) * 100)
       ));
       setReadPct(pct);
+      setVisible(window.scrollY > 100);
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
-      <div className="reading-progress-bar">
+      <div className="reading-progress-bar" style={{ opacity: visible ? 1 : 0 }}>
         <div className="reading-progress-fill" style={{ width: `${readPct}%` }} />
       </div>
       <div ref={articleRef}>{children}</div>

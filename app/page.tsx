@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useState, ViewTransition } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -11,7 +11,7 @@ import { ProgressBackup } from "@/components/ui/ProgressBackup";
 import { Pagination } from "@/components/ui/Pagination";
 import { BibleStories } from "@/components/home/BibleStories";
 import { useAllProgress } from "@/hooks/useProgress";
-import { WEEKS_META, weekProgress } from "@/lib/weeks";
+import { WEEKS_META, weekProgress, nextIncompleteDay } from "@/lib/weeks";
 
 const WEEKS_PER_PAGE = 6;
 
@@ -48,8 +48,17 @@ export default function HomePage() {
   );
   const weeksStarted = sorted.filter(w => (getProgress(w.id).done ?? 0) > 0).length;
 
+  const latestProgress = getProgress(latest.id);
+  const latestNextDay = nextIncompleteDay(store, latest.id, latest.totalDays);
+  const continueCta =
+    latestProgress.done === 0
+      ? { label: "Begin Week →", href: `/week/${latest.id}?day=1` }
+      : latestNextDay === null
+      ? { label: "Review Week →", href: `/week/${latest.id}` }
+      : { label: `Continue from Day ${latestNextDay} →`, href: `/week/${latest.id}?day=${latestNextDay}` };
+
   return (
-    <>
+    <ViewTransition>
       <Navbar />
 
       {/* HERO */}
@@ -178,7 +187,7 @@ export default function HomePage() {
               <span><strong>{getProgress(latest.id).done}</strong> completed</span>
             </div>
           </div>
-          <WeekCard week={latest} progress={getProgress(latest.id)} isLatest />
+          <WeekCard week={latest} progress={latestProgress} isLatest continueCta={continueCta} />
         </div>
 
         {rest.length > 0 && (
@@ -234,6 +243,6 @@ export default function HomePage() {
 
       <SubscribeSection />
       <Footer />
-    </>
+    </ViewTransition>
   );
 }

@@ -1,6 +1,10 @@
 // components/community/PrayerWall.tsx
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { Spinner } from "@/components/ui/Spinner";
+import { useToast } from "@/hooks/useToast";
+
+const PULL_THRESHOLD = 80;
 
 interface Prayer {
   id: string;
@@ -18,33 +22,68 @@ export function PrayerWall() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [prayedIds, setPrayedIds] = useState<Set<string>>(new Set());
+  const [refreshing, setRefreshing] = useState(false);
+  const [pullDistance, setPullDistance] = useState(0);
+  const touchStartY = useRef<number | null>(null);
+  const { toast } = useToast();
+
+  const loadPrayers = useCallback(async () => {
+    const r = await fetch("/api/prayers");
+    const d = await r.json();
+    setPrayers(d.prayers ?? []);
+  }, []);
 
   useEffect(() => {
-    fetch("/api/prayers")
-      .then(r => r.json())
-      .then(d => { setPrayers(d.prayers ?? []); setLoading(false); });
+    loadPrayers().finally(() => setLoading(false));
 
     try {
       const stored = JSON.parse(localStorage.getItem("spp_prayed_for") ?? "[]");
       setPrayedIds(new Set(stored));
     } catch {}
-  }, []);
+  }, [loadPrayers]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = window.scrollY === 0 ? e.touches[0].clientY : null;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartY.current === null) return;
+    const delta = e.touches[0].clientY - touchStartY.current;
+    if (delta > 0 && window.scrollY === 0) {
+      setPullDistance(Math.min(delta, 120));
+    }
+  };
+  const handleTouchEnd = async () => {
+    if (pullDistance > PULL_THRESHOLD && !refreshing) {
+      setRefreshing(true);
+      await loadPrayers();
+      setRefreshing(false);
+    }
+    setPullDistance(0);
+    touchStartY.current = null;
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (content.trim().length < 10) return;
     setSubmitting(true);
-    await fetch("/api/prayers", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content, displayName }),
-    });
-    setSubmitting(false);
-    setSubmitted(true);
-    setContent(""); setDisplayName("");
-    const r = await fetch("/api/prayers");
-    const d = await r.json();
-    setPrayers(d.prayers ?? []);
+    try {
+      const res = await fetch("/api/prayers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content, displayName }),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+      setContent(""); setDisplayName("");
+      const r = await fetch("/api/prayers");
+      const d = await r.json();
+      setPrayers(d.prayers ?? []);
+      toast({ description: "Your prayer has been received.", duration: 4000, variant: "success" });
+    } catch {
+      toast({ description: "Could not submit prayer. Try again.", duration: 4000, variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const pray = async (id: string) => {
@@ -61,7 +100,22 @@ export function PrayerWall() {
   };
 
   return (
-    <div>
+    <div
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {(pullDistance > 0 || refreshing) && (
+        <div style={{
+          display: "flex", justifyContent: "center", alignItems: "center",
+          height: refreshing ? 40 : Math.min(pullDistance, 40),
+          overflow: "hidden",
+          transition: refreshing ? "none" : "height .2s ease",
+        }}>
+          <Spinner size="sm" variant="gold" />
+        </div>
+      )}
+
       <div style={{
         fontSize: 10, fontWeight: 700, letterSpacing: ".2em",
         textTransform: "uppercase", color: "var(--tl)", marginBottom: 16,
@@ -110,9 +164,11 @@ export function PrayerWall() {
                 fontSize: 12, fontWeight: 700, letterSpacing: ".06em",
                 textTransform: "uppercase", cursor: "pointer",
                 fontFamily: "Lato,sans-serif",
+                display: "flex", alignItems: "center", gap: 8,
                 opacity: (submitting || content.trim().length < 10) ? .5 : 1,
               }}
             >
+              {submitting && <Spinner size="sm" variant="white" />}
               {submitting ? "Submitting..." : "Submit"}
             </button>
           </div>

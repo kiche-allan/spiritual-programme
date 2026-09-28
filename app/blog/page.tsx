@@ -1,6 +1,6 @@
 // app/blog/page.tsx
 "use client";
-import { Suspense, useCallback, useMemo, useState } from "react";
+import { Suspense, useCallback, useMemo, useState, ViewTransition } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -94,7 +94,7 @@ function BlogIndexContent() {
   );
 
   return (
-    <>
+    <ViewTransition>
       <Navbar />
 
       {/* ── HERO ── */}
@@ -318,6 +318,6 @@ function BlogIndexContent() {
           }
         }
       `}</style>
-    </>
+    </ViewTransition>
   );
 }

@@ -5,6 +5,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AxiomWebVitals } from "next-axiom";
 import { Toaster } from "@/components/ui/toaster";
+import { OfflineBanner } from "@/components/ui/OfflineBanner";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { BottomNav } from "@/components/layout/BottomNav";
 import { PostHogProvider } from "@/components/providers/PostHogProvider";
 import { PostHogPageView } from "@/components/providers/PostHogPageView";
 import "./globals.css";
@@ -41,12 +44,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <OfflineBanner />
         <PostHogProvider>
           <Suspense fallback={null}>
             <PostHogPageView />
           </Suspense>
           {children}
         </PostHogProvider>
+        <ScrollToTop />
+        <BottomNav />
         <AxiomWebVitals />
         <Analytics />
         <SpeedInsights />

@@ -2,16 +2,21 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Spinner } from "@/components/ui/Spinner";
+import { useToast } from "@/hooks/useToast";
 import { trackEvent } from "@/lib/analytics";
 
 export function SubscribeSection() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "ok" | "err">("idle");
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.includes("@")) { setStatus("err"); return; }
     trackEvent("subscribe.attempted", { source: "homepage" });
+    setLoading(true);
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -22,9 +27,13 @@ export function SubscribeSection() {
       setStatus("ok");
       setEmail("");
       trackEvent("subscribe.completed", { source: "homepage" });
+      toast({ description: "You're subscribed! Check your inbox.", duration: 4000, variant: "success" });
     } catch {
       setStatus("err");
       trackEvent("subscribe.failed", { source: "homepage" });
+      toast({ description: "Something went wrong. Try again.", duration: 4000, variant: "destructive" });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -59,8 +68,9 @@ export function SubscribeSection() {
               placeholder="your@email.com"
               className={`flex-1 ${status === "err" ? "border-destructive" : ""}`}
             />
-            <Button type="submit" className="whitespace-nowrap">
-              Subscribe
+            <Button type="submit" className="whitespace-nowrap" disabled={loading}>
+              {loading && <Spinner size="sm" variant="white" />}
+              {loading ? "Subscribing..." : "Subscribe"}
             </Button>
           </form>
         )}

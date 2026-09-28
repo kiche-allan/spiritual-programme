@@ -1,7 +1,9 @@
 // app/progress/page.tsx
 "use client";
-import { useMemo } from "react";
+import { useMemo, ViewTransition } from "react";
+import { BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { Button } from "@/components/ui/button";
 import { useAllProgress } from "@/hooks/useProgress";
 import { getWeekStats, getDayStats, getStreakStats } from "@/lib/analytics";
 import { ProgressBackup } from "@/components/ui/ProgressBackup";
@@ -20,9 +22,10 @@ export default function ProgressPage() {
   const mostCompleted  = [...dayStats].sort((a, b) => b.timesCompleted - a.timesCompleted)[0];
   const leastCompleted = [...dayStats].sort((a, b) => a.timesCompleted - b.timesCompleted)[0];
   const maxDayCount    = Math.max(...dayStats.map(d => d.timesCompleted), 1);
+  const hasProgress    = streaks.totalDaysRead > 0;
 
   return (
-    <>
+    <ViewTransition>
       <Navbar />
 
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "96px 24px 64px" }}>
@@ -48,6 +51,31 @@ export default function ProgressPage() {
           </p>
         </div>
 
+        {!hasProgress && (
+          <div style={{
+            display: "flex", flexDirection: "column", alignItems: "center",
+            textAlign: "center", padding: "64px 24px", gap: 14,
+            background: "var(--bg2)", border: "1px solid var(--border)",
+            borderRadius: 16,
+          }}>
+            <BookOpen size={40} color="#E8C97A" strokeWidth={1.5} />
+            <h2 style={{
+              fontFamily: "'Cormorant Garamond',Georgia,serif",
+              fontSize: "1.8rem", fontWeight: 400, color: "var(--t1)",
+            }}>
+              Your journey starts here
+            </h2>
+            <p style={{ fontSize: 14, color: "var(--tm)", maxWidth: 360, lineHeight: 1.6 }}>
+              Seven days at a time, one step at a time.
+            </p>
+            <Button asChild className="mt-2">
+              <a href="/week/1">Open Week 1</a>
+            </Button>
+          </div>
+        )}
+
+        {hasProgress && (
+        <>
         {/* ── STREAK SUMMARY CARDS ── */}
         <div style={{
           display: "grid",
@@ -270,9 +298,11 @@ export default function ProgressPage() {
           </p>
           <ProgressBackup onImported={() => window.location.reload()} />
         </Section>
+        </>
+        )}
 
       </div>
-    </>
+    </ViewTransition>
   );
 }
 

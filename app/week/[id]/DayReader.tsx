@@ -2,12 +2,14 @@
 "use client";
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
+import { Clock, Share2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { DaySidebar } from "@/components/week/DaySidebar";
 import { VerseCard } from "@/components/week/VerseCard";
 import { DayPractices } from "@/components/week/DayPractices";
 import { ThemeBadge } from "@/components/ui/ThemeBadge";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { ReadingProgress } from "@/components/ui/ReadingProgress";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/button";
 import ShareButton from "@/components/ShareButton";
@@ -22,6 +24,18 @@ import { WEEKS_META } from "@/lib/weeks";
 interface Props {
   meta: WeekMeta;
   days: DayContent[];
+}
+
+function getReadMinutes(day: DayContent): number {
+  const text = [
+    ...day.verses.map(v => v.text),
+    ...day.revelation,
+    ...day.prayers,
+    day.amen,
+    ...day.practices,
+  ].join(" ");
+  const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(wordCount / 200));
 }
 
 export function DayReader({ meta, days }: Props) {
@@ -46,6 +60,15 @@ export function DayReader({ meta, days }: Props) {
 
   const prevW = WEEKS_META.find(w => w.id === weekId - 1);
   const nextW = WEEKS_META.find(w => w.id === weekId + 1);
+
+  useEffect(() => {
+    const dayParam = new URLSearchParams(window.location.search).get("day");
+    if (!dayParam) return;
+    const dayNum = parseInt(dayParam, 10);
+    const idx = days.findIndex(d => d.num === dayNum);
+    if (idx >= 0) setCur(idx);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (days.length === 0) return;
@@ -77,9 +100,28 @@ export function DayReader({ meta, days }: Props) {
 
   const day = days[cur];
   const dayDone = isDone(day.num);
+  const readMinutes = getReadMinutes(day);
+
+  const handleShareDay = async () => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}?day=${day.num}`;
+    const shareText = `${day.title} — Walking With God`;
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share({ title: shareText, text: `${shareText}\n${shareUrl}` });
+      } catch {
+        // user cancelled the native share sheet
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        toast({ description: "Link copied to clipboard", duration: 4000 });
+      } catch {}
+    }
+  };
 
   return (
     <>
+      <ReadingProgress />
       <Navbar />
 
       {/* WEEK HERO */}
@@ -208,11 +250,42 @@ export function DayReader({ meta, days }: Props) {
               </div>
             </div>
 
-            <NavBtn
-              label="Next →"
-              disabled={cur === days.length - 1}
-              onClick={() => handleSelect(cur + 1)}
-            />
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleShareDay}
+                aria-label="Share this day"
+                className="gap-1.5 text-xs font-bold tracking-wide uppercase min-w-[44px] min-h-[44px]"
+              >
+                <Share2 className="h-3.5 w-3.5" />
+              </Button>
+              <NavBtn
+                label="Next →"
+                disabled={cur === days.length - 1}
+                onClick={() => handleSelect(cur + 1)}
+              />
+            </div>
+          </div>
+
+          {/* Day progress indicator */}
+          <div style={{ marginBottom: "1rem" }}>
+            <div style={{
+              fontSize: 11, fontWeight: 700, letterSpacing: ".08em",
+              textTransform: "uppercase", color: "var(--tl)", marginBottom: 6,
+            }}>
+              Day {cur + 1} of {days.length}
+            </div>
+            <div style={{
+              width: "100%", height: 3, borderRadius: 999,
+              background: "var(--bg3)", overflow: "hidden",
+            }}>
+              <div style={{
+                height: "100%", width: `${pct}%`,
+                background: "#E8C97A", borderRadius: 999,
+                transition: "width .4s ease",
+              }} />
+            </div>
           </div>
 
           {/* Day header */}
@@ -249,11 +322,20 @@ export function DayReader({ meta, days }: Props) {
               }}>
                 {day.title}
               </h2>
-              <div style={{
-                fontSize: 11, fontWeight: 700,
-                letterSpacing: ".1em", textTransform: "uppercase", color: day.accent,
-              }}>
-                {day.theme}
+              <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                <div style={{
+                  fontSize: 11, fontWeight: 700,
+                  letterSpacing: ".1em", textTransform: "uppercase", color: day.accent,
+                }}>
+                  {day.theme}
+                </div>
+                <div style={{
+                  display: "flex", alignItems: "center", gap: 4,
+                  fontSize: 12, color: "var(--tl)", fontFamily: "Lato,sans-serif",
+                }}>
+                  <Clock size={12} strokeWidth={2} />
+                  {readMinutes} min read
+                </div>
               </div>
             </div>
 
@@ -420,7 +502,7 @@ function NavBtn({ label, disabled, onClick }: {
       size="sm"
       disabled={disabled}
       onClick={onClick}
-      className="font-bold tracking-wide text-xs uppercase"
+      className="font-bold tracking-wide text-xs uppercase min-h-[48px] min-w-[48px]"
     >
       {label}
     </Button>
