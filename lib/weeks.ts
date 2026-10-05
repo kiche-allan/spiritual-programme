@@ -600,6 +600,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven days anchored in the faithfulness of God — His presence whether felt or not, His plans for the future, His word as compass, His unshakeable nature, the choice of joy over worry, the full armour for the real battle, and His specific promise to restore the locust years.",
 },
 
+{
+  id: 29,
+  slug: "two-handmaidens-holy-nothing-too-hard-finish-peace-race-surrender",
+  title: "The Two Handmaidens, Holy Not Happy & Surrender",
+  subtitle: "Week Twenty-Nine",
+  heroVerse: "Yet not my will, but yours be done.",
+  heroRef: "Luke 22:42",
+  publishedAt: "2026-10-05",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "The Two Handmaidens",        days: "Mon", color: "#1A3A6E" },
+    { label: "Holy, Not Happy",            days: "Tue", color: "#2E6B50" },
+    { label: "Nothing Too Hard for Him",   days: "Wed", color: "#BF8B3A" },
+    { label: "He'll Finish What He Started", days: "Thu", color: "#5A2D82" },
+    { label: "Perfect Peace",              days: "Fri", color: "#2C3E5A" },
+    { label: "Run Your Race",              days: "Sat", color: "#7A1A1A" },
+    { label: "Surrender",                  days: "Sun", color: "#8A2040" },
+  ],
+  description: "Seven days on the costly, glorious demands of discipleship — ruthless with sin, pursuing holiness over happiness, praying the impossible, trusting the One who finishes what He starts, resting in perfect peace, running with perseverance, and surrendering to the will of the Father.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
