@@ -622,6 +622,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven days on the costly, glorious demands of discipleship — ruthless with sin, pursuing holiness over happiness, praying the impossible, trusting the One who finishes what He starts, resting in perfect peace, running with perseverance, and surrendering to the will of the Father.",
 },
 
+{
+  id: 30,
+  slug: "condo-next-door-taught-by-god-belong-free-will-crooked-lines-no-truth",
+  title: "The Condo Next Door, Crooked Lines & Truth Over Applause",
+  subtitle: "Week Thirty",
+  heroVerse: "In their hearts humans plan their course, but the LORD establishes their steps.",
+  heroRef: "Proverbs 16:9",
+  publishedAt: "2026-10-12",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "The Condo Next Door",          days: "Mon", color: "#1A3A6E" },
+    { label: "Taught by God",                days: "Tue", color: "#2E6B50" },
+    { label: "You Belong to Him Now",        days: "Wed", color: "#BF8B3A" },
+    { label: "Don't Abuse Your Free Will",   days: "Thu", color: "#7A1A1A" },
+    { label: "Crooked Lines",                days: "Fri", color: "#2E6B50" },
+    { label: "Learning to Say No",           days: "Sat", color: "#2C3E5A" },
+    { label: "Truth Over Applause",          days: "Sun", color: "#8A2040" },
+  ],
+  description: "Seven days on the practical, costly, daily demands of discipleship — loving the difficult, trusting the detour, using freedom wisely, saying no to sin, and seeking the approval of heaven over the applause of the room.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
