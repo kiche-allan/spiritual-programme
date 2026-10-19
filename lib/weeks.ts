@@ -644,6 +644,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven days on the practical, costly, daily demands of discipleship — loving the difficult, trusting the detour, using freedom wisely, saying no to sin, and seeking the approval of heaven over the applause of the room.",
 },
 
+{
+  id: 31,
+  slug: "staying-in-love-doorknob-real-commissioned-words-fathers-eyes-solitude",
+  title: "Staying in Love with Jesus, No Outside Doorknob & The Discipline of Solitude",
+  subtitle: "Week Thirty-One",
+  heroVerse: "Yet I hold this against you: You have forsaken the love you had at first.",
+  heroRef: "Revelation 2:4",
+  publishedAt: "2026-10-19",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Staying in Love with Jesus", days: "Mon", color: "#1A3A6E" },
+    { label: "No Outside Doorknob",        days: "Tue", color: "#2E6B50" },
+    { label: "Just Be Real",               days: "Wed", color: "#BF8B3A" },
+    { label: "Commissioned and Blessed",   days: "Thu", color: "#5A2D82" },
+    { label: "The Weight of Words",        days: "Fri", color: "#2C3E5A" },
+    { label: "Through Your Father's Eyes", days: "Sat", color: "#8A2040" },
+    { label: "The Discipline of Solitude", days: "Sun", color: "#2C3E5A" },
+  ],
+  description: "Seven days on returning to first love, opening the door to Jesus, authenticity, the Great Commission, the power of words, seeing God clearly, and the practice of solitude.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
