@@ -8,6 +8,7 @@ import { PostReactions } from "@/components/blog/PostReactions";
 import { PostComments } from "@/components/blog/PostComments";
 import { SubstackSubscribe } from "@/components/blog/SubstackSubscribe";
 import { SeriesNav } from "@/components/blog/SeriesNav";
+import { InlineMarkdown } from "@/components/blog/InlineMarkdown";
 import { getBlogPost, getBlogPosts } from "@/lib/blog-content";
 import { shadeColor } from "@/lib/utils";
 
@@ -168,7 +169,7 @@ export default async function BlogPostPage({
                   const isOpener = i === 0 && j === 0;
                   return (
                     <p key={j} className={isOpener ? "opening-para" : undefined}>
-                      {p}
+                      <InlineMarkdown text={p} />
                     </p>
                   );
                 })}
