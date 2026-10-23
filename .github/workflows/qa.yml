@@ -77,7 +77,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium webkit
+        run: npm exec --no -- playwright install --with-deps chromium webkit
 
       - name: Build content
         run: node scripts/build-content.js
@@ -93,7 +93,7 @@ jobs:
           NEXT_PUBLIC_AXIOM_TOKEN: ${{ secrets.NEXT_PUBLIC_AXIOM_TOKEN }}
 
       - name: Run Playwright E2E tests
-        run: npx playwright test
+        run: npm exec --no -- playwright test
         env:
           BASE_URL: ${{ env.BASE_URL }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
