@@ -753,3 +753,10 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
 @keyframes fade-in {
   from { opacity: 0; }
 }
+
+/* ── DAY SIDEBAR ─────────────────────────────────────────────────────────── */
+.day-toggle:focus-visible,
+.day-select:focus-visible {
+  outline: 2px solid var(--t1);
+  outline-offset: 2px;
+}
