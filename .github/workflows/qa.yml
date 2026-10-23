@@ -55,7 +55,7 @@ jobs:
 
       - name: Coverage summary comment on PR
         if: github.event_name == 'pull_request'
-        uses: ArtiomTr/jest-coverage-report-action@v2
+        uses: ArtiomTr/jest-coverage-report-action@7f750dd50f5585533321eb7ebc482b936b49a5d4 # v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -128,7 +128,7 @@ jobs:
         run: npm ci
 
       - name: Run Snyk dependency scan
-        uses: snyk/actions/node@master
+        uses: snyk/actions/node@9adf32b1121593767fc3c057af55b55db032dc04 # v1.0.0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
