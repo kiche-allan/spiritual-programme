@@ -62,7 +62,7 @@ function BlogIndexContent() {
 
   const tags = useMemo(() => {
     const all = posts.flatMap(p => p.tags);
-    return [...new Set(all)].sort();
+    return [...new Set(all)].sort((a, b) => a.localeCompare(b));
   }, [posts]);
 
   const filtered = useMemo(() => {

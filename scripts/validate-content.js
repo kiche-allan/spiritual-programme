@@ -145,8 +145,8 @@ function validateWeek(weekDir) {
     .readdirSync(weekDir)
     .filter((f) => f.endsWith(".md") && /day-\d+/.test(f))
     .sort((a, b) => {
-      const na = parseInt(a.match(/\d+/)[0]);
-      const nb = parseInt(b.match(/\d+/)[0]);
+      const na = Number.parseInt(a.match(/\d+/)[0], 10);
+      const nb = Number.parseInt(b.match(/\d+/)[0], 10);
       return na - nb;
     });
 
@@ -193,8 +193,8 @@ function main() {
         fs.statSync(path.join(CONTENT_ROOT, d)).isDirectory(),
     )
     .sort((a, b) => {
-      const na = parseInt(a.split("-")[1]);
-      const nb = parseInt(b.split("-")[1]);
+      const na = Number.parseInt(a.split("-")[1], 10);
+      const nb = Number.parseInt(b.split("-")[1], 10);
       return na - nb;
     });
 
