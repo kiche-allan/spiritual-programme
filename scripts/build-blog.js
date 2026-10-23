@@ -251,7 +251,7 @@ export function getBlogPostsByTag(tag: string): BlogPost[] {
 
 export function getAllTags(): string[] {
   const tags = BLOG_POSTS.flatMap(p => p.tags);
-  return [...new Set(tags)].sort();
+  return [...new Set(tags)].sort((a, b) => a.localeCompare(b));
 }
 
 export function getSeriesList(): { name: string; color: string; posts: BlogPost[] }[] {
