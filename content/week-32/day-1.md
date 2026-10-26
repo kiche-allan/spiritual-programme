@@ -22,13 +22,13 @@ verses:
 
 Do you think of work as a punishment you're waiting to escape?
 
-We've got an Americana mentality that says you work long enough, and one day you retire, and that's the finish line. If you can retire, wonderful. I'm happy for you. But you're always going to need to work, because God made you for it. Look at Genesis 2. Adam was put in the garden to work it and keep it before sin ever showed up. The sweat and the frustration came with the fall, but the work itself was a gift.
+Many of us grew up with a picture that says you work hard for years, build the home upcountry, and one day you retire to the shamba and rest. That's the finish line. If you can retire, wonderful. I'm happy for you. But you're always going to need to work, because God made you for it. Look at Genesis 2. Adam was put in the garden to work it and keep it before sin ever showed up. The sweat and the frustration came with the fall, but the work itself was a gift.
 
 Think about the apostle Paul. He planted churches across the known world and wrote much of our New Testament, and he was also a tentmaker. In Acts 18 he sets up shop with Aquila and Priscilla and fabricates tents with his own hands. He later told the Thessalonians he worked night and day so he wouldn't be a burden to anyone. Paul never thought his trade was beneath his calling. He worked.
 
 If you're in school, that's your business right now. If you're a homemaker, that's a full-time job, and anybody who says otherwise has never tried it. If you're retired, serving the Lord is your business now.
 
-The flesh looks at work as a way to get ahead or get out. It asks, "How little can I do and still get paid?" The Spirit looks at work as a way to honor the One who gave you the strength to do it. There's a big difference between working for the weekend and working for the King. Paul put it plainly: "Whatever you do, work heartily, as for the Lord and not for men."
+The flesh looks at work as a way to get ahead or get out. It asks, "How little can I do and still get paid?" The Spirit looks at work as a way to honour the One who gave you the strength to do it. There's a big difference between working for the weekend and working for the King. Paul put it plainly: "Whatever you do, work heartily, as for the Lord and not for men."
 
 Solomon says to do whatever your hand finds with all your might, because your days are limited. You won't get these hours back.
 

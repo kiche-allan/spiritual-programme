@@ -26,7 +26,7 @@ Here's a simple question I've learned to ask myself over the years, and it has s
 
 That one question clears things up in a hurry. Try it on the deal you're about to sign at work. Try it on the show you're about to turn on tonight. Try it on the text message you're about to send while you're angry. Picture yourself bowing your head and saying, "Lord, would You bless this?" If the words stick in your throat, you already have your answer.
 
-Paul tells us to do everything in the name of the Lord Jesus. That means you're signing His name to it. When you represent a company, you don't sign contracts the company would never approve. When you belong to Christ, you're representing Him in the boardroom, the break room, and the family room.
+Paul tells us to do everything in the name of the Lord Jesus. That means you're signing His name to it. When you represent a company, you don't sign contracts the company would never approve. When you belong to Christ, you're representing Him in the boardroom, the tea break, and the family room.
 
 Many believers live with one set of rules on Sunday and another on Monday. We come to church and sing about holiness, then go do business like everybody else. That's called hypocrisy, by the way. You can't live a splintered life without getting full of splinters, and splinters have a way of sticking other people the wrong way.
 

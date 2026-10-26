@@ -32,7 +32,7 @@ God cleanses the mouth He intends to use.
 
 Here's what excites me. If you belong to Christ, the Holy Spirit lives inside you, and wherever you go, He goes. When you walk into your office, your job site, or your classroom, His presence walks in with you. His job is to bring conviction of sin.
 
-I believe one reason we haven't seen real revival, like the great awakenings, is that believers haven't taken their presence in the workplace seriously. When coworkers notice you don't talk the way everyone else talks, they're noticing Him. That difference draws people to Jesus.
+I believe one reason we haven't seen real revival, like the East African Revival of the last century, is that believers haven't taken their presence in the workplace seriously. When colleagues notice you don't talk the way everyone else talks, they're noticing Him. That difference draws people to Jesus.
 
 It doesn't take a crowd. All it takes is one man or one woman totally committed to Christ.
 

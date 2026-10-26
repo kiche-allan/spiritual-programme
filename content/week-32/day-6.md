@@ -32,7 +32,7 @@ Notice also that love is something you put on. It's a decision before it's a fee
 
 You'll see where this goes. Yesterday we talked about forgiving. Forgiveness clears the ground, and love builds on it. The Spirit gives you what you don't naturally have.
 
-So today, before you walk into your home, your church, or your workplace, picture yourself getting dressed on purpose. Who is hardest for you to love this week? The coworker, the relative, the neighbor with the barking dog? Pray, "Lord, I put on love toward this person today, because I can't produce it on my own." Then do one small, concrete thing: a kind word, a helping hand, or a text. Love is a verb, and it looks good on you.
+So today, before you walk into your home, your church, or your workplace, picture yourself getting dressed on purpose. Who is hardest for you to love this week? The colleague, the relative, the neighbour with the barking dog? Pray, "Lord, I put on love toward this person today, because I can't produce it on my own." Then do one small, concrete thing: a kind word, a helping hand, or a text. Love is a verb, and it looks good on you.
 
 ## Morning Prayer
 

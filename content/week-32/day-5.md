@@ -24,9 +24,9 @@ Who came to mind when you read the title?
 
 You didn't have to think about it. A name showed up right away, and with it a whole movie of what they said, what they did, and how long ago it happened. Some of us have been replaying that movie for years.
 
-Paul doesn't pretend the offense is imaginary. He says, "if one has a complaint against another." Notice the "if." Paul knows that people in the church will wrong each other, that in-laws will wound you, and that coworkers will take credit for your work. He doesn't tell you to pretend it didn't hurt. He tells you what to do with it: forgive, "as the Lord has forgiven you."
+Paul doesn't pretend the offence is imaginary. He says, "if one has a complaint against another." Notice the "if." Paul knows that people in the church will wrong each other, that in-laws will wound you, and that colleagues will take credit for your work. He doesn't tell you to pretend it didn't hurt. He tells you what to do with it: forgive, "as the Lord has forgiven you."
 
-That last phrase is the whole standard. Jesus told a story in Matthew 18 about a servant who owed his master ten thousand talents, a debt he could never repay in a hundred lifetimes. The master cancelled all of it. Then that same servant walked out and grabbed a fellow servant by the throat over a few dollars. We read that and think, "How could he?" And then we do exactly the same thing with our grudges.
+That last phrase is the whole standard. Jesus told a story in Matthew 18 about a servant who owed his master ten thousand talents, a debt he could never repay in a hundred lifetimes. The master cancelled all of it. Then that same servant walked out and grabbed a fellow servant by the throat over a few shillings. We read that and think, "How could he?" And then we do exactly the same thing with our grudges.
 
 The cross shows what you owed. When you remember what you've been forgiven, the debt someone owes you starts to look smaller.
 
@@ -38,7 +38,7 @@ So don't wait to feel like it. Say the name out loud to the Lord today, and tell
 
 ## Morning Prayer
 
-Lord, You have forgiven me a debt I could never repay. Help me to remember that when I think of the person who hurt me. I release them to You today. I give You the offense, the memory, and the right to get even. Do in my heart what I can't do myself, and make me kind and compassionate as You have been to me.
+Lord, You have forgiven me a debt I could never repay. Help me to remember that when I think of the person who hurt me. I release them to You today. I give You the offence, the memory, and the right to get even. Do in my heart what I can't do myself, and make me kind and compassionate as You have been to me.
 
 ## Amen
 
@@ -47,5 +47,5 @@ In Jesus' name, Amen.
 ## Daily Practices
 
 - Read Matthew 18:21–35. Ask: what is the ten-thousand-talent debt God has cancelled for me?
-- Journal: "Who do I need to forgive? What exactly am I holding against them?" Write the name, write the offense, then write across it: "Released to the Lord."
+- Journal: "Who do I need to forgive? What exactly am I holding against them?" Write the name, write the offence, then write across it: "Released to the Lord."
 - If it is safe and wise, take one step toward that person today: a call, a message, or a prayer for them by name. If it isn't safe, pray and talk to a pastor or counsellor.

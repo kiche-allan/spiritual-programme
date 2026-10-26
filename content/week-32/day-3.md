@@ -22,7 +22,7 @@ verses:
 
 When someone you love is grieving, do you know what to say?
 
-Most of us freeze. We walk into the funeral home and we don't know what to do with our hands or our words. So we say something awkward, like "He's in a better place" or "Everything happens for a reason," or we say nothing at all and stay away.
+Most of us freeze. We walk into the funeral and we don't know what to do with our hands or our words. So we say something awkward, like "He's in a better place" or "Everything happens for a reason," or we say nothing at all and stay away.
 
 Look at what Paul does here. He has just finished describing the most dramatic event in human history. The Lord Himself descending from heaven with a shout. The voice of the archangel. The trumpet of God. The dead in Christ rising first, and those of us who are alive being caught up together with them to meet the Lord in the air.
 
