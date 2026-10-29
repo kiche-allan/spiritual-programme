@@ -666,6 +666,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven days on returning to first love, opening the door to Jesus, authenticity, the Great Commission, the power of words, seeing God clearly, and the practice of solitude.",
 },
 
+{
+  id: 32,
+  slug: "whatever-you-do-tents-coal-words-blessing-forgive-love-word",
+  title: "Whatever You Do",
+  subtitle: "Week Thirty-Two",
+  heroVerse: "And whatever you do, in word or deed, do everything in the name of the Lord Jesus, giving thanks to God the Father through him.",
+  heroRef: "Colossians 3:17",
+  publishedAt: "2026-10-26",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Paul Made Tents",             days: "Mon", color: "#1A3A6E" },
+    { label: "A Coal From the Altar",       days: "Tue", color: "#2E6B50" },
+    { label: "Words Worth Repeating",       days: "Wed", color: "#BF8B3A" },
+    { label: "The Blessing Test",           days: "Thu", color: "#5A2D82" },
+    { label: "Forgive as the LORD Forgave", days: "Fri", color: "#2C3E5A" },
+    { label: "Put On Love",                 days: "Sat", color: "#8A2040" },
+    { label: "Let the Word Dwell Richly",   days: "Sun", color: "#2C3E5A" },
+  ],
+  description: "Seven days on doing everything in the name of the Lord Jesus — work as worship, a cleansed mouth, words that comfort, asking before acting, forgiving as we were forgiven, putting on love, and letting the Word dwell richly.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
