@@ -757,6 +757,6 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
 /* ── DAY SIDEBAR ─────────────────────────────────────────────────────────── */
 .day-toggle:focus-visible,
 .day-select:focus-visible {
-  outline: 2px solid var(--t1);
+  outline: 2px solid var(--day-accent, var(--t1));
   outline-offset: 2px;
 }

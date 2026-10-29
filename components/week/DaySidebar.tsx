@@ -30,6 +30,7 @@ export function DaySidebar({ days, current, progress, onSelect, onToggle }: Prop
           <div
             key={d.num}
             style={{
+              ["--day-accent" as string]: d.accent,
               display: "flex", alignItems: "center",
               width: "100%", minHeight: 44,
               background: active ? "var(--bg2)" : "transparent",
@@ -50,7 +51,7 @@ export function DaySidebar({ days, current, progress, onSelect, onToggle }: Prop
                 background: done ? d.accent : "transparent",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 flexShrink: 0, cursor: "pointer", transition: "all .2s",
-                padding: 0, marginLeft: 14,
+                padding: 0, font: "inherit", marginLeft: 14,
               }}
             >
               {done && (
