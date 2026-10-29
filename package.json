@@ -65,7 +65,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/supertest": "^7.2.0",
-    "allure-commandline": "^2.40.0",
+    "allure-commandline": "^2.46.1",
     "allure-jest": "^3.7.2",
     "allure-playwright": "^3.7.2",
     "autoprefixer": "^10.0.1",
