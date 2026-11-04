@@ -1,0 +1,753 @@
+{
+  "info": {
+    "name": "Walking With God API",
+    "description": "Smoke/contract checks for app/api/* routes. Run by newman in .github/workflows/staging-e2e.yml against the preview URL. Variables: baseUrl, bypassSecret (optional, Vercel deployment protection).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "const bypass = pm.variables.get('bypassSecret');",
+          "if (bypass) pm.request.headers.upsert({ key: 'x-vercel-protection-bypass', value: bypass });"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "bypassSecret",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "subscribe",
+      "item": [
+        {
+          "name": "Happy path",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"ok shape\", () => { pm.expect(body).to.eql({ ok: true }); });",
+                  "pm.test(\"json content type\", () => pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"ci-postman+{{$timestamp}}@example.com\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/subscribe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "subscribe"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Invalid email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Invalid email\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"not-an-email\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/subscribe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "subscribe"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Empty email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Invalid email\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/subscribe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "subscribe"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Missing body (currently 500)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 500\", () => pm.response.to.have.status(500));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Server error\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/subscribe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "subscribe"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "prayers",
+      "item": [
+        {
+          "name": "List prayers",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"prayers is array\", () => { pm.expect(body.prayers).to.be.an(\"array\"); });",
+                  "pm.test(\"item shape\", () => { body.prayers.slice(0, 1).forEach(p => pm.expect(p).to.include.keys(\"id\", \"content\", \"display_name\", \"prayer_count\")); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/prayers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "prayers"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Prayer too short",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Prayer request must be between 10 and 400 characters.\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"content\":\"short\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/prayers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "prayers"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pray without id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Missing id\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/prayers/pray",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "prayers",
+                "pray"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "reflections",
+      "item": [
+        {
+          "name": "List reflections",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"reflections is array\", () => { pm.expect(body.reflections).to.be.an(\"array\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reflections?weekId=1&dayNum=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reflections"
+              ],
+              "query": [
+                {
+                  "key": "weekId",
+                  "value": "1"
+                },
+                {
+                  "key": "dayNum",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List without params",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Missing weekId or dayNum\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reflections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reflections"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Reflection too short",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Reflection must be between 10 and 500 characters.\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"weekId\":1,\"dayNum\":1,\"content\":\"short\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reflections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reflections"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Like without id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Missing id\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reflections/like",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reflections",
+                "like"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "item": [
+        {
+          "name": "List comments",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"comments is array\", () => { pm.expect(body.comments).to.be.an(\"array\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/blog/comments?slug=ci-postman-nonexistent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "blog",
+                "comments"
+              ],
+              "query": [
+                {
+                  "key": "slug",
+                  "value": "ci-postman-nonexistent"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List comments without slug",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Missing slug\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/blog/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "blog",
+                "comments"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Comment missing fields",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Missing required fields\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/blog/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "blog",
+                "comments"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Comment too short",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Comment must be between 5 and 600 characters\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"slug\":\"x\",\"content\":\"hi\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/blog/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "blog",
+                "comments"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Reaction counts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"counts shape\", () => { pm.expect(body.counts).to.have.all.keys(\"like\", \"fire\", \"pray\", \"amen\"); Object.values(body.counts).forEach(n => pm.expect(n).to.be.a(\"number\")); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/blog/reactions?slug=ci-postman-nonexistent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "blog",
+                "reactions"
+              ],
+              "query": [
+                {
+                  "key": "slug",
+                  "value": "ci-postman-nonexistent"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Reaction counts without slug",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Missing slug\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/blog/reactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "blog",
+                "reactions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Invalid reaction",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"error shape\", () => { pm.expect(body).to.have.property(\"error\", \"Invalid reaction\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"slug\":\"x\",\"reaction\":\"boo\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/blog/reactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "blog",
+                "reactions"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "unsubscribe",
+      "item": [
+        {
+          "name": "Missing token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status is 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"plain text body\", () => pm.expect(pm.response.text()).to.eql(\"Missing token\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/unsubscribe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "unsubscribe"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+name: Staging E2E
+
+# Runs Playwright + Postman (newman) against the Vercel preview deployment.
+# Informational only: nothing here may block a merge or a deploy.
+
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  staging-e2e:
+    name: Staging E2E (Playwright + Postman)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 20
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      startsWith(github.event.deployment_status.environment, 'Preview')
+
+    env:
+      BASE_URL: ${{ github.event.deployment_status.target_url }}
+      VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Check preview is reachable
+        id: probe
+        run: |
+          # Don't follow redirects: protected previews answer 401/403 or a 3xx to vercel.com SSO.
+          out=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 30 \
+            ${VERCEL_AUTOMATION_BYPASS_SECRET:+-H "x-vercel-protection-bypass: $VERCEL_AUTOMATION_BYPASS_SECRET"} \
+            "$BASE_URL" || true)
+          code=${out%% *}
+          echo "Preview: $BASE_URL -> HTTP $out"
+          if [ "$code" = "401" ] || [ "$code" = "403" ] || { [ "${code#3}" != "$code" ] && echo "$out" | grep -q 'vercel\.com'; }; then
+            if [ -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]; then
+              echo "::notice::Preview is behind Vercel deployment protection and VERCEL_AUTOMATION_BYPASS_SECRET is not set; skipping staging E2E."
+            else
+              echo "::notice::Preview still returned $code with the bypass secret; check the secret matches the project's Protection Bypass for Automation value. Skipping staging E2E."
+            fi
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        if: steps.probe.outputs.run == 'true'
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install dependencies
+        if: steps.probe.outputs.run == 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Install Playwright browsers
+        if: steps.probe.outputs.run == 'true'
+        run: npm exec --no -- playwright install --with-deps chromium webkit
+
+      - name: Run Playwright against preview
+        if: steps.probe.outputs.run == 'true'
+        continue-on-error: true
+        timeout-minutes: 10
+        run: npm exec --no -- playwright test
+
+      - name: Upload Playwright report
+        if: always() && steps.probe.outputs.run == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: staging-playwright-report
+          path: playwright-report/
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Run Postman collection (newman)
+        if: always() && steps.probe.outputs.run == 'true'
+        continue-on-error: true
+        run: >-
+          npx --yes newman@6.2.3 run postman/walking-with-god.postman_collection.json
+          --env-var "baseUrl=${BASE_URL%/}"
+          --env-var "bypassSecret=${VERCEL_AUTOMATION_BYPASS_SECRET}"
+          --reporters cli,junit
+          --reporter-junit-export newman-results/junit.xml
+
+      - name: Upload newman results
+        if: always() && steps.probe.outputs.run == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: staging-newman-results
+          path: newman-results/
+          retention-days: 14
+          if-no-files-found: ignore
