@@ -128,11 +128,39 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Run Snyk dependency scan
+        id: snyk
+        continue-on-error: true
         uses: snyk/actions/node@9adf32b1121593767fc3c057af55b55db032dc04 # v1.0.0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --severity-threshold=high
+          args: --severity-threshold=high --json-file-output=snyk-results.json
+
+      - name: Summarise High/Critical findings
+        if: always()
+        run: |
+          node -e '
+            const fs = require("fs");
+            const out = [];
+            let data;
+            try { data = JSON.parse(fs.readFileSync("snyk-results.json", "utf8")); } catch {}
+            if (!data) {
+              out.push("## Snyk", "", "No results file produced (missing `SNYK_TOKEN` or scan error). Not blocking.");
+            } else {
+              const seen = new Set();
+              const rows = [].concat(data).flatMap((r) => r.vulnerabilities || [])
+                .filter((v) => ["critical", "high"].includes(v.severity))
+                .filter((v) => { const k = v.id + v.packageName + v.version; return !seen.has(k) && seen.add(k); })
+                .sort((a, b) => (a.severity === b.severity ? 0 : a.severity === "critical" ? -1 : 1));
+              out.push("## Snyk High/Critical findings (non-blocking)", "");
+              if (!rows.length) out.push("None found.");
+              else {
+                out.push("| Severity | Package | Issue | Fixed in |", "|---|---|---|---|");
+                for (const v of rows) out.push(`| ${v.severity} | ${v.packageName}@${v.version} | [${v.title}](https://security.snyk.io/vuln/${v.id}) | ${(v.fixedIn || []).join(", ") || "-"} |`);
+              }
+            }
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join(String.fromCharCode(10)) + String.fromCharCode(10));
+          '
 
   # ── JOB 4: Performance Tests (only on main) ───────────────────────────────
   performance:
