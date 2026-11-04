@@ -17,7 +17,7 @@ jobs:
     name: Staging E2E (Playwright + Postman)
     runs-on: ubuntu-latest
     continue-on-error: true
-    timeout-minutes: 30
+    timeout-minutes: 20
     if: >-
       github.event.deployment_status.state == 'success' &&
       startsWith(github.event.deployment_status.environment, 'Preview')
@@ -32,11 +32,13 @@ jobs:
       - name: Check preview is reachable
         id: probe
         run: |
-          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 \
+          # Don't follow redirects: protected previews answer 401/403 or a 3xx to vercel.com SSO.
+          out=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 30 \
             ${VERCEL_AUTOMATION_BYPASS_SECRET:+-H "x-vercel-protection-bypass: $VERCEL_AUTOMATION_BYPASS_SECRET"} \
             "$BASE_URL" || true)
-          echo "Preview: $BASE_URL -> HTTP $code"
-          if [ "$code" = "401" ] || [ "$code" = "403" ]; then
+          code=${out%% *}
+          echo "Preview: $BASE_URL -> HTTP $out"
+          if [ "$code" = "401" ] || [ "$code" = "403" ] || { [ "${code#3}" != "$code" ] && echo "$out" | grep -q 'vercel\.com'; }; then
             if [ -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]; then
               echo "::notice::Preview is behind Vercel deployment protection and VERCEL_AUTOMATION_BYPASS_SECRET is not set; skipping staging E2E."
             else
@@ -64,6 +66,7 @@ jobs:
       - name: Run Playwright against preview
         if: steps.probe.outputs.run == 'true'
         continue-on-error: true
+        timeout-minutes: 10
         run: npm exec --no -- playwright test
 
       - name: Upload Playwright report
