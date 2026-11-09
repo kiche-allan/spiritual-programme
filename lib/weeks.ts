@@ -688,6 +688,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven days on doing everything in the name of the Lord Jesus — work as worship, a cleansed mouth, words that comfort, asking before acting, forgiving as we were forgiven, putting on love, and letting the Word dwell richly.",
 },
 
+{
+  id: 33,
+  slug: "thankful-in-all-seasons-other-nine-yet-rejoice-jesus-loves-me-way-in",
+  title: "Thankful in All Seasons",
+  subtitle: "Week Thirty-Three",
+  heroVerse: "give thanks in all circumstances; for this is the will of God in Christ Jesus for you.",
+  heroRef: "1 Thessalonians 5:18",
+  publishedAt: "2026-11-09",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Where Are the Other Nine?",         days: "Mon", color: "#1A3A6E" },
+    { label: "Yet I Will Rejoice",                days: "Tue", color: "#2E6B50" },
+    { label: "Jesus Loves Me, This I Know",       days: "Wed", color: "#BF8B3A" },
+    { label: "The Way In",                        days: "Thu", color: "#5A2D82" },
+    { label: "In Everything, Not For Everything", days: "Fri", color: "#7A1A1A" },
+    { label: "Forget Not His Benefits",           days: "Sat", color: "#2C3E5A" },
+    { label: "The Gift Beyond Words",             days: "Sun", color: "#8A2040" },
+  ],
+  description: "Seven days on gratitude in every season — the one who came back, rejoicing when the harvest fails, the love that saved us, entering God's gates with thanks, giving thanks in hard places, remembering His benefits, and the gift beyond words.",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
