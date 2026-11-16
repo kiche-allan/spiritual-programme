@@ -36,6 +36,7 @@ import week30 from "./week-30";
 import week31 from "./week-31";
 import week32 from "./week-32";
 import week33 from "./week-33";
+import week34 from "./week-34";
 
 
 
@@ -72,7 +73,8 @@ const CONTENT_REGISTRY: Record<number, DayContent[]> = {
   30: week30,
   31: week31,
   32: week32,
-  33: week33
+  33: week33,
+  34: week34
 
 };
 

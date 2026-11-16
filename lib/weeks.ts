@@ -710,6 +710,28 @@ export const WEEKS_META: WeekMeta[] = [
   description: "Seven days on gratitude in every season — the one who came back, rejoicing when the harvest fails, the love that saved us, entering God's gates with thanks, giving thanks in hard places, remembering His benefits, and the gift beyond words.",
 },
 
+{
+  id: 34,
+  slug: "ready-when-he-comes-dove-make-right-alarms-oil-day-faithful-come",
+  title: "Ready When He Comes",
+  subtitle: "Week Thirty-Four",
+  heroVerse: "Watch therefore, for you know neither the day nor the hour.",
+  heroRef: "Matthew 25:13",
+  publishedAt: "2026-11-16",
+  totalDays: 7,
+  accentColor: "#1A3A6E",
+  themes: [
+    { label: "Jumping Won't Bring the Dove Back", days: "Mon", color: "#1A3A6E" },
+    { label: "Go Make It Right",                  days: "Tue", color: "#2E6B50" },
+    { label: "Hospital Alarms",                   days: "Wed", color: "#BF8B3A" },
+    { label: "Oil in Your Lamp",                  days: "Thu", color: "#5A2D82" },
+    { label: "Children of the Day",               days: "Fri", color: "#7A1A1A" },
+    { label: "Found Faithful",                    days: "Sat", color: "#2C3E5A" },
+    { label: "Come, Lord Jesus",                  days: "Sun", color: "#8A2040" },
+  ],
+  description: "Seven days on being ready for the Lord's return — a clean heart, reconciling before we worship, heeding the real alarm, carrying our own oil, living as children of the day, faithful service while we wait, and praying 'Come, Lord Jesus.'",
+},
+
 ];
 
 // ─── PROGRESS HELPERS (localStorage — swap for Supabase later) ───────────────
