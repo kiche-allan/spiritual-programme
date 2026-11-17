@@ -744,7 +744,7 @@ export function loadProgress(): ProgressStore {
 }
 export function saveProgress(store: ProgressStore): void {
   if (typeof window === "undefined") return;
-  localStorage.setItem("spp_v1", JSON.stringify(store));
+  try { localStorage.setItem("spp_v1", JSON.stringify(store)); } catch { /* storage full or blocked */ }
 }
 export function toggleDay(store: ProgressStore, weekId: number, dayNum: number): ProgressStore {
   const k = String(weekId), d = String(dayNum);

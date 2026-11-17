@@ -14,6 +14,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/button";
 import ShareButton from "@/components/ShareButton";
 import { ReflectionWall } from "@/components/community/ReflectionWall";
+import { SaveProgressNudge } from "@/components/save/SaveProgressNudge";
 import { useProgress } from "@/hooks/useProgress";
 import { useToast } from "@/hooks/useToast";
 import { trackEvent } from "@/lib/analytics";
@@ -358,6 +359,8 @@ export function DayReader({ meta, days }: Props) {
               </button>
             </div>
           </div>
+
+          <SaveProgressNudge />
 
           {/* Scriptures */}
           <section style={{ marginBottom: "1.75rem" }}>

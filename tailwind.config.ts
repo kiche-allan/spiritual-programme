@@ -13,6 +13,18 @@ const config: Config = {
       sm: "calc(var(--radius) - 4px)",
     },
     colors: {
+      sp: {
+        cream: "#FBF6EC",
+        surface: "#FFFDF8",
+        ink: "#2B2118",
+        muted: "#6B5D50",
+        line: "#E4D8C5",
+        rust: "#A63D24",
+        tint: "#F6E4DC",
+        tintline: "#E8C9BD",
+        green: "#2E6B50",
+        danger: "#9B1C1C",
+      },
       background: "rgb(var(--background))",
       foreground: "rgb(var(--foreground))",
       card: {

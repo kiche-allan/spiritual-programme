@@ -8,6 +8,16 @@ import {
   weekProgress,
   type ProgressStore,
 } from "@/lib/weeks";
+import { afterToggle, PROGRESS_EVENT } from "@/lib/progress-sync-client";
+
+/** Re-reads progress when a background sync (or sign-in) changes it. */
+function useRefreshOnSync(setStore: (s: ProgressStore) => void) {
+  useEffect(() => {
+    const fn = () => setStore(loadProgress());
+    window.addEventListener(PROGRESS_EVENT, fn);
+    return () => window.removeEventListener(PROGRESS_EVENT, fn);
+  }, [setStore]);
+}
 
 export function useProgress(weekId: number, totalDays: number) {
   const [store, setStore] = useState<ProgressStore>({});
@@ -15,6 +25,7 @@ export function useProgress(weekId: number, totalDays: number) {
   useEffect(() => {
     setStore(loadProgress());
   }, []);
+  useRefreshOnSync(setStore);
 
   const toggle = useCallback(
     (dayNum: number) => {
@@ -22,6 +33,7 @@ export function useProgress(weekId: number, totalDays: number) {
       const next = toggleDay(current, weekId, dayNum);
       saveProgress(next);
       setStore(next);
+      afterToggle(weekId, dayNum, next[String(weekId)]?.[String(dayNum)] === true);
     },
     [weekId]
   );
@@ -40,6 +52,7 @@ export function useAllProgress() {
   useEffect(() => {
     setStore(loadProgress());
   }, []);
+  useRefreshOnSync(setStore);
 
   return store;
 }

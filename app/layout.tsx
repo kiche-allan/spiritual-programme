@@ -10,6 +10,7 @@ import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { PostHogProvider } from "@/components/providers/PostHogProvider";
 import { PostHogPageView } from "@/components/providers/PostHogPageView";
+import { ProgressSync } from "@/components/save/ProgressSync";
 import "./globals.css";
 
 const lato = Lato({
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <OfflineBanner />
+        <ProgressSync />
         <PostHogProvider>
           <Suspense fallback={null}>
             <PostHogPageView />

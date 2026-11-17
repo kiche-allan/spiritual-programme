@@ -2,6 +2,7 @@
 import { useMemo, useState, ViewTransition } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { WelcomeBackCard } from "@/components/save/WelcomeBackCard";
 import { Footer } from "@/components/layout/Footer";
 import { SubscribeSection } from "@/components/layout/SubscribeSection";
 import { WeekCard } from "@/components/week/WeekCard";
@@ -161,6 +162,8 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
+      <WelcomeBackCard />
 
       {/* WEEK LIBRARY */}
       <section id="weeks" className="home-library" style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 24px 20px" }}>
