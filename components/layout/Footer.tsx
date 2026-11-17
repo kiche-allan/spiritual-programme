@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { SignInLink } from "@/components/save/SignInLink";
+
 export function Footer() {
   return (
     <footer style={{
@@ -16,6 +19,12 @@ export function Footer() {
         letterSpacing: ".1em", textTransform: "uppercase", color: "var(--tl)",
       }}>
         Psalm 119:105
+      </p>
+      <p style={{ marginTop: 16, fontSize: 13, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+        <SignInLink className="underline" />
+        <Link href="/privacy" className="underline" style={{ minHeight: 44, display: "inline-flex", alignItems: "center" }}>
+          Privacy
+        </Link>
       </p>
     </footer>
   );

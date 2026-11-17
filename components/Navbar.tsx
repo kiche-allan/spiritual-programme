@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { SignInLink } from "@/components/save/SignInLink";
 
 export default function Navbar() {
   const [dark, setDark] = useState(false);
@@ -129,6 +130,9 @@ export default function Navbar() {
           >
             Subscribe
           </Link>
+          <span className="hidden md:inline" style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase" }}>
+            <SignInLink short color={linkColor} />
+          </span>
 
           {/* Dark mode toggle */}
           <button
