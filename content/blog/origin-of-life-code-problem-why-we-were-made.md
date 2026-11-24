@@ -11,6 +11,8 @@ excerpt: "After 75 years of research since the Miller-Urey experiment, chemist D
 
 I recently watched a short video of Dr James Tour, a chemist who has spent his career making molecules in the laboratory. His argument is simple and it made me stop. He says science is still very far from explaining the origin of life.
 
+[[youtube:XAIOWPBvwFw]]
+
 Let me be clear about what I am saying and what I am not. I am not claiming that a gap in science proves God. I am reporting what a working chemist says, and many of his colleagues disagree with him. But his points are worth hearing, especially for those of us who have been told that this question was settled long ago.
 
 ## The experiment everyone remembers
