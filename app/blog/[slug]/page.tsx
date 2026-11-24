@@ -9,6 +9,7 @@ import { PostComments } from "@/components/blog/PostComments";
 import { SubstackSubscribe } from "@/components/blog/SubstackSubscribe";
 import { SeriesNav } from "@/components/blog/SeriesNav";
 import { InlineMarkdown } from "@/components/blog/InlineMarkdown";
+import { MillerUreyDiagram } from "@/components/blog/MillerUreyDiagram";
 import { getBlogPost, getBlogPosts } from "@/lib/blog-content";
 import { shadeColor } from "@/lib/utils";
 
@@ -167,6 +168,7 @@ export default async function BlogPostPage({
                 {block.paragraphs.map((p, j) => {
                   // First paragraph of the whole post — make it the opening para
                   const isOpener = i === 0 && j === 0;
+                  if (p === "[[miller-urey-diagram]]") return <MillerUreyDiagram key={j} />;
                   return (
                     <p key={j} className={isOpener ? "opening-para" : undefined}>
                       <InlineMarkdown text={p} />

@@ -17,6 +17,8 @@ Let me be clear about what I am saying and what I am not. I am not claiming that
 
 In 1953, Stanley Miller and Harold Urey built a closed system to imitate the early Earth. They put water vapour and gases such as methane, ammonia and hydrogen into it, and passed electric sparks through it to copy lightning. The result was exciting: it produced amino acids, the building blocks of proteins. It showed that some of the simple chemicals of life can form from non-living material under the right conditions.
 
+[[miller-urey-diagram]]
+
 That was a real discovery, and it created great optimism. Many people thought the origin of life would be explained within a few years. But amino acids are not a cell. It is a long way from a few building blocks to a living thing, and that is where Dr Tour presses his point.
 
 ## What he says is still missing
