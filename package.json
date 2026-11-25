@@ -45,7 +45,7 @@
     "clsx": "^2.1.1",
     "gray-matter": "latest",
     "lucide-react": "^1.46.0",
-    "next": "latest",
+    "next": "^16.4.1",
     "next-axiom": "^1.10.0",
     "posthog-js": "^1.434.0",
     "posthog-node": "^5.52.4",
