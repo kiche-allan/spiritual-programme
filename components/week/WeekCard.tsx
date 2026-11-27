@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import { formatDate, shadeColor } from "@/lib/utils";
 import type { WeekMeta } from "@/lib/weeks";
+import { CardPhoto } from "@/components/ui/CardPhoto";
+import { placeholderPhoto } from "@/lib/card-image";
 
 interface ContinueCta {
   label: string;
@@ -33,7 +35,7 @@ export function WeekCard({ week, progress, isLatest, continueCta }: Props) {
           className="week-gradient-cover"
           style={{ background: `linear-gradient(135deg, ${light} 0%, ${week.accentColor} 45%, ${dark} 100%)` }}
         >
-          <span className="blog-cover-pattern" aria-hidden="true" />
+          <CardPhoto src={placeholderPhoto(`week-${week.id}`, 1000, 700)} scrim="strong" />
           {isLatest && <span className="week-gradient-badge">This Week</span>}
           <div className="week-gradient-text">
             <span className="week-gradient-label">{week.subtitle}</span>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog-content";
 import { BlogCover } from "./BlogCover";
+import { placeholderPhoto } from "@/lib/card-image";
 
 /**
  * Card photo: the post's own `coverImage` when set, otherwise a stable
@@ -9,7 +10,7 @@ import { BlogCover } from "./BlogCover";
  * Swap placeholders for chosen images by adding `coverImage` to a post.
  */
 function cardImage(post: BlogPost): string {
-  return post.coverImage ?? `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/800/450`;
+  return post.coverImage ?? placeholderPhoto(post.slug);
 }
 
 interface Props { post: BlogPost; }

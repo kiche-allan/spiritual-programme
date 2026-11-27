@@ -1,4 +1,5 @@
 import { shadeColor } from "@/lib/utils";
+import { CardPhoto } from "@/components/ui/CardPhoto";
 
 interface Props {
   color: string;
@@ -22,19 +23,7 @@ export function BlogCover({ color, title, eyebrow, variant = "card", image }: Pr
       }}
     >
       {image ? (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            referrerPolicy="no-referrer"
-            className="blog-cover-img"
-            onError={(e) => { e.currentTarget.style.display = "none"; }}
-          />
-          <span className="blog-cover-scrim" aria-hidden="true" />
-        </>
+        <CardPhoto src={image} />
       ) : (
         <span className="blog-cover-pattern" aria-hidden="true" />
       )}
