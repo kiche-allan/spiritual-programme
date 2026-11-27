@@ -760,3 +760,17 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   outline: 2px solid var(--day-accent, var(--t1));
   outline-offset: 2px;
 }
+
+/* ── BLOG COVER PHOTOS (optional; gradient remains the fallback) ─────────── */
+.blog-cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.blog-cover-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.12) 100%);
+}

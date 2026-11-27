@@ -3,6 +3,15 @@ import Link from "next/link";
 import type { BlogPost } from "@/lib/blog-content";
 import { BlogCover } from "./BlogCover";
 
+/**
+ * Card photo: the post's own `coverImage` when set, otherwise a stable
+ * placeholder photo seeded by slug (picsum.photos serves free-licence photos).
+ * Swap placeholders for chosen images by adding `coverImage` to a post.
+ */
+function cardImage(post: BlogPost): string {
+  return post.coverImage ?? `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/800/450`;
+}
+
 interface Props { post: BlogPost; }
 
 export function BlogCard({ post }: Props) {
@@ -14,7 +23,7 @@ export function BlogCard({ post }: Props) {
 
   return (
     <Link href={`/blog/${post.slug}`} className="blog-grid-card">
-      <BlogCover color={post.coverColor} title={post.title} eyebrow={category} />
+      <BlogCover color={post.coverColor} title={post.title} eyebrow={category} image={cardImage(post)} />
 
       <div style={{ padding: "16px 18px 18px", display: "flex", flexDirection: "column", flex: 1 }}>
         <p style={{
