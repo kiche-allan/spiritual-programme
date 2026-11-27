@@ -19,6 +19,7 @@
  * author: "Allan"
  * tags: ["prayer", "faith"]
  * coverColor: "#2C3E5A"
+ * coverImage: "https://example.com/photo.jpg"   (optional — a real photo for the card; falls back to the gradient)
  * excerpt: "One sentence shown on the index card."
  * ---
  *
@@ -192,6 +193,7 @@ ${b.paragraphs.map((p) => `        \`${escapeTS(p)}\``).join(",\n")}
     author: "${fm.author ?? "Allan Kiche"}",
     tags: [${tagsCode}],
     coverColor: "${fm.coverColor ?? "#2C3E5A"}",
+    coverImage: ${fm.coverImage ? `"${fm.coverImage}"` : "null"},
     excerpt: \`${escapeTS(fm.excerpt ?? "")}\`,
     readingTime: ${Math.ceil(body.split(/\s+/).length / 200)},
     series: ${fm.series ? `\`${escapeTS(fm.series)}\`` : "null"},
@@ -223,6 +225,7 @@ export interface BlogPost {
   author: string;
   tags: string[];
   coverColor: string;
+  coverImage: string | null;
   excerpt: string;
   readingTime: number;
   series: string | null;

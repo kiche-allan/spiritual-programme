@@ -760,3 +760,24 @@ body { background: var(--bg); color: var(--t1); font-family: var(--font-lato), s
   outline: 2px solid var(--day-accent, var(--t1));
   outline-offset: 2px;
 }
+
+/* ── CARD PHOTOS (optional; the card gradient remains the fallback) ───────── */
+.card-photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-photo-scrim {
+  position: absolute;
+  inset: 0;
+}
+.card-photo-scrim--soft {
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.12) 100%);
+}
+.card-photo-scrim--strong {
+  background: rgba(0,0,0,.42);
+}
+.bible-story-icon { position: relative; overflow: hidden; }
+.bible-story-icon svg { position: relative; z-index: 1; stroke: #fff; filter: drop-shadow(0 1px 3px rgba(0,0,0,.45)); }

@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { CardPhoto } from "@/components/ui/CardPhoto";
+import { placeholderPhoto } from "@/lib/card-image";
 
 interface Story {
   slug: string;
@@ -156,6 +158,7 @@ export function BibleStories() {
               className="bible-story-card"
             >
               <span className="bible-story-icon">
+                <CardPhoto src={placeholderPhoto(story.slug, 240, 240)} scrim="strong" />
                 {story.icon}
               </span>
               <span className="bible-story-title">{story.title}</span>
